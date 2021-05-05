@@ -10,6 +10,4 @@ nix-shell ./importer/shell.nix --run "cat next/import | sort > next/import.sorte
 mv next/import.sorted next/import
 
 mv next config
-git add config
-git commit -m "Automatic re-import" || true
 

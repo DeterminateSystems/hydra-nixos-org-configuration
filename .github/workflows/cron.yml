@@ -1,0 +1,35 @@
+name: "Hourly Mirror"
+on:
+  schedule:
+  - cron: '0 * * * *'
+  push:
+    branches:
+    - main
+jobs:
+  hourly-mirror:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    steps:
+    - name: Checking out the repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Installing Nix
+      uses: cachix/install-nix-action@v12
+
+    - name: Update config
+      run: ./mirror.sh
+
+    - name: Commit the files
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: 'Update the configuration mirror.'
+        branch: 'main'
+        file_pattern: "*"
+        commit_user_name: bot
+        commit_user_email: bot@bot.bot
+        commit_author: bot <bot@bot.bot>
+      if: github.repository == 'DeterminateSystems/hydra-nixos-org-configuration'
+      continue-on-error: true
+
