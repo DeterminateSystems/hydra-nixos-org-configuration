@@ -1074,7 +1074,7 @@ resource "hydra_jobset" "nixpkgs_glibc-232" {
 
 resource "hydra_jobset" "nixpkgs_gnome" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "gnome"
   type        = "legacy"
@@ -1106,7 +1106,7 @@ resource "hydra_jobset" "nixpkgs_gnome" {
     notify_committers = false
   }
 
-  check_interval    = 14400
+  check_interval    = 0
   scheduling_shares = 600000
   keep_evaluations  = 3
 
