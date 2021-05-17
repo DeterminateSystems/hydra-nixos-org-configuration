@@ -1,4 +1,4 @@
-name: "Hourly Mirror"
+name: "Periodic Mirror"
 on:
   schedule:
   - cron: '0 */6 * * *'
