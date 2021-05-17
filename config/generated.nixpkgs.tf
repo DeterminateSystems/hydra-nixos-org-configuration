@@ -10,8 +10,8 @@ resource "hydra_project" "nixpkgs" {
 
 resource "hydra_jobset" "nixpkgs_aarch64-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "aarch64-darwin"
   type        = "legacy"
   description = "testing aarch64-darwin: PR #105026"
