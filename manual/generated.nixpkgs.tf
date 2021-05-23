@@ -1842,48 +1842,6 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-20_03-darwin" {
   email_override      = ""
 }
 
-resource "hydra_jobset" "nixpkgs_nixpkgs-20_09-darwin" {
-  project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
-  name        = "nixpkgs-20.09-darwin"
-  type        = "legacy"
-  description = "Darwin builds for the NixOS 20.09 release."
-
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-20.09"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-darwin\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 14400
-  scheduling_shares = 5000
-  keep_evaluations  = 1
-
-  email_notifications = false
-  email_override      = ""
-}
-
 resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-armv7l" {
   project     = hydra_project.nixpkgs.name
   state       = "one-at-a-time"
@@ -3091,41 +3049,6 @@ resource "hydra_jobset" "nixpkgs_staging-20_03" {
     name              = "nixpkgs"
     type              = "git"
     value             = "https://github.com/NixOS/nixpkgs.git staging-20.03"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 172800
-  scheduling_shares = 5000
-  keep_evaluations  = 1
-
-  email_notifications = false
-  email_override      = ""
-}
-
-resource "hydra_jobset" "nixpkgs_staging-20_09" {
-  project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
-  name        = "staging-20.09"
-  type        = "legacy"
-  description = "Staging 20.09"
-
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-20.09"
     notify_committers = false
   }
 
