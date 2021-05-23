@@ -211,6 +211,9 @@ terraform import hydra_jobset.nixos_release-20_03-small nixos/release-20.03-smal
 terraform import hydra_jobset.nixos_release-20_09 nixos/release-20.09
 terraform import hydra_jobset.nixos_release-20_09-aarch64 nixos/release-20.09-aarch64
 terraform import hydra_jobset.nixos_release-20_09-small nixos/release-20.09-small
+terraform import hydra_jobset.nixos_release-21_05 nixos/release-21.05
+terraform import hydra_jobset.nixos_release-21_05-aarch64 nixos/release-21.05-aarch64
+terraform import hydra_jobset.nixos_release-21_05-small nixos/release-21.05-small
 terraform import hydra_jobset.nixos_reproducibility nixos/reproducibility
 terraform import hydra_jobset.nixos_rhel6 nixos/rhel6
 terraform import hydra_jobset.nixos_staging nixos/staging
@@ -275,6 +278,7 @@ terraform import hydra_jobset.nixpkgs_nixpkgs-19_03-darwin nixpkgs/nixpkgs-19.03
 terraform import hydra_jobset.nixpkgs_nixpkgs-19_09-darwin nixpkgs/nixpkgs-19.09-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-20_03-darwin nixpkgs/nixpkgs-20.03-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-20_09-darwin nixpkgs/nixpkgs-20.09-darwin
+terraform import hydra_jobset.nixpkgs_nixpkgs-21_05-darwin nixpkgs/nixpkgs-21.05-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-armv7l nixpkgs/nixpkgs-unstable-armv7l
 terraform import hydra_jobset.nixpkgs_openssl-1_1 nixpkgs/openssl-1.1
 terraform import hydra_jobset.nixpkgs_openssl-1_1_x-update nixpkgs/openssl-1.1.x-update
@@ -311,6 +315,7 @@ terraform import hydra_jobset.nixpkgs_staging-19_03 nixpkgs/staging-19.03
 terraform import hydra_jobset.nixpkgs_staging-19_09 nixpkgs/staging-19.09
 terraform import hydra_jobset.nixpkgs_staging-20_03 nixpkgs/staging-20.03
 terraform import hydra_jobset.nixpkgs_staging-20_09 nixpkgs/staging-20.09
+terraform import hydra_jobset.nixpkgs_staging-21_05 nixpkgs/staging-21.05
 terraform import hydra_jobset.nixpkgs_staging-next nixpkgs/staging-next
 terraform import hydra_jobset.nixpkgs_stdenv nixpkgs/stdenv
 terraform import hydra_jobset.nixpkgs_stdenv-fixes nixpkgs/stdenv-fixes
