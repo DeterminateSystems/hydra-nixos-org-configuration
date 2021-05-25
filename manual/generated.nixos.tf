@@ -529,7 +529,7 @@ resource "hydra_jobset" "nixos_glibc-2_20" {
 resource "hydra_jobset" "nixos_gnome-3_20" {
   project     = hydra_project.nixos.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "gnome-3.20"
   type        = "legacy"
   description = "Combined NixOS/Nixpkgs for gnome-3.20"
@@ -920,8 +920,8 @@ resource "hydra_jobset" "nixos_nix-2_0" {
 
 resource "hydra_jobset" "nixos_nixos-test-expensive-eval" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nixos-test-expensive-eval"
   type        = "legacy"
   description = "Testing cheaper NixOS test evaluation"
@@ -953,7 +953,7 @@ resource "hydra_jobset" "nixos_nixos-test-expensive-eval" {
   }
 
   check_interval    = 0
-  scheduling_shares = 1284
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1039,8 +1039,8 @@ resource "hydra_jobset" "nixos_openssl-1_1" {
 
 resource "hydra_jobset" "nixos_patchelf-0_10" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "patchelf-0.10"
   type        = "legacy"
   description = "Testing #69213"
@@ -1072,7 +1072,7 @@ resource "hydra_jobset" "nixos_patchelf-0_10" {
   }
 
   check_interval    = 0
-  scheduling_shares = 500
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1684,7 +1684,7 @@ resource "hydra_jobset" "nixos_release-17_09" {
 resource "hydra_jobset" "nixos_release-17_09-small" {
   project     = hydra_project.nixos.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "release-17.09-small"
   type        = "legacy"
   description = "NixOS 17.09 small release branch"
@@ -1709,7 +1709,7 @@ resource "hydra_jobset" "nixos_release-17_09-small" {
   }
 
   check_interval    = 3600
-  scheduling_shares = 2000000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1718,8 +1718,8 @@ resource "hydra_jobset" "nixos_release-17_09-small" {
 
 resource "hydra_jobset" "nixos_release-18_03" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-18.03"
   type        = "legacy"
   description = "NixOS 18.03 release branch"
@@ -1751,7 +1751,7 @@ resource "hydra_jobset" "nixos_release-18_03" {
   }
 
   check_interval    = 21600
-  scheduling_shares = 150000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1760,8 +1760,8 @@ resource "hydra_jobset" "nixos_release-18_03" {
 
 resource "hydra_jobset" "nixos_release-18_03-aarch64" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-18.03-aarch64"
   type        = "legacy"
   description = "NixOS 18.03 release branch: aarch64"
@@ -1800,7 +1800,7 @@ resource "hydra_jobset" "nixos_release-18_03-aarch64" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 50
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1809,8 +1809,8 @@ resource "hydra_jobset" "nixos_release-18_03-aarch64" {
 
 resource "hydra_jobset" "nixos_release-18_03-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-18.03-small"
   type        = "legacy"
   description = "NixOS 18.03 small release branch"
@@ -1835,7 +1835,7 @@ resource "hydra_jobset" "nixos_release-18_03-small" {
   }
 
   check_interval    = 7200
-  scheduling_shares = 2000000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1844,8 +1844,8 @@ resource "hydra_jobset" "nixos_release-18_03-small" {
 
 resource "hydra_jobset" "nixos_release-18_09" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-18.09"
   type        = "legacy"
   description = "NixOS 18.09 release branch"
@@ -1877,7 +1877,7 @@ resource "hydra_jobset" "nixos_release-18_09" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1886,8 +1886,8 @@ resource "hydra_jobset" "nixos_release-18_09" {
 
 resource "hydra_jobset" "nixos_release-18_09-aarch64" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-18.09-aarch64"
   type        = "legacy"
   description = "NixOS 18.09 release branch: aarch64"
@@ -1926,7 +1926,7 @@ resource "hydra_jobset" "nixos_release-18_09-aarch64" {
   }
 
   check_interval    = 14400
-  scheduling_shares = 150000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1935,8 +1935,8 @@ resource "hydra_jobset" "nixos_release-18_09-aarch64" {
 
 resource "hydra_jobset" "nixos_release-18_09-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-18.09-small"
   type        = "legacy"
   description = "NixOS 18.09 small release branch"
@@ -1961,7 +1961,7 @@ resource "hydra_jobset" "nixos_release-18_09-small" {
   }
 
   check_interval    = 7200
-  scheduling_shares = 2000000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1970,8 +1970,8 @@ resource "hydra_jobset" "nixos_release-18_09-small" {
 
 resource "hydra_jobset" "nixos_release-19_03" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-19.03"
   type        = "legacy"
   description = "NixOS 19.03 release branch"
@@ -2003,7 +2003,7 @@ resource "hydra_jobset" "nixos_release-19_03" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -2012,8 +2012,8 @@ resource "hydra_jobset" "nixos_release-19_03" {
 
 resource "hydra_jobset" "nixos_release-19_03-aarch64" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-19.03-aarch64"
   type        = "legacy"
   description = "NixOS 19.03 release branch: aarch64"
@@ -2052,7 +2052,7 @@ resource "hydra_jobset" "nixos_release-19_03-aarch64" {
   }
 
   check_interval    = 14400
-  scheduling_shares = 15000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -2061,8 +2061,8 @@ resource "hydra_jobset" "nixos_release-19_03-aarch64" {
 
 resource "hydra_jobset" "nixos_release-19_03-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-19.03-small"
   type        = "legacy"
   description = "NixOS 19.03 small release branch"
@@ -2087,7 +2087,7 @@ resource "hydra_jobset" "nixos_release-19_03-small" {
   }
 
   check_interval    = 7200
-  scheduling_shares = 2000000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -2096,8 +2096,8 @@ resource "hydra_jobset" "nixos_release-19_03-small" {
 
 resource "hydra_jobset" "nixos_release-19_09" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-19.09"
   type        = "legacy"
   description = "NixOS 19.09 release branch"
@@ -2129,7 +2129,7 @@ resource "hydra_jobset" "nixos_release-19_09" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 500
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -2138,8 +2138,8 @@ resource "hydra_jobset" "nixos_release-19_09" {
 
 resource "hydra_jobset" "nixos_release-19_09-aarch64" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-19.09-aarch64"
   type        = "legacy"
   description = "NixOS 19.09 release branch: aarch64"
@@ -2178,7 +2178,7 @@ resource "hydra_jobset" "nixos_release-19_09-aarch64" {
   }
 
   check_interval    = 28800
-  scheduling_shares = 150000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -2187,8 +2187,8 @@ resource "hydra_jobset" "nixos_release-19_09-aarch64" {
 
 resource "hydra_jobset" "nixos_release-19_09-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-19.09-small"
   type        = "legacy"
   description = "NixOS 19.09 small release branch"
@@ -2213,7 +2213,7 @@ resource "hydra_jobset" "nixos_release-19_09-small" {
   }
 
   check_interval    = 21600
-  scheduling_shares = 2000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -2222,8 +2222,8 @@ resource "hydra_jobset" "nixos_release-19_09-small" {
 
 resource "hydra_jobset" "nixos_release-20_03" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-20.03"
   type        = "legacy"
   description = "NixOS 20.03 release branch"
@@ -2255,7 +2255,7 @@ resource "hydra_jobset" "nixos_release-20_03" {
   }
 
   check_interval    = 43200
-  scheduling_shares = 30
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -2264,8 +2264,8 @@ resource "hydra_jobset" "nixos_release-20_03" {
 
 resource "hydra_jobset" "nixos_release-20_03-aarch64" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-20.03-aarch64"
   type        = "legacy"
   description = "NixOS 20.03 release branch"
@@ -2304,7 +2304,7 @@ resource "hydra_jobset" "nixos_release-20_03-aarch64" {
   }
 
   check_interval    = 43200
-  scheduling_shares = 150000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -2313,8 +2313,8 @@ resource "hydra_jobset" "nixos_release-20_03-aarch64" {
 
 resource "hydra_jobset" "nixos_release-20_03-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-20.03-small"
   type        = "legacy"
   description = "NixOS 20.03 release branch"
@@ -2339,7 +2339,7 @@ resource "hydra_jobset" "nixos_release-20_03-small" {
   }
 
   check_interval    = 14400
-  scheduling_shares = 300
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
