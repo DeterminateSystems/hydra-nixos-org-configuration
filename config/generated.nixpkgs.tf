@@ -59,8 +59,8 @@ resource "hydra_jobset" "nixpkgs_aarch64-darwin" {
 
 resource "hydra_jobset" "nixpkgs_autoconf-2_70" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "autoconf-2.70"
   type        = "legacy"
   description = "Testing autoconf update"
@@ -92,7 +92,7 @@ resource "hydra_jobset" "nixpkgs_autoconf-2_70" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -101,8 +101,8 @@ resource "hydra_jobset" "nixpkgs_autoconf-2_70" {
 
 resource "hydra_jobset" "nixpkgs_autoconf-2_71" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "autoconf-2.71"
   type        = "legacy"
   description = "Testing autoconf update: PR #111431"
@@ -134,7 +134,7 @@ resource "hydra_jobset" "nixpkgs_autoconf-2_71" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 500
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -211,7 +211,7 @@ resource "hydra_jobset" "nixpkgs_binutils-2-30" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 499996
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -220,8 +220,8 @@ resource "hydra_jobset" "nixpkgs_binutils-2-30" {
 
 resource "hydra_jobset" "nixpkgs_binutils-2_36" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "binutils-2.36"
   type        = "legacy"
   description = "See PR #118945: binutils: 2.35.1 -> 2.36.1"
@@ -253,7 +253,7 @@ resource "hydra_jobset" "nixpkgs_binutils-2_36" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 0
 
   email_notifications = false
@@ -297,8 +297,8 @@ resource "hydra_jobset" "nixpkgs_closure-size" {
 
 resource "hydra_jobset" "nixpkgs_copumpkin-wip" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "copumpkin-wip"
   type        = "legacy"
   description = "Copumpkin darwin playground"
@@ -330,7 +330,7 @@ resource "hydra_jobset" "nixpkgs_copumpkin-wip" {
   }
 
   check_interval    = 600
-  scheduling_shares = 1000
+  scheduling_shares = 1
   keep_evaluations  = 0
 
   email_notifications = false
@@ -375,7 +375,7 @@ resource "hydra_jobset" "nixpkgs_cpan-update" {
 resource "hydra_jobset" "nixpkgs_cross-staging" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "cross-staging"
   type        = "legacy"
   description = "staging branch cross builds"
@@ -400,7 +400,7 @@ resource "hydra_jobset" "nixpkgs_cross-staging" {
   }
 
   check_interval    = 43200
-  scheduling_shares = 70
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -605,8 +605,8 @@ resource "hydra_jobset" "nixpkgs_darwin-updates" {
 
 resource "hydra_jobset" "nixpkgs_ericson2314-cross-staging" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "ericson2314-cross-staging"
   type        = "legacy"
   description = "Testing my latest cross compilation PR with release-cross.nix"
@@ -631,7 +631,7 @@ resource "hydra_jobset" "nixpkgs_ericson2314-cross-staging" {
   }
 
   check_interval    = 300
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -640,8 +640,8 @@ resource "hydra_jobset" "nixpkgs_ericson2314-cross-staging" {
 
 resource "hydra_jobset" "nixpkgs_ericson2314-haskell-updates" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "ericson2314-haskell-updates"
   type        = "legacy"
   description = "Testing ground for Haskell packages in Nix"
@@ -666,7 +666,7 @@ resource "hydra_jobset" "nixpkgs_ericson2314-haskell-updates" {
   }
 
   check_interval    = 14400
-  scheduling_shares = 50000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -675,8 +675,8 @@ resource "hydra_jobset" "nixpkgs_ericson2314-haskell-updates" {
 
 resource "hydra_jobset" "nixpkgs_ericson2314-old-cross-known-good" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "ericson2314-old-cross-known-good"
   type        = "legacy"
   description = "Testing changes on and old nixpkgs, making sure to avoid regressions"
@@ -701,7 +701,7 @@ resource "hydra_jobset" "nixpkgs_ericson2314-old-cross-known-good" {
   }
 
   check_interval    = 300
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -710,8 +710,8 @@ resource "hydra_jobset" "nixpkgs_ericson2314-old-cross-known-good" {
 
 resource "hydra_jobset" "nixpkgs_ericson2314-staging" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "ericson2314-staging"
   type        = "legacy"
   description = "Testing my latest large rebuild with release.nix"
@@ -736,7 +736,7 @@ resource "hydra_jobset" "nixpkgs_ericson2314-staging" {
   }
 
   check_interval    = 0
-  scheduling_shares = 300
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -940,6 +940,48 @@ resource "hydra_jobset" "nixpkgs_glibc-2-27" {
 
   check_interval    = 86400
   scheduling_shares = 500000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_glibc-2_33" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "glibc-2.33"
+  type        = "legacy"
+  description = "https://github.com/NixOS/nixpkgs/pull/111616"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git glibc-2.33"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 600
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1193,8 +1235,8 @@ resource "hydra_jobset" "nixpkgs_graham-i686" {
 
 resource "hydra_jobset" "nixpkgs_gtk-doc" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "gtk-doc"
   type        = "legacy"
   description = "https://github.com/NixOS/nixpkgs/pull/62634"
@@ -1226,7 +1268,7 @@ resource "hydra_jobset" "nixpkgs_gtk-doc" {
   }
 
   check_interval    = 14400
-  scheduling_shares = 300
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1473,8 +1515,8 @@ resource "hydra_jobset" "nixpkgs_libpng15" {
 
 resource "hydra_jobset" "nixpkgs_lnl7-wip" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "lnl7-wip"
   type        = "legacy"
   description = "LnL darwin playground"
@@ -1506,7 +1548,7 @@ resource "hydra_jobset" "nixpkgs_lnl7-wip" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 0
 
   email_notifications = false
@@ -1558,7 +1600,7 @@ resource "hydra_jobset" "nixpkgs_modular-python" {
 resource "hydra_jobset" "nixpkgs_multiple-outputs" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "multiple-outputs"
   type        = "legacy"
   description = "Multiple outputs branch"
@@ -1634,8 +1676,8 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-17_09-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-18_03-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nixpkgs-18.03-darwin"
   type        = "legacy"
   description = "Stable Darwin channel corresponding to NixOS release"
@@ -1667,7 +1709,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-18_03-darwin" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 500
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1676,8 +1718,8 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-18_03-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-18_09-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nixpkgs-18.09-darwin"
   type        = "legacy"
   description = "Stable Darwin channel corresponding to NixOS release"
@@ -1709,7 +1751,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-18_09-darwin" {
   }
 
   check_interval    = 7200
-  scheduling_shares = 5000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1718,8 +1760,8 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-18_09-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-19_03-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nixpkgs-19.03-darwin"
   type        = "legacy"
   description = "Stable Darwin channel corresponding to NixOS release"
@@ -1751,7 +1793,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-19_03-darwin" {
   }
 
   check_interval    = 7200
-  scheduling_shares = 5000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1760,8 +1802,8 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-19_03-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-19_09-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nixpkgs-19.09-darwin"
   type        = "legacy"
   description = "Stable Darwin channel corresponding to NixOS release"
@@ -1793,7 +1835,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-19_09-darwin" {
   }
 
   check_interval    = 14400
-  scheduling_shares = 5000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1802,8 +1844,8 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-19_09-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-20_03-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nixpkgs-20.03-darwin"
   type        = "legacy"
   description = "Darwin builds for the NixOS 20.03 release."
@@ -1835,7 +1877,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-20_03-darwin" {
   }
 
   check_interval    = 28800
-  scheduling_shares = 50
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -1971,7 +2013,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-armv7l" {
 resource "hydra_jobset" "nixpkgs_openssl-1_1" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "openssl-1.1"
   type        = "legacy"
   description = "openssl 1.1 test"
@@ -2691,8 +2733,8 @@ resource "hydra_jobset" "nixpkgs_pr-82342" {
 
 resource "hydra_jobset" "nixpkgs_pr-91557" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-91557"
   type        = "legacy"
   description = "Testing ground for Haskell pr-91557"
@@ -2717,7 +2759,7 @@ resource "hydra_jobset" "nixpkgs_pr-91557" {
   }
 
   check_interval    = 14400
-  scheduling_shares = 50000
+  scheduling_shares = 1
   keep_evaluations  = 0
 
   email_notifications = false
@@ -2762,7 +2804,7 @@ resource "hydra_jobset" "nixpkgs_prs-6254-and-6166" {
 resource "hydra_jobset" "nixpkgs_python-rework" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "python-rework"
   type        = "legacy"
   description = "Rework of python support"
@@ -2797,7 +2839,7 @@ resource "hydra_jobset" "nixpkgs_python-rework" {
 resource "hydra_jobset" "nixpkgs_python-unstable" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
-  visible     = true
+  visible     = false
   name        = "python-unstable"
   type        = "legacy"
   description = ""
@@ -2909,7 +2951,7 @@ resource "hydra_jobset" "nixpkgs_r-updates" {
 resource "hydra_jobset" "nixpkgs_release-17_03" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "release-17.03"
   type        = "legacy"
   description = "release-17.03"
@@ -2978,8 +3020,8 @@ resource "hydra_jobset" "nixpkgs_staging" {
 
 resource "hydra_jobset" "nixpkgs_staging-18_03" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-18.03"
   type        = "legacy"
   description = "Staging-18.03 branch"
@@ -3004,7 +3046,7 @@ resource "hydra_jobset" "nixpkgs_staging-18_03" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 50000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -3013,8 +3055,8 @@ resource "hydra_jobset" "nixpkgs_staging-18_03" {
 
 resource "hydra_jobset" "nixpkgs_staging-18_09" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-18.09"
   type        = "legacy"
   description = "Staging-18.09 branch"
@@ -3039,7 +3081,7 @@ resource "hydra_jobset" "nixpkgs_staging-18_09" {
   }
 
   check_interval    = 172800
-  scheduling_shares = 5000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -3048,8 +3090,8 @@ resource "hydra_jobset" "nixpkgs_staging-18_09" {
 
 resource "hydra_jobset" "nixpkgs_staging-19_03" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-19.03"
   type        = "legacy"
   description = "Staging-19.03 branch"
@@ -3074,7 +3116,7 @@ resource "hydra_jobset" "nixpkgs_staging-19_03" {
   }
 
   check_interval    = 172800
-  scheduling_shares = 1000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -3083,8 +3125,8 @@ resource "hydra_jobset" "nixpkgs_staging-19_03" {
 
 resource "hydra_jobset" "nixpkgs_staging-19_09" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-19.09"
   type        = "legacy"
   description = "Staging-19.09 branch"
@@ -3109,7 +3151,7 @@ resource "hydra_jobset" "nixpkgs_staging-19_09" {
   }
 
   check_interval    = 172800
-  scheduling_shares = 5000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -3118,8 +3160,8 @@ resource "hydra_jobset" "nixpkgs_staging-19_09" {
 
 resource "hydra_jobset" "nixpkgs_staging-20_03" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-20.03"
   type        = "legacy"
   description = "Staging 20.03"
@@ -3144,7 +3186,7 @@ resource "hydra_jobset" "nixpkgs_staging-20_03" {
   }
 
   check_interval    = 172800
-  scheduling_shares = 5000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -3214,7 +3256,7 @@ resource "hydra_jobset" "nixpkgs_staging-21_05" {
   }
 
   check_interval    = 172800
-  scheduling_shares = 5000
+  scheduling_shares = 2000000
   keep_evaluations  = 1
 
   email_notifications = false
