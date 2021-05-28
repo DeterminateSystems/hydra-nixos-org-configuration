@@ -26,7 +26,7 @@ jobs:
       with:
         commit_message: 'Update the configuration mirror.'
         branch: 'main'
-        file_pattern: "*"
+        file_pattern: "config/*"
         commit_user_name: bot
         commit_user_email: bot@bot.bot
         commit_author: bot <bot@bot.bot>
