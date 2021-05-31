@@ -1956,7 +1956,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-21_05-darwin" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-darwin\" ]"
+    value             = "[ \"x86_64-darwin\" \"aarch64-darwin\" ]"
     notify_committers = false
   }
 
@@ -3244,7 +3244,7 @@ resource "hydra_jobset" "nixpkgs_staging-21_05" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git 35b4a78d9a40ee21f3345f41b873629ffa3f6c9d"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-21.05"
     notify_committers = false
   }
 
