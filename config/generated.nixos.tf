@@ -2495,7 +2495,7 @@ resource "hydra_jobset" "nixos_release-21_05" {
   input {
     name              = "stableBranch"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 
@@ -2544,7 +2544,7 @@ resource "hydra_jobset" "nixos_release-21_05-aarch64" {
   input {
     name              = "stableBranch"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 
@@ -2586,7 +2586,7 @@ resource "hydra_jobset" "nixos_release-21_05-small" {
   input {
     name              = "stableBranch"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 

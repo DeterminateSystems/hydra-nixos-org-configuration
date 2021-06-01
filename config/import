@@ -316,8 +316,8 @@ terraform import hydra_jobset.nixpkgs_staging-19_03 nixpkgs/staging-19.03
 terraform import hydra_jobset.nixpkgs_staging-19_09 nixpkgs/staging-19.09
 terraform import hydra_jobset.nixpkgs_staging-20_03 nixpkgs/staging-20.03
 terraform import hydra_jobset.nixpkgs_staging-20_09 nixpkgs/staging-20.09
-terraform import hydra_jobset.nixpkgs_staging-21_05 nixpkgs/staging-21.05
 terraform import hydra_jobset.nixpkgs_staging-next nixpkgs/staging-next
+terraform import hydra_jobset.nixpkgs_staging-next-21_05 nixpkgs/staging-next-21.05
 terraform import hydra_jobset.nixpkgs_stdenv nixpkgs/stdenv
 terraform import hydra_jobset.nixpkgs_stdenv-fixes nixpkgs/stdenv-fixes
 terraform import hydra_jobset.nixpkgs_structured-attrs nixpkgs/structured-attrs

@@ -3228,41 +3228,6 @@ resource "hydra_jobset" "nixpkgs_staging-20_09" {
   email_override      = ""
 }
 
-resource "hydra_jobset" "nixpkgs_staging-21_05" {
-  project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
-  name        = "staging-21.05"
-  type        = "legacy"
-  description = "Staging 21.05"
-
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-21.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 172800
-  scheduling_shares = 20000000
-  keep_evaluations  = 1
-
-  email_notifications = false
-  email_override      = ""
-}
-
 resource "hydra_jobset" "nixpkgs_staging-next" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
@@ -3299,6 +3264,41 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
 
   check_interval    = 43200
   scheduling_shares = 2000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-21_05" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "staging-next-21.05"
+  type        = "legacy"
+  description = "Staging 21.05"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-21.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 20000000
   keep_evaluations  = 1
 
   email_notifications = false
