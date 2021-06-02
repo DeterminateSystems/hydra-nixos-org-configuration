@@ -668,7 +668,7 @@ resource "hydra_jobset" "disnix_libnixxml-master" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git release-20.09"
+    value             = "https://github.com/nixos/nixpkgs.git release-21.05"
     notify_committers = false
   }
 
