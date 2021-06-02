@@ -1968,6 +1968,48 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-21_05-darwin" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-aarch64-darwin" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "nixpkgs-unstable-aarch64-darwin"
+  type        = "legacy"
+  description = "Building the 'master' branch for aarch64-darwin."
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 21600
+  scheduling_shares = 3000
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-armv7l" {
   project     = hydra_project.nixpkgs.name
   state       = "one-at-a-time"

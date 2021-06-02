@@ -280,6 +280,7 @@ terraform import hydra_jobset.nixpkgs_nixpkgs-19_09-darwin nixpkgs/nixpkgs-19.09
 terraform import hydra_jobset.nixpkgs_nixpkgs-20_03-darwin nixpkgs/nixpkgs-20.03-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-20_09-darwin nixpkgs/nixpkgs-20.09-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-21_05-darwin nixpkgs/nixpkgs-21.05-darwin
+terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-aarch64-darwin nixpkgs/nixpkgs-unstable-aarch64-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-armv7l nixpkgs/nixpkgs-unstable-armv7l
 terraform import hydra_jobset.nixpkgs_openssl-1_1 nixpkgs/openssl-1.1
 terraform import hydra_jobset.nixpkgs_openssl-1_1_x-update nixpkgs/openssl-1.1.x-update
