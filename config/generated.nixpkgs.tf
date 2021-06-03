@@ -1515,7 +1515,7 @@ resource "hydra_jobset" "nixpkgs_libpng15" {
 
 resource "hydra_jobset" "nixpkgs_lnl7-wip" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = false
   name        = "lnl7-wip"
   type        = "legacy"
