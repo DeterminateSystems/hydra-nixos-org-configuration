@@ -406,7 +406,7 @@ resource "hydra_jobset" "nix_maintenance-2_3" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git nixos-20.03-small"
+    value             = "https://github.com/NixOS/nixpkgs.git nixos-21.05-small"
     notify_committers = false
   }
 
