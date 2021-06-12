@@ -2002,7 +2002,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-aarch64-darwin" {
     notify_committers = false
   }
 
-  check_interval    = 21600
+  check_interval    = 43200
   scheduling_shares = 3000
   keep_evaluations  = 3
 
