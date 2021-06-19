@@ -2779,7 +2779,7 @@ resource "hydra_jobset" "nixos_staging-small" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = 172800
   scheduling_shares = 1000
   keep_evaluations  = 1
 
