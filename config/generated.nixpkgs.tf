@@ -2262,6 +2262,48 @@ resource "hydra_jobset" "nixpkgs_pr-12701" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-132490" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-132490"
+  type        = "legacy"
+  description = "Testing cleanups in stdenv shell code"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/happysalada/nixpkgs.git stdenv_setup_test"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-1515" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
