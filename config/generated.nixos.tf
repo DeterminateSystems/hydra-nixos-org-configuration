@@ -3011,6 +3011,41 @@ resource "hydra_jobset" "nixos_systemd-227" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_systemd-249" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "systemd-249"
+  type        = "legacy"
+  description = "Systemd 249"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/andir/nixpkgs.git systemdv249"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 7200
+  scheduling_shares = 10000
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_systemd-update" {
   project     = hydra_project.nixos.name
   state       = "disabled"
