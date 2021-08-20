@@ -220,11 +220,11 @@ resource "hydra_jobset" "nixpkgs_binutils-2-30" {
 
 resource "hydra_jobset" "nixpkgs_binutils-2_36" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = false
   name        = "binutils-2.36"
   type        = "legacy"
-  description = "See PR #118945: binutils: 2.35.1 -> 2.36.1"
+  description = "See PR #134917: binutils: 2.35.1 -> 2.37"
 
   nix_expression {
     file  = "pkgs/top-level/release.nix"
@@ -234,7 +234,7 @@ resource "hydra_jobset" "nixpkgs_binutils-2_36" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/TredwellGit/nixpkgs.git binutils"
+    value             = "https://github.com/nixos/nixpkgs.git binutils-2.37"
     notify_committers = false
   }
 
@@ -1960,7 +1960,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-21_05-darwin" {
     notify_committers = false
   }
 
-  check_interval    = 28800
+  check_interval    = 43200
   scheduling_shares = 5000
   keep_evaluations  = 1
 
