@@ -3020,7 +3020,7 @@ resource "hydra_jobset" "nixos_systemd-249" {
   description = "Systemd 249"
 
   nix_expression {
-    file  = "nixos/release-small.nix"
+    file  = "nixos/release.nix"
     input = "nixpkgs"
   }
 
