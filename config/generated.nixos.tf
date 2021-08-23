@@ -1151,19 +1151,36 @@ resource "hydra_jobset" "nixos_perl-5_20" {
 
 resource "hydra_jobset" "nixos_perl-5_22" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "perl-5.22"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Perl 5.22 test"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release-combined.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git perl-5.22"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 7200
+  scheduling_shares = 1000
+  keep_evaluations  = 1
+
+  email_notifications = false
   email_override      = ""
 }
 
