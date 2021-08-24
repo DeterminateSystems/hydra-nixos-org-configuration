@@ -946,13 +946,13 @@ resource "hydra_jobset" "nixpkgs_glibc-2-27" {
   email_override      = ""
 }
 
-resource "hydra_jobset" "nixpkgs_glibc-2_33" {
+resource "hydra_jobset" "nixpkgs_glibc-2_34" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
   visible     = true
-  name        = "glibc-2.33"
+  name        = "glibc-2.34"
   type        = "legacy"
-  description = "https://github.com/NixOS/nixpkgs/pull/111616"
+  description = "https://github.com/NixOS/nixpkgs/pull/133431"
 
   nix_expression {
     file  = "pkgs/top-level/release.nix"
@@ -962,7 +962,7 @@ resource "hydra_jobset" "nixpkgs_glibc-2_33" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git glibc-2.33"
+    value             = "https://github.com/Ma27/nixpkgs.git glibc-2.34"
     notify_committers = false
   }
 

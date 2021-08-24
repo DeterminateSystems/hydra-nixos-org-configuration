@@ -261,7 +261,7 @@ terraform import hydra_jobset.nixpkgs_glibc-2-27 nixpkgs/glibc-2-27
 terraform import hydra_jobset.nixpkgs_glibc-230 nixpkgs/glibc-230
 terraform import hydra_jobset.nixpkgs_glibc-231 nixpkgs/glibc-231
 terraform import hydra_jobset.nixpkgs_glibc-232 nixpkgs/glibc-232
-terraform import hydra_jobset.nixpkgs_glibc-2_33 nixpkgs/glibc-2.33
+terraform import hydra_jobset.nixpkgs_glibc-2_34 nixpkgs/glibc-2.34
 terraform import hydra_jobset.nixpkgs_gnome nixpkgs/gnome
 terraform import hydra_jobset.nixpkgs_gnome-stable nixpkgs/gnome-stable
 terraform import hydra_jobset.nixpkgs_graham-i686 nixpkgs/graham-i686
