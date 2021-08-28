@@ -1984,7 +1984,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-aarch64-darwin" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git b4cc66827745e525ce7bb54659845ac89788a597"
+    value             = "https://github.com/NixOS/nixpkgs.git"
     notify_committers = false
   }
 
