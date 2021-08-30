@@ -3039,7 +3039,7 @@ resource "hydra_jobset" "nixos_systemd-249" {
   }
 
   check_interval    = 7200
-  scheduling_shares = 10000
+  scheduling_shares = 100
   keep_evaluations  = 0
 
   email_notifications = false
