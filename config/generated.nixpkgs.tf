@@ -141,6 +141,48 @@ resource "hydra_jobset" "nixpkgs_autoconf-2_71" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_bash-5" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "bash-5"
+  type        = "legacy"
+  description = "PR #136677: testing bash upgrade"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/happysalada/nixpkgs.git testing_bash_upgrade"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_bash-no-undef-vars" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"

@@ -237,6 +237,7 @@ terraform import hydra_jobset.nixos_xorg-test nixos/xorg-test
 terraform import hydra_jobset.nixpkgs_aarch64-darwin nixpkgs/aarch64-darwin
 terraform import hydra_jobset.nixpkgs_autoconf-2_70 nixpkgs/autoconf-2.70
 terraform import hydra_jobset.nixpkgs_autoconf-2_71 nixpkgs/autoconf-2.71
+terraform import hydra_jobset.nixpkgs_bash-5 nixpkgs/bash-5
 terraform import hydra_jobset.nixpkgs_bash-no-undef-vars nixpkgs/bash-no-undef-vars
 terraform import hydra_jobset.nixpkgs_binutils-2-30 nixpkgs/binutils-2-30
 terraform import hydra_jobset.nixpkgs_binutils-2_36 nixpkgs/binutils-2.36
