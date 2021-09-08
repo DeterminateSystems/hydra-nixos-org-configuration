@@ -1018,7 +1018,7 @@ resource "hydra_jobset" "nixpkgs_glibc-2_34" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
     notify_committers = false
   }
 
