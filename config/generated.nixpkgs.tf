@@ -3634,6 +3634,48 @@ resource "hydra_jobset" "nixpkgs_systemd" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_toonn-wip" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "toonn-wip"
+  type        = "legacy"
+  description = "darwin playground"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/toonn/nixpkgs.git toonn-wip"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 10
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_trunk" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
