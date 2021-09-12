@@ -143,8 +143,8 @@ resource "hydra_jobset" "nixpkgs_autoconf-2_71" {
 
 resource "hydra_jobset" "nixpkgs_bash-5" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "bash-5"
   type        = "legacy"
   description = "PR #136677: testing bash upgrade"
