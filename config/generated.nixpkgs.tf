@@ -1158,7 +1158,7 @@ resource "hydra_jobset" "nixpkgs_glibc-232" {
 
 resource "hydra_jobset" "nixpkgs_gnome" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = true
   name        = "gnome"
   type        = "legacy"
@@ -1172,7 +1172,7 @@ resource "hydra_jobset" "nixpkgs_gnome" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git gnome-40"
+    value             = "https://github.com/NixOS/nixpkgs.git gnome-41"
     notify_committers = false
   }
 
@@ -1186,13 +1186,13 @@ resource "hydra_jobset" "nixpkgs_gnome" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\"  \"x86_64-darwin\" ]"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"  \"x86_64-darwin\"*/ ]"
     notify_committers = false
   }
 
-  check_interval    = 0
-  scheduling_shares = 600000
-  keep_evaluations  = 3
+  check_interval    = 86400
+  scheduling_shares = 60
+  keep_evaluations  = 1
 
   email_notifications = false
   email_override      = ""
