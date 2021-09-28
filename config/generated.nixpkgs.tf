@@ -3062,7 +3062,7 @@ resource "hydra_jobset" "nixpkgs_r-updates" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/peti/nixpkgs.git r-updates"
+    value             = "https://github.com/NixOS/nixpkgs.git r-updates"
     notify_committers = false
   }
 
