@@ -2346,6 +2346,48 @@ resource "hydra_jobset" "nixpkgs_pr-132490" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-139514" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-139514"
+  type        = "legacy"
+  description = "PR #139514: testing some stdenv-wide changes"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/happysalada/nixpkgs.git testing_proposal"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ /*\"x86_64-linux\" \"x86_64-darwin\" \"aarch64-darwin\"*/ \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 20
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-1515" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
