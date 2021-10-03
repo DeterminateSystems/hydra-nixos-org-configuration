@@ -3683,6 +3683,41 @@ resource "hydra_jobset" "nixpkgs_systemd" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_tmp-fetch-sources" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "tmp-fetch-sources"
+  type        = "legacy"
+  description = "TMP: fetch sources missing on Hydra"
+
+  nix_expression {
+    file  = "pkgs/top-level/fetch-sources.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/vcunat/nixpkgs.git p/fetch-sources"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 3000000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_toonn-wip" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
