@@ -2348,8 +2348,8 @@ resource "hydra_jobset" "nixpkgs_pr-132490" {
 
 resource "hydra_jobset" "nixpkgs_pr-139514" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-139514"
   type        = "legacy"
   description = "PR #139514: testing some stdenv-wide changes"
