@@ -3090,15 +3090,8 @@ resource "hydra_jobset" "nixpkgs_r-updates" {
   description = "Testing ground for updates to the R package set"
 
   nix_expression {
-    file  = "r-nixpkgs.nix"
-    input = "ciSrc"
-  }
-
-  input {
-    name              = "ciSrc"
-    type              = "git"
-    value             = "https://github.com/peti/ci"
-    notify_committers = false
+    file  = "pkgs/top-level/release-r.nix"
+    input = "nixpkgs"
   }
 
   input {
@@ -3108,7 +3101,7 @@ resource "hydra_jobset" "nixpkgs_r-updates" {
     notify_committers = false
   }
 
-  check_interval    = 14400
+  check_interval    = 28800
   scheduling_shares = 600
   keep_evaluations  = 0
 
