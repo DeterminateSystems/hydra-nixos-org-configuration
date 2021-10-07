@@ -295,8 +295,8 @@ resource "hydra_jobset" "nixpkgs_binutils-2_36" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 1
-  keep_evaluations  = 0
+  scheduling_shares = 60
+  keep_evaluations  = 1
 
   email_notifications = false
   email_override      = ""
