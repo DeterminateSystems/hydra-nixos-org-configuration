@@ -1023,7 +1023,7 @@ resource "hydra_jobset" "nixpkgs_glibc-2_34" {
   }
 
   check_interval    = 0
-  scheduling_shares = 60
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
