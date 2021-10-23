@@ -1555,6 +1555,48 @@ resource "hydra_jobset" "nixpkgs_libpng15" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_linux-llvm-bump" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "linux-llvm-bump"
+  type        = "legacy"
+  description = "Testing LLVM bump: PR #142593"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/toonn/nixpkgs.git linux-llvm-bump"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 10
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_lnl7-wip" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"

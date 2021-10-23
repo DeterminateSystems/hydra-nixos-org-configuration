@@ -274,6 +274,7 @@ terraform import hydra_jobset.nixpkgs_haskell-updates nixpkgs/haskell-updates
 terraform import hydra_jobset.nixpkgs_kde47 nixpkgs/kde47
 terraform import hydra_jobset.nixpkgs_libGL-headers nixpkgs/libGL-headers
 terraform import hydra_jobset.nixpkgs_libpng15 nixpkgs/libpng15
+terraform import hydra_jobset.nixpkgs_linux-llvm-bump nixpkgs/linux-llvm-bump
 terraform import hydra_jobset.nixpkgs_lnl7-wip nixpkgs/lnl7-wip
 terraform import hydra_jobset.nixpkgs_modular-python nixpkgs/modular-python
 terraform import hydra_jobset.nixpkgs_multiple-outputs nixpkgs/multiple-outputs
