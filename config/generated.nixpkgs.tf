@@ -2430,6 +2430,48 @@ resource "hydra_jobset" "nixpkgs_pr-139514" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-142860-stdenv-failglob" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-142860-stdenv-failglob"
+  type        = "legacy"
+  description = "Testing failglob in stdenv: PR #142860"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/happysalada/nixpkgs.git failglob"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 30
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-1515" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
