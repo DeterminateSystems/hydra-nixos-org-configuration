@@ -431,7 +431,7 @@ resource "hydra_jobset" "nix_maintenance-2_4" {
   visible     = true
   name        = "maintenance-2.4"
   type        = "flake"
-  description = "Default branch"
+  description = "2.4 release branch"
 
   flake_uri = "github:NixOS/nix/2.4-maintenance"
 
