@@ -2464,7 +2464,7 @@ resource "hydra_jobset" "nixpkgs_pr-142860-stdenv-failglob" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = 0
   scheduling_shares = 30
   keep_evaluations  = 1
 
