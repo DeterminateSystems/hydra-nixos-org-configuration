@@ -2075,7 +2075,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-21_11-darwin" {
   input {
     name              = "officialRelease"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 
