@@ -215,6 +215,24 @@ resource "hydra_jobset" "nix_gc-branch" {
   email_override      = "eelco.dolstra@logicblox.com"
 }
 
+resource "hydra_jobset" "nix_mac-hang" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "mac-hang"
+  type        = "flake"
+  description = "Default branch"
+
+  flake_uri = "github:edolstra/nix/mac-hang"
+
+  check_interval    = 86400
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_maintenance-1_11" {
   project     = hydra_project.nix.name
   state       = "disabled"
