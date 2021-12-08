@@ -1184,6 +1184,41 @@ resource "hydra_jobset" "nixos_perl-5_22" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_python-test-refactoring" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "python-test-refactoring"
+  type        = "legacy"
+  description = "https://github.com/NixOS/nixpkgs/pull/149329"
+
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/marijanp/nixpkgs.git test-driver-restructuring"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 7200
+  scheduling_shares = 10000
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_release-13_10" {
   project     = hydra_project.nixos.name
   state       = "disabled"
