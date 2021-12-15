@@ -507,7 +507,7 @@ resource "hydra_jobset" "nix_master" {
 
   flake_uri = "github:NixOS/nix"
 
-  check_interval    = 86400
+  check_interval    = 600
   scheduling_shares = 100
   keep_evaluations  = 3
 

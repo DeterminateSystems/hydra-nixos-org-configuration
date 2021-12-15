@@ -2502,11 +2502,11 @@ resource "hydra_jobset" "nixpkgs_pr-142860-stdenv-failglob" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" ]"
+    value             = "[ \"aarch64-linux\" ]"
     notify_committers = false
   }
 
-  check_interval    = 0
+  check_interval    = 172800
   scheduling_shares = 10
   keep_evaluations  = 1
 
