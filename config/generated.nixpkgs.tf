@@ -2516,7 +2516,7 @@ resource "hydra_jobset" "nixpkgs_pr-142860-stdenv-failglob" {
 
 resource "hydra_jobset" "nixpkgs_pr-146685" {
   project     = hydra_project.nixpkgs.name
-  state       = "one-at-a-time"
+  state       = "disabled"
   visible     = true
   name        = "pr-146685"
   type        = "legacy"
@@ -2548,7 +2548,7 @@ resource "hydra_jobset" "nixpkgs_pr-146685" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = 0
   scheduling_shares = 100
   keep_evaluations  = 1
 
