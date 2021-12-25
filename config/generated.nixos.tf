@@ -3223,7 +3223,7 @@ resource "hydra_jobset" "nixos_systemd-250" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/andir/nixpkgs.git systemdv250"
+    value             = "https://github.com/andir/nixpkgs.git systemd-250"
     notify_committers = false
   }
 
