@@ -234,6 +234,7 @@ terraform import hydra_jobset.nixos_systemd nixos/systemd
 terraform import hydra_jobset.nixos_systemd-217 nixos/systemd-217
 terraform import hydra_jobset.nixos_systemd-227 nixos/systemd-227
 terraform import hydra_jobset.nixos_systemd-249 nixos/systemd-249
+terraform import hydra_jobset.nixos_systemd-250 nixos/systemd-250
 terraform import hydra_jobset.nixos_systemd-update nixos/systemd-update
 terraform import hydra_jobset.nixos_trunk-combined nixos/trunk-combined
 terraform import hydra_jobset.nixos_trunk-combined-test-eval nixos/trunk-combined-test-eval
