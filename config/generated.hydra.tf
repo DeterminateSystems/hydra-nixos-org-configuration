@@ -70,7 +70,7 @@ resource "hydra_jobset" "hydra_flake" {
 
 resource "hydra_jobset" "hydra_hydra-ant-logger-trunk" {
   project     = hydra_project.hydra.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "hydra-ant-logger-trunk"
   type        = "legacy"
