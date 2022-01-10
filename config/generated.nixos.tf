@@ -2542,7 +2542,7 @@ resource "hydra_jobset" "nixos_release-21_05" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 5000000
+  scheduling_shares = 5000
   keep_evaluations  = 1
 
   email_notifications = false
