@@ -1184,6 +1184,41 @@ resource "hydra_jobset" "nixos_perl-5_22" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_pr-154911-cryptsetup-unstable-small" {
+  project     = hydra_project.nixos.name
+  state       = "one-shot"
+  visible     = true
+  name        = "pr-154911-cryptsetup-unstable-small"
+  type        = "legacy"
+  description = "PR#154911 with a cryptsetup fix to get the build farm working."
+
+  nix_expression {
+    file  = "nixos/release-combined.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/mweinelt/nixpkgs.git cryptsetup"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 43200
+  scheduling_shares = 20000000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_python-test-refactoring" {
   project     = hydra_project.nixos.name
   state       = "enabled"
