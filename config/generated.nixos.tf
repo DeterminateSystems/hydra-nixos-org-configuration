@@ -1186,8 +1186,8 @@ resource "hydra_jobset" "nixos_perl-5_22" {
 
 resource "hydra_jobset" "nixos_pr-154911-cryptsetup-unstable-small" {
   project     = hydra_project.nixos.name
-  state       = "one-shot"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-154911-cryptsetup-unstable-small"
   type        = "legacy"
   description = "PR#154911 with a cryptsetup fix to get the build farm working."
