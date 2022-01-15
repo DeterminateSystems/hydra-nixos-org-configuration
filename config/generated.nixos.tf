@@ -2786,7 +2786,7 @@ resource "hydra_jobset" "nixos_release-21_11-small" {
     notify_committers = false
   }
 
-  check_interval    = 14400
+  check_interval    = 28800
   scheduling_shares = 20000000
   keep_evaluations  = 1
 
