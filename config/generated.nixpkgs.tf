@@ -3172,11 +3172,11 @@ resource "hydra_jobset" "nixpkgs_python-rework" {
   email_override      = "python@chaoflow.net"
 }
 
-resource "hydra_jobset" "nixpkgs_python-unstable" {
+resource "hydra_jobset" "nixpkgs_python-updates" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
-  visible     = false
-  name        = "python-unstable"
+  visible     = true
+  name        = "python-updates"
   type        = "legacy"
   description = ""
 
@@ -3188,7 +3188,7 @@ resource "hydra_jobset" "nixpkgs_python-unstable" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git python-unstable"
+    value             = "https://github.com/nixos/nixpkgs.git python-updates"
     notify_committers = false
   }
 
@@ -3671,7 +3671,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-21_11" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" /*\"x86_64-darwin\"*/ ]"
     notify_committers = false
   }
 
