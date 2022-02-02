@@ -1557,8 +1557,8 @@ resource "hydra_jobset" "nixpkgs_libpng15" {
 
 resource "hydra_jobset" "nixpkgs_linux-llvm-bump" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "linux-llvm-bump"
   type        = "legacy"
   description = "Testing LLVM bump: PR #142593"
@@ -1589,7 +1589,7 @@ resource "hydra_jobset" "nixpkgs_linux-llvm-bump" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = 0
   scheduling_shares = 10
   keep_evaluations  = 0
 
