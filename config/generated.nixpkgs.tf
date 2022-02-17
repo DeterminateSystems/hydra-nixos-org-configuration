@@ -1172,7 +1172,7 @@ resource "hydra_jobset" "nixpkgs_gnome" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git gnome-41"
+    value             = "https://github.com/NixOS/nixpkgs.git gnome"
     notify_committers = false
   }
 
@@ -3591,7 +3591,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
     notify_committers = false
   }
 
-  check_interval    = 43200
+  check_interval    = 432000
   scheduling_shares = 2000
   keep_evaluations  = 1
 
