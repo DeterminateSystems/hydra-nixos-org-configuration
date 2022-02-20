@@ -1284,19 +1284,57 @@ resource "hydra_jobset" "gnu_gmp-5-0" {
 
 resource "hydra_jobset" "gnu_gmp-default" {
   project     = hydra_project.gnu.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "gmp-default"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "GNU Multi-Precision Arithmetic Library"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "gmp/release.nix"
+    input = "hydraConfig"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "gmp"
+    type              = "hg"
+    value             = "http://gmplib.org:8000/gmp"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-freebsd"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
   email_override      = ""
 }
 
