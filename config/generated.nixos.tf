@@ -3333,6 +3333,13 @@ resource "hydra_jobset" "nixos_trunk-combined" {
   }
 
   input {
+    name              = "limitedSupportedSystems"
+    type              = "nix"
+    value             = "[ \"i686-linux\" ]"
+    notify_committers = false
+  }
+
+  input {
     name              = "nixpkgs"
     type              = "git"
     value             = "https://github.com/NixOS/nixpkgs.git"
@@ -3346,7 +3353,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
     notify_committers = false
   }
 
-  check_interval    = 8640
+  check_interval    = 86400
   scheduling_shares = 728
   keep_evaluations  = 2
 
