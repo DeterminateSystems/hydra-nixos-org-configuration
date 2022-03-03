@@ -388,7 +388,7 @@ resource "hydra_jobset" "disnix_disnix-trunk" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
     notify_committers = false
   }
 
@@ -619,7 +619,7 @@ resource "hydra_jobset" "disnix_dysnomia-master" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
     notify_committers = false
   }
 
@@ -668,7 +668,7 @@ resource "hydra_jobset" "disnix_libnixxml-master" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git release-21.05"
+    value             = "https://github.com/nixos/nixpkgs.git release-21.11"
     notify_committers = false
   }
 
@@ -710,7 +710,7 @@ resource "hydra_jobset" "disnix_libprocreact-master" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
     notify_committers = false
   }
 
@@ -759,7 +759,7 @@ resource "hydra_jobset" "disnix_nix-processmgmt-master" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git release-21.05"
+    value             = "https://github.com/nixos/nixpkgs.git release-21.11"
     notify_committers = false
   }
 
