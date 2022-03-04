@@ -45,7 +45,7 @@ resource "hydra_jobset" "disnix_DisnixWebService-trunk" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
     notify_committers = false
   }
 
@@ -73,7 +73,7 @@ resource "hydra_jobset" "disnix_DisnixWebService-trunk" {
 
 resource "hydra_jobset" "disnix_WebServicesExample-trunk" {
   project     = hydra_project.disnix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "WebServicesExample-trunk"
   type        = "legacy"
@@ -115,7 +115,7 @@ resource "hydra_jobset" "disnix_WebServicesExample-trunk" {
 
 resource "hydra_jobset" "disnix_WebServicesExampleNET-trunk" {
   project     = hydra_project.disnix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "WebServicesExampleNET-trunk"
   type        = "legacy"
@@ -276,7 +276,7 @@ resource "hydra_jobset" "disnix_disnix-activation-scripts-trunk" {
 
 resource "hydra_jobset" "disnix_disnix-composition-example-master" {
   project     = hydra_project.disnix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "disnix-composition-example-master"
   type        = "legacy"
@@ -514,7 +514,7 @@ resource "hydra_jobset" "disnix_dydisnix-avahi-master" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
     notify_committers = false
   }
 
@@ -570,7 +570,7 @@ resource "hydra_jobset" "disnix_dydisnix-trunk" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
     notify_committers = false
   }
 
@@ -906,7 +906,7 @@ resource "hydra_jobset" "disnix_php-mysql-trunk" {
 
 resource "hydra_jobset" "disnix_viewvc-trunk" {
   project     = hydra_project.disnix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "viewvc-trunk"
   type        = "legacy"
@@ -948,7 +948,7 @@ resource "hydra_jobset" "disnix_viewvc-trunk" {
 
 resource "hydra_jobset" "disnix_virtualhosts-master" {
   project     = hydra_project.disnix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "virtualhosts-master"
   type        = "legacy"

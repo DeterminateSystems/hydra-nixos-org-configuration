@@ -31,7 +31,7 @@ resource "hydra_jobset" "composer2nix_master" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-20.09"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
     notify_committers = false
   }
 
@@ -66,7 +66,7 @@ resource "hydra_jobset" "composer2nix_pndp-master" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-20.09"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
     notify_committers = false
   }
 
