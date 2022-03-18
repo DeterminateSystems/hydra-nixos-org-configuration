@@ -3335,7 +3335,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
   input {
     name              = "limitedSupportedSystems"
     type              = "nix"
-    value             = "[ \"i686-linux\" ]"
+    value             = "[ ] /*issues with memory, mainly aarch64-linux*/"
     notify_committers = false
   }
 
