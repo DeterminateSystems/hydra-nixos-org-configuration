@@ -3335,7 +3335,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
   input {
     name              = "limitedSupportedSystems"
     type              = "nix"
-    value             = "[ ] /*issues with memory, mainly aarch64-linux*/"
+    value             = "[ \"i686-linux\" ] /* dropping aarch64-linux works around RAM exhaustion https://github.com/NixOS/nixpkgs/issues/162317#issuecomment-1057728424*/"
     notify_committers = false
   }
 
