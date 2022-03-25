@@ -2733,19 +2733,36 @@ resource "hydra_jobset" "nixpkgs_pr-26799" {
 
 resource "hydra_jobset" "nixpkgs_pr-27209" {
   project     = hydra_project.nixpkgs.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "pr-27209"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "https://github.com/NixOS/nixpkgs/pull/27209"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "haskell-nixpkgs.nix"
+    input = "ciSrc"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "ciSrc"
+    type              = "git"
+    value             = "git://github.com/peti/ci.git"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "git://github.com/nc6/nixpkgs.git nc/haskell-multiple-out"
+    notify_committers = false
+  }
+
+  check_interval    = 186400
+  scheduling_shares = 50000
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
