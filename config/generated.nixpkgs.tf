@@ -1186,12 +1186,12 @@ resource "hydra_jobset" "nixpkgs_gnome" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\"  /*\"x86_64-darwin\"*/ ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\"  \"x86_64-darwin\" \"aarch64-darwin\" ]"
     notify_committers = false
   }
 
   check_interval    = 86400
-  scheduling_shares = 60
+  scheduling_shares = 60000
   keep_evaluations  = 1
 
   email_notifications = false
