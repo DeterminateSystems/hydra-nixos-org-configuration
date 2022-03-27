@@ -3251,19 +3251,85 @@ resource "hydra_jobset" "gnu_libunistring" {
 
 resource "hydra_jobset" "gnu_mpc-10x" {
   project     = hydra_project.gnu.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "mpc-10x"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "GNU Multi-Precision Complex Number Library 1.0 branch"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "mpc/1.0.x.nix"
+    input = "hydraConfig"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "gmp"
+    type              = "sysbuild"
+    value             = "gnu:gmp-default:build"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "gmp_xgnu"
+    type              = "build"
+    value             = "gnu:gmp-default:xbuild_gnu"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mpc"
+    type              = "svn-checkout"
+    value             = "svn://scm.gforge.inria.fr/svn/mpc/branches/1.0"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mpfr"
+    type              = "sysbuild"
+    value             = "gnu:mpfr-trunk:build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mpfr_xgnu"
+    type              = "build"
+    value             = "gnu:mpfr-trunk:xbuild_gnu"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-freebsd"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
   email_override      = ""
 }
 
