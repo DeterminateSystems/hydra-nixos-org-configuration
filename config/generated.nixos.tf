@@ -3333,13 +3333,6 @@ resource "hydra_jobset" "nixos_trunk-combined" {
   }
 
   input {
-    name              = "limitedSupportedSystems"
-    type              = "nix"
-    value             = "[ \"i686-linux\" ] /* dropping aarch64-linux works around RAM exhaustion https://github.com/NixOS/nixpkgs/issues/162317#issuecomment-1057728424*/"
-    notify_committers = false
-  }
-
-  input {
     name              = "nixpkgs"
     type              = "git"
     value             = "https://github.com/NixOS/nixpkgs.git"
