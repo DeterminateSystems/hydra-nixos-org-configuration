@@ -2516,19 +2516,43 @@ resource "hydra_jobset" "nixpkgs_pr-142860-stdenv-failglob" {
 
 resource "hydra_jobset" "nixpkgs_pr-146685" {
   project     = hydra_project.nixpkgs.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "pr-146685"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "ncurses: 6.2 -> 6.3"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/trofi/nixpkgs.git update-ncurses"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\"  /*\"aarch64-linux\" \"x86_64-darwin\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
   email_override      = ""
 }
 
