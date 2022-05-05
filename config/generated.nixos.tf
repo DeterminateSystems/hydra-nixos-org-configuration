@@ -526,6 +526,48 @@ resource "hydra_jobset" "nixos_glibc-2_20" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_glibc-2_35" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "glibc-2.35"
+  type        = "legacy"
+  description = "Testing glibc 2.35: https://github.com/NixOS/nixpkgs/pull/165979"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/Ma27/nixpkgs.git glibc-2.35"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_gnome-3_20" {
   project     = hydra_project.nixos.name
   state       = "disabled"

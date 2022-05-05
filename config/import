@@ -169,6 +169,7 @@ terraform import hydra_jobset.nixos_gcc-8 nixos/gcc-8
 terraform import hydra_jobset.nixos_glibc-2_18 nixos/glibc-2.18
 terraform import hydra_jobset.nixos_glibc-2_19 nixos/glibc-2.19
 terraform import hydra_jobset.nixos_glibc-2_20 nixos/glibc-2.20
+terraform import hydra_jobset.nixos_glibc-2_35 nixos/glibc-2.35
 terraform import hydra_jobset.nixos_gnome-3_20 nixos/gnome-3.20
 terraform import hydra_jobset.nixos_grahamc-i686 nixos/grahamc-i686
 terraform import hydra_jobset.nixos_grsec-stdenv nixos/grsec-stdenv
