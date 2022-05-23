@@ -2836,6 +2836,41 @@ resource "hydra_jobset" "nixos_release-21_11-small" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_release-22_05-small" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "release-22.05-small"
+  type        = "legacy"
+  description = "NixOS 22.05 release branch"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-22.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 43200
+  scheduling_shares = 20000000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_reproducibility" {
   project     = hydra_project.nixos.name
   state       = "disabled"
