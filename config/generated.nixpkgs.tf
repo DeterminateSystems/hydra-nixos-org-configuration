@@ -2094,6 +2094,48 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-21_11-darwin" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_nixpkgs-22_05-darwin" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "nixpkgs-22.05-darwin"
+  type        = "legacy"
+  description = "Darwin builds for the NixOS 22.05 release."
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-22.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-darwin\" \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 43200
+  scheduling_shares = 5000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-aarch64-darwin" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
@@ -3677,6 +3719,48 @@ resource "hydra_jobset" "nixpkgs_staging-next-21_11" {
 
   check_interval    = 172800
   scheduling_shares = 50
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-22_05" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "staging-next-22.05"
+  type        = "legacy"
+  description = "Staging 22.05"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-22.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 5000
   keep_evaluations  = 1
 
   email_notifications = false
