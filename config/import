@@ -315,6 +315,7 @@ terraform import hydra_jobset.nixpkgs_pr-132490 nixpkgs/pr-132490
 terraform import hydra_jobset.nixpkgs_pr-139514 nixpkgs/pr-139514
 terraform import hydra_jobset.nixpkgs_pr-142860-stdenv-failglob nixpkgs/pr-142860-stdenv-failglob
 terraform import hydra_jobset.nixpkgs_pr-146685 nixpkgs/pr-146685
+terraform import hydra_jobset.nixpkgs_pr-150093 nixpkgs/pr-150093
 terraform import hydra_jobset.nixpkgs_pr-1515 nixpkgs/pr-1515
 terraform import hydra_jobset.nixpkgs_pr-1633 nixpkgs/pr-1633
 terraform import hydra_jobset.nixpkgs_pr-19990 nixpkgs/pr-19990
@@ -356,8 +357,6 @@ terraform import hydra_jobset.nixpkgs_systemd nixpkgs/systemd
 terraform import hydra_jobset.nixpkgs_tmp-fetch-sources nixpkgs/tmp-fetch-sources
 terraform import hydra_jobset.nixpkgs_toonn-wip nixpkgs/toonn-wip
 terraform import hydra_jobset.nixpkgs_trunk nixpkgs/trunk
-terraform import hydra_jobset.nixpkgs_vcunat-stdenv nixpkgs/vcunat-stdenv
-terraform import hydra_jobset.nixpkgs_xorg-test nixpkgs/xorg-test
 terraform import hydra_jobset.node-hydra-connector_node-hydra-connector-master node-hydra-connector/node-hydra-connector-master
 terraform import hydra_jobset.node2nix_master node2nix/master
 terraform import hydra_jobset.node2nix_nijs-master node2nix/nijs-master

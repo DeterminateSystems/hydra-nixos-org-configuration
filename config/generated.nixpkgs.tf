@@ -2598,6 +2598,48 @@ resource "hydra_jobset" "nixpkgs_pr-146685" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-150093" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-150093"
+  type        = "legacy"
+  description = "PR #150093: treewide: default openssl to 3.0"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git openssl3"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-1515" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
@@ -3972,8 +4014,8 @@ resource "hydra_jobset" "nixpkgs_systemd" {
 
 resource "hydra_jobset" "nixpkgs_tmp-fetch-sources" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "tmp-fetch-sources"
   type        = "legacy"
   description = "TMP: fetch sources missing on Hydra"
@@ -4082,72 +4124,3 @@ resource "hydra_jobset" "nixpkgs_trunk" {
   email_override      = ""
 }
 
-resource "hydra_jobset" "nixpkgs_vcunat-stdenv" {
-  project     = hydra_project.nixpkgs.name
-  state       = "disabled"
-  visible     = true
-  name        = "vcunat-stdenv"
-  type        = "legacy"
-  description = "Vcunat's stdenv changes"
-
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/vcunat/nixpkgs.git p/stdenv"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 3600
-  scheduling_shares = 200
-  keep_evaluations  = 0
-
-  email_notifications = false
-  email_override      = ""
-}
-
-resource "hydra_jobset" "nixpkgs_xorg-test" {
-  project     = hydra_project.nixpkgs.name
-  state       = "disabled"
-  visible     = true
-  name        = "xorg-test"
-  type        = "legacy"
-  description = "Branch for X11-related updates"
-
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git x-updates"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 0
-
-  email_notifications = false
-  email_override      = ""
-}
