@@ -138,6 +138,7 @@ terraform import hydra_jobset.nix_maintenance-2_5 nix/maintenance-2.5
 terraform import hydra_jobset.nix_maintenance-2_6 nix/maintenance-2.6
 terraform import hydra_jobset.nix_maintenance-2_7 nix/maintenance-2.7
 terraform import hydra_jobset.nix_maintenance-2_8 nix/maintenance-2.8
+terraform import hydra_jobset.nix_maintenance-2_9 nix/maintenance-2.9
 terraform import hydra_jobset.nix_markdown nix/markdown
 terraform import hydra_jobset.nix_master nix/master
 terraform import hydra_jobset.nix_nixpkgs-master nix/nixpkgs-master
@@ -357,6 +358,8 @@ terraform import hydra_jobset.nixpkgs_systemd nixpkgs/systemd
 terraform import hydra_jobset.nixpkgs_tmp-fetch-sources nixpkgs/tmp-fetch-sources
 terraform import hydra_jobset.nixpkgs_toonn-wip nixpkgs/toonn-wip
 terraform import hydra_jobset.nixpkgs_trunk nixpkgs/trunk
+terraform import hydra_jobset.nixpkgs_vcunat-stdenv nixpkgs/vcunat-stdenv
+terraform import hydra_jobset.nixpkgs_xorg-test nixpkgs/xorg-test
 terraform import hydra_jobset.node-hydra-connector_node-hydra-connector-master node-hydra-connector/node-hydra-connector-master
 terraform import hydra_jobset.node2nix_master node2nix/master
 terraform import hydra_jobset.node2nix_nijs-master node2nix/nijs-master

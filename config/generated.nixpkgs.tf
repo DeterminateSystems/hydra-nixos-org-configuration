@@ -4124,3 +4124,72 @@ resource "hydra_jobset" "nixpkgs_trunk" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_vcunat-stdenv" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "vcunat-stdenv"
+  type        = "legacy"
+  description = "Vcunat's stdenv changes"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/vcunat/nixpkgs.git p/stdenv"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 200
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_xorg-test" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "xorg-test"
+  type        = "legacy"
+  description = "Branch for X11-related updates"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git x-updates"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
