@@ -2395,6 +2395,48 @@ resource "hydra_jobset" "nixpkgs_pr-10399" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-110571" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-110571"
+  type        = "legacy"
+  description = "migrate to -fno-common"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/Gaelan/nixpkgs.git no-common"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"x86_64-darwin\" /*\"aarch64-linux\" \"aarch64-darwin\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-12701" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
@@ -3760,7 +3802,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-21_11" {
   }
 
   check_interval    = 172800
-  scheduling_shares = 50
+  scheduling_shares = 500
   keep_evaluations  = 1
 
   email_notifications = false
