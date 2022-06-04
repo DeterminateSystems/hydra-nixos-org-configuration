@@ -3773,7 +3773,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-21_11" {
   visible     = true
   name        = "staging-next-21.11"
   type        = "legacy"
-  description = "Staging 21.11"
+  description = "Staging-next 21.11"
 
   nix_expression {
     file  = "pkgs/top-level/release.nix"
@@ -3802,7 +3802,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-21_11" {
   }
 
   check_interval    = 172800
-  scheduling_shares = 500
+  scheduling_shares = 5000
   keep_evaluations  = 1
 
   email_notifications = false
