@@ -50,6 +50,24 @@ resource "hydra_jobset" "nix_PR-1643" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_boost-dylib" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "boost-dylib"
+  type        = "flake"
+  description = "Default branch"
+
+  flake_uri = "github:edolstra/nix/boost-dylib"
+
+  check_interval    = 600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_experimental" {
   project     = hydra_project.nix.name
   state       = "disabled"

@@ -123,6 +123,7 @@ terraform import hydra_jobset.mturk_xfce mturk/xfce
 terraform import hydra_jobset.nix-androidenvtests_nix-androidenvtests-master nix-androidenvtests/nix-androidenvtests-master
 terraform import hydra_jobset.nix-pills_master nix-pills/master
 terraform import hydra_jobset.nix_PR-1643 nix/PR-1643
+terraform import hydra_jobset.nix_boost-dylib nix/boost-dylib
 terraform import hydra_jobset.nix_experimental nix/experimental
 terraform import hydra_jobset.nix_fast-eval nix/fast-eval
 terraform import hydra_jobset.nix_flakes nix/flakes
