@@ -52,8 +52,8 @@ resource "hydra_jobset" "nix_PR-1643" {
 
 resource "hydra_jobset" "nix_boost-dylib" {
   project     = hydra_project.nix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "boost-dylib"
   type        = "flake"
   description = "Default branch"
@@ -235,8 +235,8 @@ resource "hydra_jobset" "nix_gc-branch" {
 
 resource "hydra_jobset" "nix_mac-hang" {
   project     = hydra_project.nix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "mac-hang"
   type        = "flake"
   description = "Default branch"
