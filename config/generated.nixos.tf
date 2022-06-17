@@ -1002,6 +1002,41 @@ resource "hydra_jobset" "nixos_nixos-test-expensive-eval" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_nixos-test-staging" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "nixos-test-staging"
+  type        = "legacy"
+  description = ""
+
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git nixos-test-staging"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 10
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_nixup" {
   project     = hydra_project.nixos.name
   state       = "disabled"
@@ -1256,41 +1291,6 @@ resource "hydra_jobset" "nixos_pr-154911-cryptsetup-unstable-small" {
   check_interval    = 43200
   scheduling_shares = 20000000
   keep_evaluations  = 1
-
-  email_notifications = false
-  email_override      = ""
-}
-
-resource "hydra_jobset" "nixos_python-test-refactoring" {
-  project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
-  name        = "python-test-refactoring"
-  type        = "legacy"
-  description = "https://github.com/NixOS/nixpkgs/pull/149329"
-
-  nix_expression {
-    file  = "nixos/release.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/marijanp/nixpkgs.git test-driver-restructuring"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 7200
-  scheduling_shares = 10000
-  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

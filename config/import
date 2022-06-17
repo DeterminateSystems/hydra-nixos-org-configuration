@@ -183,6 +183,7 @@ terraform import hydra_jobset.nixos_master nixos/master
 terraform import hydra_jobset.nixos_modular nixos/modular
 terraform import hydra_jobset.nixos_nix-2_0 nixos/nix-2.0
 terraform import hydra_jobset.nixos_nixos-test-expensive-eval nixos/nixos-test-expensive-eval
+terraform import hydra_jobset.nixos_nixos-test-staging nixos/nixos-test-staging
 terraform import hydra_jobset.nixos_nixup nixos/nixup
 terraform import hydra_jobset.nixos_openssl-1_1 nixos/openssl-1.1
 terraform import hydra_jobset.nixos_patchelf-0_10 nixos/patchelf-0.10
@@ -190,7 +191,6 @@ terraform import hydra_jobset.nixos_patchelf-0_9 nixos/patchelf-0.9
 terraform import hydra_jobset.nixos_perl-5_20 nixos/perl-5.20
 terraform import hydra_jobset.nixos_perl-5_22 nixos/perl-5.22
 terraform import hydra_jobset.nixos_pr-154911-cryptsetup-unstable-small nixos/pr-154911-cryptsetup-unstable-small
-terraform import hydra_jobset.nixos_python-test-refactoring nixos/python-test-refactoring
 terraform import hydra_jobset.nixos_release-13_10 nixos/release-13.10
 terraform import hydra_jobset.nixos_release-14_04 nixos/release-14.04
 terraform import hydra_jobset.nixos_release-14_04-small nixos/release-14.04-small
