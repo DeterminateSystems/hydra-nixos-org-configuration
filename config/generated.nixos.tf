@@ -1008,7 +1008,7 @@ resource "hydra_jobset" "nixos_nixos-test-staging" {
   visible     = true
   name        = "nixos-test-staging"
   type        = "legacy"
-  description = ""
+  description = "Staging branch for changes to the NixOS test driver"
 
   nix_expression {
     file  = "nixos/release.nix"
@@ -1029,7 +1029,7 @@ resource "hydra_jobset" "nixos_nixos-test-staging" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = 7200
   scheduling_shares = 10
   keep_evaluations  = 0
 
