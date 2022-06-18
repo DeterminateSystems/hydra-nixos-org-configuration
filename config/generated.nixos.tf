@@ -3132,7 +3132,7 @@ resource "hydra_jobset" "nixos_staging-small" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-next"
+    value             = "https://github.com/vcunat/nixpkgs.git p/dbus-config-closure"
     notify_committers = false
   }
 
