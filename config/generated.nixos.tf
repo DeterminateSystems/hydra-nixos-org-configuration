@@ -1277,7 +1277,7 @@ resource "hydra_jobset" "nixos_python-test-refactoring" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git nixos-test-staging"
+    value             = "https://github.com/nixos/nixpkgs.git python-test-refactoring"
     notify_committers = false
   }
 
