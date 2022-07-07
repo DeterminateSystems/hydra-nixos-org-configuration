@@ -2397,8 +2397,8 @@ resource "hydra_jobset" "nixpkgs_pr-10399" {
 
 resource "hydra_jobset" "nixpkgs_pr-110571" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-110571"
   type        = "legacy"
   description = "migrate to -fno-common"
@@ -2429,7 +2429,7 @@ resource "hydra_jobset" "nixpkgs_pr-110571" {
     notify_committers = false
   }
 
-  check_interval    = 172800
+  check_interval    = 0
   scheduling_shares = 1
   keep_evaluations  = 1
 
