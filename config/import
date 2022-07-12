@@ -132,6 +132,7 @@ terraform import hydra_jobset.nix_mac-hang nix/mac-hang
 terraform import hydra_jobset.nix_maintenance-1_11 nix/maintenance-1.11
 terraform import hydra_jobset.nix_maintenance-2_0 nix/maintenance-2.0
 terraform import hydra_jobset.nix_maintenance-2_1 nix/maintenance-2.1
+terraform import hydra_jobset.nix_maintenance-2_10 nix/maintenance-2.10
 terraform import hydra_jobset.nix_maintenance-2_2 nix/maintenance-2.2
 terraform import hydra_jobset.nix_maintenance-2_3 nix/maintenance-2.3
 terraform import hydra_jobset.nix_maintenance-2_4 nix/maintenance-2.4
