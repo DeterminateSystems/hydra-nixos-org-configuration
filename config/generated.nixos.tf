@@ -1261,6 +1261,48 @@ resource "hydra_jobset" "nixos_pr-154911-cryptsetup-unstable-small" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_pr-181764-libxcrypt" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-181764-libxcrypt"
+  type        = "legacy"
+  description = "PR: glibc: make crypt support optional"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/mweinelt/nixpkgs.git glibc-without-libcrypt"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 43200
+  scheduling_shares = 2
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_python-test-refactoring" {
   project     = hydra_project.nixos.name
   state       = "enabled"
