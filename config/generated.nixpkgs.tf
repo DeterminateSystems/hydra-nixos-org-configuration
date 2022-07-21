@@ -2670,7 +2670,7 @@ resource "hydra_jobset" "nixpkgs_pr-150093" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" ]"
+    value             = "[ \"x86_64-linux\" \"x86_64-darwin\" \"aarch64-darwin\" ]"
     notify_committers = false
   }
 

@@ -3174,7 +3174,7 @@ resource "hydra_jobset" "nixos_staging-small" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-next"
+    value             = "https://github.com/NixOS/nixpkgs.git staging"
     notify_committers = false
   }
 
@@ -3193,7 +3193,7 @@ resource "hydra_jobset" "nixos_staging-small" {
   }
 
   check_interval    = 172800
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
