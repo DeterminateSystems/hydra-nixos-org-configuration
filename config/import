@@ -323,6 +323,7 @@ terraform import hydra_jobset.nixpkgs_pr-146685 nixpkgs/pr-146685
 terraform import hydra_jobset.nixpkgs_pr-150093 nixpkgs/pr-150093
 terraform import hydra_jobset.nixpkgs_pr-1515 nixpkgs/pr-1515
 terraform import hydra_jobset.nixpkgs_pr-1633 nixpkgs/pr-1633
+terraform import hydra_jobset.nixpkgs_pr-182538-glibc-2_35 nixpkgs/pr-182538-glibc-2.35
 terraform import hydra_jobset.nixpkgs_pr-19990 nixpkgs/pr-19990
 terraform import hydra_jobset.nixpkgs_pr-2131 nixpkgs/pr-2131
 terraform import hydra_jobset.nixpkgs_pr-26799 nixpkgs/pr-26799

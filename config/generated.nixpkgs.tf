@@ -990,8 +990,8 @@ resource "hydra_jobset" "nixpkgs_glibc-2-27" {
 
 resource "hydra_jobset" "nixpkgs_glibc-2_34" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "glibc-2.34"
   type        = "legacy"
   description = "https://github.com/NixOS/nixpkgs/pull/133431"
@@ -2752,6 +2752,48 @@ resource "hydra_jobset" "nixpkgs_pr-1633" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-182538-glibc-2_35" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-182538-glibc-2.35"
+  type        = "legacy"
+  description = "Testing glibc 2.35: https://github.com/NixOS/nixpkgs/pull/182538"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git glibc-2.35"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-19990" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
@@ -3718,7 +3760,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 432000
-  scheduling_shares = 100
+  scheduling_shares = 1000
   keep_evaluations  = 1
 
   email_notifications = false
