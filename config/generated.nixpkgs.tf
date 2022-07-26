@@ -2754,8 +2754,8 @@ resource "hydra_jobset" "nixpkgs_pr-1633" {
 
 resource "hydra_jobset" "nixpkgs_pr-182538-glibc-2_35" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-182538-glibc-2.35"
   type        = "legacy"
   description = "Testing glibc 2.35: https://github.com/NixOS/nixpkgs/pull/182538"
