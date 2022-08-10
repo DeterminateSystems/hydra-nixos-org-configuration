@@ -783,42 +783,18 @@ resource "hydra_jobset" "nix_tmp-pr-test" {
 
 resource "hydra_jobset" "nix_tmp-rust" {
   project     = hydra_project.nix.name
-  state       = "enabled"
-  visible     = false
+  state       = "UNKNOWN"
+  visible     = 
   name        = "tmp-rust"
-  type        = "legacy"
-  description = "Rust test"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "release.nix"
-    input = "nix"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nix"
-    type              = "git"
-    value             = "https://github.com/edolstra/nix.git oxidize"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-19.09-small"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 100
-  keep_evaluations  = 3
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
