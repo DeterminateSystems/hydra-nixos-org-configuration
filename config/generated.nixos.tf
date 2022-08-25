@@ -3174,7 +3174,7 @@ resource "hydra_jobset" "nixos_staging-small" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next"
     notify_committers = false
   }
 
@@ -3188,7 +3188,7 @@ resource "hydra_jobset" "nixos_staging-small" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
     notify_committers = false
   }
 
