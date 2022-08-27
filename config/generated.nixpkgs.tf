@@ -2794,6 +2794,48 @@ resource "hydra_jobset" "nixpkgs_pr-182538-glibc-2_35" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-185297-binutils-2_39" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-185297-binutils-2.39"
+  type        = "legacy"
+  description = "Testing binutils 2.39: https://github.com/NixOS/nixpkgs/pull/185297"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/trofi/nixpkgs.git binutils-2.39"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-19990" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
