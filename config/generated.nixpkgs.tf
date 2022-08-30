@@ -2836,6 +2836,48 @@ resource "hydra_jobset" "nixpkgs_pr-185297-binutils-2_39" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-188492-glibc-2_36" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-188492-glibc-2.36"
+  type        = "legacy"
+  description = "Testing glibc 2.36: https://github.com/NixOS/nixpkgs/pull/188492"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git glibc-2.36"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-19990" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
