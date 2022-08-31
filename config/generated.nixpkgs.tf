@@ -3965,12 +3965,12 @@ resource "hydra_jobset" "nixpkgs_staging-next-22_05" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" /*\"x86_64-darwin\"*/ ]"
     notify_committers = false
   }
 
   check_interval    = 172800
-  scheduling_shares = 1
+  scheduling_shares = 100
   keep_evaluations  = 1
 
   email_notifications = false
