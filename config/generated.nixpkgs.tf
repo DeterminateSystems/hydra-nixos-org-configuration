@@ -2096,7 +2096,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-21_11-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-22_05-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "nixpkgs-22.05-darwin"
   type        = "legacy"
@@ -2796,8 +2796,8 @@ resource "hydra_jobset" "nixpkgs_pr-182538-glibc-2_35" {
 
 resource "hydra_jobset" "nixpkgs_pr-185297-binutils-2_39" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-185297-binutils-2.39"
   type        = "legacy"
   description = "Testing binutils 2.39: https://github.com/NixOS/nixpkgs/pull/185297"
