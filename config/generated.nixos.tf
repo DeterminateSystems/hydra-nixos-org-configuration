@@ -3160,7 +3160,7 @@ resource "hydra_jobset" "nixos_staging-17_03" {
 
 resource "hydra_jobset" "nixos_staging-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "staging-small"
   type        = "legacy"
