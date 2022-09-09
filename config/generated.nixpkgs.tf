@@ -4284,6 +4284,13 @@ resource "hydra_jobset" "nixpkgs_trunk" {
     notify_committers = false
   }
 
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"x86_64-darwin\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
   check_interval    = 28800
   scheduling_shares = 3000
   keep_evaluations  = 3
