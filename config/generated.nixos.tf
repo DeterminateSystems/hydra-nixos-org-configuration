@@ -3657,7 +3657,7 @@ resource "hydra_jobset" "nixos_unstable-aarch64" {
 
 resource "hydra_jobset" "nixos_unstable-small" {
   project     = hydra_project.nixos.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = true
   name        = "unstable-small"
   type        = "legacy"
