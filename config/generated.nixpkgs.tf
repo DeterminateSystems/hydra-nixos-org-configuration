@@ -2222,19 +2222,29 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-armv7l" {
 
 resource "hydra_jobset" "nixpkgs_openssl-1_1" {
   project     = hydra_project.nixpkgs.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "openssl-1.1"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "openssl 1.1 test"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git openssl-1.1"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  check_interval    = 0
+  scheduling_shares = 2342
+  keep_evaluations  = 1
+
+  email_notifications = false
   email_override      = ""
 }
 
@@ -3829,7 +3839,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"x86_64-darwin\" /*\"aarch64-linux\"*/ \"aarch64-darwin\" ]"
+    value             = "[ \"x86_64-linux\" \"x86_64-darwin\" \"aarch64-linux\" \"aarch64-darwin\" ]"
     notify_committers = false
   }
 
