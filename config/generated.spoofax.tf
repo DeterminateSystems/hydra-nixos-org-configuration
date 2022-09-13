@@ -66,20 +66,51 @@ resource "hydra_jobset" "spoofax_plasticode" {
 
 resource "hydra_jobset" "spoofax_runtime-libraries" {
   project     = hydra_project.spoofax.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "runtime-libraries"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Build runtime libraries into Stratego ctrees and jars"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "org.spoofax.meta.runtime.libraries/build.nix"
+    input = "runtime-libraries"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
 
-  email_notifications = 
-  email_override      = ""
+  input {
+    name              = "runtime-libraries"
+    type              = "git"
+    value             = "https://github.com/metaborg/runtime-libraries.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strategoxt"
+    type              = "git"
+    value             = "https://github.com/metaborg/strategoxt.git java-bootstrap"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strj"
+    type              = "sysbuild"
+    value             = "strategoxt-java:strategoxt-java-bootstrap:bootstrap3"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 200
+  keep_evaluations  = 0
+
+  email_notifications = true
+  email_override      = "g.d.p.konat@tudelft.nl"
 }
 
 resource "hydra_jobset" "spoofax_spoofax-ace" {
