@@ -128,6 +128,7 @@ terraform import hydra_jobset.nix_experimental nix/experimental
 terraform import hydra_jobset.nix_fast-eval nix/fast-eval
 terraform import hydra_jobset.nix_flakes nix/flakes
 terraform import hydra_jobset.nix_gc-branch nix/gc-branch
+terraform import hydra_jobset.nix_installer-test nix/installer-test
 terraform import hydra_jobset.nix_mac-hang nix/mac-hang
 terraform import hydra_jobset.nix_maintenance-1_11 nix/maintenance-1.11
 terraform import hydra_jobset.nix_maintenance-2_0 nix/maintenance-2.0

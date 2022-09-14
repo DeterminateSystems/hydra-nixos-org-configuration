@@ -233,6 +233,24 @@ resource "hydra_jobset" "nix_gc-branch" {
   email_override      = "eelco.dolstra@logicblox.com"
 }
 
+resource "hydra_jobset" "nix_installer-test" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "installer-test"
+  type        = "flake"
+  description = "Installer test"
+
+  flake_uri = "github:edolstra/nix/installer-test"
+
+  check_interval    = 600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_mac-hang" {
   project     = hydra_project.nix.name
   state       = "disabled"
