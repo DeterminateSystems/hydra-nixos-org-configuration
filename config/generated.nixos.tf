@@ -3158,13 +3158,55 @@ resource "hydra_jobset" "nixos_staging-17_03" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_staging-next-small" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "staging-next-small"
+  type        = "legacy"
+  description = "staging-next branch"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_staging-small" {
   project     = hydra_project.nixos.name
   state       = "enabled"
   visible     = true
   name        = "staging-small"
   type        = "legacy"
-  description = "staging-next branch (or staging sometimes)"
+  description = "staging branch"
 
   nix_expression {
     file  = "nixos/release-small.nix"
@@ -3193,7 +3235,7 @@ resource "hydra_jobset" "nixos_staging-small" {
   }
 
   check_interval    = 0
-  scheduling_shares = 10
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false

@@ -241,6 +241,7 @@ terraform import hydra_jobset.nixos_reproducibility nixos/reproducibility
 terraform import hydra_jobset.nixos_rhel6 nixos/rhel6
 terraform import hydra_jobset.nixos_staging nixos/staging
 terraform import hydra_jobset.nixos_staging-17_03 nixos/staging-17.03
+terraform import hydra_jobset.nixos_staging-next-small nixos/staging-next-small
 terraform import hydra_jobset.nixos_staging-small nixos/staging-small
 terraform import hydra_jobset.nixos_stdenv-test nixos/stdenv-test
 terraform import hydra_jobset.nixos_stdenv-updates nixos/stdenv-updates
