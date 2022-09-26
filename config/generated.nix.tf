@@ -235,8 +235,8 @@ resource "hydra_jobset" "nix_gc-branch" {
 
 resource "hydra_jobset" "nix_installer-test" {
   project     = hydra_project.nix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "installer-test"
   type        = "flake"
   description = "Installer test"
