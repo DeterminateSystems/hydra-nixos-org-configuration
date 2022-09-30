@@ -24,6 +24,7 @@ terraform import hydra_jobset.disnix_php-mysql-trunk disnix/php-mysql-trunk
 terraform import hydra_jobset.disnix_viewvc-trunk disnix/viewvc-trunk
 terraform import hydra_jobset.disnix_virtualhosts-master disnix/virtualhosts-master
 terraform import hydra_jobset.dwarffs_master dwarffs/master
+terraform import hydra_jobset.equinix-metal-builders_main equinix-metal-builders/main
 terraform import hydra_jobset.flakes_blender-bin flakes/blender-bin
 terraform import hydra_jobset.flakes_dhdm flakes/dhdm
 terraform import hydra_jobset.flakes_hugefs flakes/hugefs
@@ -457,6 +458,7 @@ terraform import hydra_project.composer2nix composer2nix
 terraform import hydra_project.crawljax crawljax
 terraform import hydra_project.disnix disnix
 terraform import hydra_project.dwarffs dwarffs
+terraform import hydra_project.equinix-metal-builders equinix-metal-builders
 terraform import hydra_project.flakes flakes
 terraform import hydra_project.gnu gnu
 terraform import hydra_project.groove groove
