@@ -518,11 +518,11 @@ resource "hydra_jobset" "gnu_coreutils-master" {
     notify_committers = false
   }
 
-  check_interval    = 300
+  check_interval    = 86400
   scheduling_shares = 100
   keep_evaluations  = 1
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -938,7 +938,7 @@ resource "hydra_jobset" "gnu_emacs-trunk" {
     notify_committers = false
   }
 
-  check_interval    = 300
+  check_interval    = 86400
   scheduling_shares = 100
   keep_evaluations  = 1
 
@@ -2030,7 +2030,7 @@ resource "hydra_jobset" "gnu_guile-2-0" {
     notify_committers = false
   }
 
-  check_interval    = 300
+  check_interval    = 86386
   scheduling_shares = 100
   keep_evaluations  = 1
 
@@ -2443,11 +2443,11 @@ resource "hydra_jobset" "gnu_hello-master" {
     notify_committers = false
   }
 
-  check_interval    = 300
+  check_interval    = 86381
   scheduling_shares = 100
   keep_evaluations  = 1
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -2814,11 +2814,11 @@ resource "hydra_jobset" "gnu_inetutils-master" {
     notify_committers = false
   }
 
-  check_interval    = 300
+  check_interval    = 86400
   scheduling_shares = 100
   keep_evaluations  = 1
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -3787,11 +3787,11 @@ resource "hydra_jobset" "gnu_rcs-master" {
     notify_committers = false
   }
 
-  check_interval    = 300
+  check_interval    = 86381
   scheduling_shares = 100
   keep_evaluations  = 1
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -4032,7 +4032,7 @@ resource "hydra_jobset" "gnu_zile-master" {
     notify_committers = false
   }
 
-  check_interval    = 300
+  check_interval    = 86382
   scheduling_shares = 100
   keep_evaluations  = 1
 
@@ -4095,7 +4095,7 @@ resource "hydra_jobset" "gnu_zile-vala" {
     notify_committers = false
   }
 
-  check_interval    = 300
+  check_interval    = 86400
   scheduling_shares = 100
   keep_evaluations  = 1
 
