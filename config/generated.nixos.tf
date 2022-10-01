@@ -1270,7 +1270,7 @@ resource "hydra_jobset" "nixos_pr-181764-libxcrypt" {
   description = "PR: glibc: make crypt support optional"
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
+    file  = "nixos/release-combined.nix"
     input = "nixpkgs"
   }
 
@@ -1295,7 +1295,7 @@ resource "hydra_jobset" "nixos_pr-181764-libxcrypt" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = 172800
   scheduling_shares = 2
   keep_evaluations  = 1
 
