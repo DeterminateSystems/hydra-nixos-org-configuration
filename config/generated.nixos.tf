@@ -1303,6 +1303,41 @@ resource "hydra_jobset" "nixos_pr-181764-libxcrypt" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_pr-193600-aarch64-support" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-193600-aarch64-support"
+  type        = "legacy"
+  description = "Testing PR #193600: nixos/release: Make aarch64-linux a supported system again"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/mweinelt/nixpkgs.git release-small-aarch64"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 1
+  keep_evaluations  = 2
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_python-test-refactoring" {
   project     = hydra_project.nixos.name
   state       = "enabled"
