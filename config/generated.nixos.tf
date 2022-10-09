@@ -528,7 +528,7 @@ resource "hydra_jobset" "nixos_glibc-2_20" {
 
 resource "hydra_jobset" "nixos_glibc-2_35" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "glibc-2.35"
   type        = "legacy"
@@ -1263,8 +1263,8 @@ resource "hydra_jobset" "nixos_pr-154911-cryptsetup-unstable-small" {
 
 resource "hydra_jobset" "nixos_pr-181764-libxcrypt" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-181764-libxcrypt"
   type        = "legacy"
   description = "PR: glibc: make crypt support optional"
@@ -1312,7 +1312,7 @@ resource "hydra_jobset" "nixos_pr-193600-aarch64-support" {
   description = "Testing PR #193600: nixos/release: Make aarch64-linux a supported system again"
 
   nix_expression {
-    file  = "nixos/release-small.nix"
+    file  = "nixos/release-combined.nix"
     input = "nixpkgs"
   }
 
@@ -1330,7 +1330,7 @@ resource "hydra_jobset" "nixos_pr-193600-aarch64-support" {
     notify_committers = false
   }
 
-  check_interval    = 3600
+  check_interval    = 36000
   scheduling_shares = 1
   keep_evaluations  = 2
 
