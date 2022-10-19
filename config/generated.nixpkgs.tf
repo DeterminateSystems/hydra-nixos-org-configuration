@@ -2878,6 +2878,48 @@ resource "hydra_jobset" "nixpkgs_pr-188492-glibc-2_36" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-196565-darwin-gcc11_3" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-196565-darwin-gcc11.3"
+  type        = "legacy"
+  description = "Testing gcc 11.3 for *-darwin: https://github.com/NixOS/nixpkgs/pull/196565"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/zhaofengli/nixpkgs.git darwin-gcc-11-3-master"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-darwin\" \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-19990" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
