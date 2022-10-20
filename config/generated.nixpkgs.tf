@@ -2912,7 +2912,7 @@ resource "hydra_jobset" "nixpkgs_pr-196565-darwin-gcc11_3" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = 0
   scheduling_shares = 1
   keep_evaluations  = 1
 
