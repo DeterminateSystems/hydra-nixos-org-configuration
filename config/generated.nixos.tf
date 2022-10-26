@@ -3031,7 +3031,7 @@ resource "hydra_jobset" "nixos_release-22_05-small" {
     notify_committers = false
   }
 
-  check_interval    = 43200
+  check_interval    = 28800
   scheduling_shares = 20000000
   keep_evaluations  = 1
 
@@ -3759,7 +3759,7 @@ resource "hydra_jobset" "nixos_unstable-small" {
     notify_committers = false
   }
 
-  check_interval    = 43200
+  check_interval    = 28800
   scheduling_shares = 20000
   keep_evaluations  = 3
 
