@@ -376,6 +376,7 @@ terraform import hydra_jobset.nixpkgs_xorg-test nixpkgs/xorg-test
 terraform import hydra_jobset.node-hydra-connector_node-hydra-connector-master node-hydra-connector/node-hydra-connector-master
 terraform import hydra_jobset.node2nix_master node2nix/master
 terraform import hydra_jobset.node2nix_nijs-master node2nix/nijs-master
+terraform import hydra_jobset.ofborg_cole-flake ofborg/cole-flake
 terraform import hydra_jobset.ofborg_next ofborg/next
 terraform import hydra_jobset.ofborg_release ofborg/release
 terraform import hydra_jobset.patchelf_master patchelf/master
