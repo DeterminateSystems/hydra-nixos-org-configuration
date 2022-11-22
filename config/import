@@ -239,6 +239,8 @@ terraform import hydra_jobset.nixos_release-21_11-small nixos/release-21.11-smal
 terraform import hydra_jobset.nixos_release-22_05 nixos/release-22.05
 terraform import hydra_jobset.nixos_release-22_05-aarch64 nixos/release-22.05-aarch64
 terraform import hydra_jobset.nixos_release-22_05-small nixos/release-22.05-small
+terraform import hydra_jobset.nixos_release-22_11 nixos/release-22.11
+terraform import hydra_jobset.nixos_release-22_11-small nixos/release-22.11-small
 terraform import hydra_jobset.nixos_reproducibility nixos/reproducibility
 terraform import hydra_jobset.nixos_rhel6 nixos/rhel6
 terraform import hydra_jobset.nixos_staging nixos/staging
@@ -312,6 +314,7 @@ terraform import hydra_jobset.nixpkgs_nixpkgs-20_09-darwin nixpkgs/nixpkgs-20.09
 terraform import hydra_jobset.nixpkgs_nixpkgs-21_05-darwin nixpkgs/nixpkgs-21.05-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-21_11-darwin nixpkgs/nixpkgs-21.11-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-22_05-darwin nixpkgs/nixpkgs-22.05-darwin
+terraform import hydra_jobset.nixpkgs_nixpkgs-22_11-darwin nixpkgs/nixpkgs-22.11-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-aarch64-darwin nixpkgs/nixpkgs-unstable-aarch64-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-armv7l nixpkgs/nixpkgs-unstable-armv7l
 terraform import hydra_jobset.nixpkgs_openssl-1_1 nixpkgs/openssl-1.1
@@ -363,6 +366,7 @@ terraform import hydra_jobset.nixpkgs_staging-next nixpkgs/staging-next
 terraform import hydra_jobset.nixpkgs_staging-next-21_05 nixpkgs/staging-next-21.05
 terraform import hydra_jobset.nixpkgs_staging-next-21_11 nixpkgs/staging-next-21.11
 terraform import hydra_jobset.nixpkgs_staging-next-22_05 nixpkgs/staging-next-22.05
+terraform import hydra_jobset.nixpkgs_staging-next-22_11 nixpkgs/staging-next-22.11
 terraform import hydra_jobset.nixpkgs_stdenv nixpkgs/stdenv
 terraform import hydra_jobset.nixpkgs_stdenv-fixes nixpkgs/stdenv-fixes
 terraform import hydra_jobset.nixpkgs_structured-attrs nixpkgs/structured-attrs

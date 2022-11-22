@@ -2136,6 +2136,48 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-22_05-darwin" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_nixpkgs-22_11-darwin" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "nixpkgs-22.11-darwin"
+  type        = "legacy"
+  description = "Darwin builds for the NixOS 22.11 release."
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-22.11"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-darwin\" \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 43200
+  scheduling_shares = 5000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-aarch64-darwin" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
@@ -4012,6 +4054,48 @@ resource "hydra_jobset" "nixpkgs_staging-next-22_05" {
   }
 
   check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-22_11" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "staging-next-22.11"
+  type        = "legacy"
+  description = "staging-next-22.11 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-22.11"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = -172800
   scheduling_shares = 1
   keep_evaluations  = 1
 
