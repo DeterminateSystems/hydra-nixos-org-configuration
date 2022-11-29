@@ -3062,7 +3062,7 @@ resource "hydra_jobset" "nixos_release-22_11" {
   input {
     name              = "stableBranch"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 
@@ -3104,7 +3104,7 @@ resource "hydra_jobset" "nixos_release-22_11-small" {
   input {
     name              = "stableBranch"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 
