@@ -518,7 +518,7 @@ resource "hydra_jobset" "nixpkgs_cross-trunk" {
     notify_committers = false
   }
 
-  check_interval    = 21600
+  check_interval    = 86400
   scheduling_shares = 100
   keep_evaluations  = 1
 
