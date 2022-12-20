@@ -337,6 +337,7 @@ terraform import hydra_jobset.nixpkgs_pr-185297-binutils-2_39 nixpkgs/pr-185297-
 terraform import hydra_jobset.nixpkgs_pr-188492-glibc-2_36 nixpkgs/pr-188492-glibc-2.36
 terraform import hydra_jobset.nixpkgs_pr-196565-darwin-gcc11_3 nixpkgs/pr-196565-darwin-gcc11.3
 terraform import hydra_jobset.nixpkgs_pr-19990 nixpkgs/pr-19990
+terraform import hydra_jobset.nixpkgs_pr-206907-gcc12 nixpkgs/pr-206907-gcc12
 terraform import hydra_jobset.nixpkgs_pr-2131 nixpkgs/pr-2131
 terraform import hydra_jobset.nixpkgs_pr-26799 nixpkgs/pr-26799
 terraform import hydra_jobset.nixpkgs_pr-27209 nixpkgs/pr-27209

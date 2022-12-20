@@ -2997,6 +2997,48 @@ resource "hydra_jobset" "nixpkgs_pr-19990" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-206907-gcc12" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-206907-gcc12"
+  type        = "legacy"
+  description = "Testing #206907: stdenv: gcc11 → gcc12"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/LibreCybernetics/nixpkgs.git gcc-12-stdenv"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-2131" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
