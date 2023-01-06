@@ -2180,11 +2180,11 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-22_11-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-aarch64-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nixpkgs-unstable-aarch64-darwin"
   type        = "legacy"
-  description = "Building the 'master' branch for aarch64-darwin."
+  description = "Building the 'master' branch for aarch64-darwin.  Later merged into the 'trunk' jobset."
 
   nix_expression {
     file  = "pkgs/top-level/release.nix"
