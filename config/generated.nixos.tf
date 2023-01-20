@@ -178,19 +178,36 @@ resource "hydra_jobset" "nixos_boot-order" {
 
 resource "hydra_jobset" "nixos_closure-size" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "closure-size"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Closure size reduction branch"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release-combined.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git closure-size"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 7200
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
