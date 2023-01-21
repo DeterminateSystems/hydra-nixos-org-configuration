@@ -3039,6 +3039,48 @@ resource "hydra_jobset" "nixpkgs_pr-206907-gcc12" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-211126-binutils-2_40" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-211126-binutils-2.40"
+  type        = "legacy"
+  description = "Testing #211126: binutils: 2.39 -> 2.40"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/trofi/nixpkgs.git binutils-update"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-2131" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
@@ -3970,7 +4012,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 432000
-  scheduling_shares = 200
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
