@@ -3069,7 +3069,7 @@ resource "hydra_jobset" "nixpkgs_pr-211126-binutils-2_40" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-darwin\" ]"
+    value             = "[ \"aarch64-linux\" \"aarch64-darwin\" ]"
     notify_committers = false
   }
 
