@@ -3041,8 +3041,8 @@ resource "hydra_jobset" "nixpkgs_pr-206907-gcc12" {
 
 resource "hydra_jobset" "nixpkgs_pr-211126-binutils-2_40" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-211126-binutils-2.40"
   type        = "legacy"
   description = "Testing #211126: binutils: 2.39 -> 2.40"
