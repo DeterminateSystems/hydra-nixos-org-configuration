@@ -3993,7 +3993,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/K900/nixpkgs.git mesa-spring-cleaning"
+    value             = "https://github.com/nixos/nixpkgs.git staging-next"
     notify_committers = false
   }
 
@@ -4012,7 +4012,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 432000
-  scheduling_shares = 100
+  scheduling_shares = 1000
   keep_evaluations  = 1
 
   email_notifications = false
