@@ -2999,8 +2999,8 @@ resource "hydra_jobset" "nixpkgs_pr-19990" {
 
 resource "hydra_jobset" "nixpkgs_pr-206907-gcc12" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-206907-gcc12"
   type        = "legacy"
   description = "Testing #206907: stdenv: gcc11 → gcc12"
