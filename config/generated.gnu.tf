@@ -1893,19 +1893,43 @@ resource "hydra_jobset" "gnu_gsl-master" {
 
 resource "hydra_jobset" "gnu_gsrc-testing" {
   project     = hydra_project.gnu.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "gsrc-testing"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "GNU Source Release Collection, integration tests"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "gsrc/release.nix"
+    input = "hydraConfig"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "git://repo.or.cz/nixpkgs-libre.git t/nixpkgs-libre 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-freebsd"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
   email_override      = ""
 }
 
