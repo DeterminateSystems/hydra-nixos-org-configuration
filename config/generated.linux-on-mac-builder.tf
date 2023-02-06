@@ -4,7 +4,7 @@ resource "hydra_project" "linux-on-mac-builder" {
   homepage     = "https://github.com/nix-community/linuxkit-builder/"
   description  = "An easy to use Linux builder for macOS"
   owner        = "graham@grahamc.com"
-  enabled      = true
+  enabled      = false
   visible      = true
 }
 
