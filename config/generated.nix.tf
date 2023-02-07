@@ -737,6 +737,24 @@ resource "hydra_jobset" "nix_nixpkgs-master" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_pr-7774" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-7774"
+  type        = "flake"
+  description = "PR #7774"
+
+  flake_uri = "github:edolstra/nix/submodule-fixes"
+
+  check_interval    = 7200
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_sqlite-branch" {
   project     = hydra_project.nix.name
   state       = "disabled"

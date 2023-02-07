@@ -149,6 +149,7 @@ terraform import hydra_jobset.nix_maintenance-2_9 nix/maintenance-2.9
 terraform import hydra_jobset.nix_markdown nix/markdown
 terraform import hydra_jobset.nix_master nix/master
 terraform import hydra_jobset.nix_nixpkgs-master nix/nixpkgs-master
+terraform import hydra_jobset.nix_pr-7774 nix/pr-7774
 terraform import hydra_jobset.nix_sqlite-branch nix/sqlite-branch
 terraform import hydra_jobset.nix_tmp-pr-2878 nix/tmp-pr-2878
 terraform import hydra_jobset.nix_tmp-pr-test nix/tmp-pr-test
