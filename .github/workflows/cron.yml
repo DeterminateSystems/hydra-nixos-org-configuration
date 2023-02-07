@@ -16,7 +16,9 @@ jobs:
         fetch-depth: 0
 
     - name: Installing Nix
-      uses: cachix/install-nix-action@v12
+      uses: DeterminateSystems/nix-installer-action@main
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Update config
       run: ./mirror.sh
