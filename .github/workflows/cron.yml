@@ -17,8 +17,6 @@ jobs:
 
     - name: Installing Nix
       uses: DeterminateSystems/nix-installer-action@main
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Update config
       run: ./mirror.sh
