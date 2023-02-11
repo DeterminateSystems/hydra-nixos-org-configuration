@@ -577,42 +577,18 @@ resource "hydra_jobset" "strategoxt-java_strc-javascript-trunk" {
 
 resource "hydra_jobset" "strategoxt-java_strj-frontend-refactor" {
   project     = hydra_project.strategoxt-java.name
-  state       = "disabled"
-  visible     = false
+  state       = "UNKNOWN"
+  visible     = 
   name        = "strj-frontend-refactor"
-  type        = "legacy"
-  description = "Stratego/XT distribution for Java"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "strategoxt/strategoxt-java-bootstrap.nix"
-    input = "strategoxtJava"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "javaFront"
-    type              = "git"
-    value             = "https://github.com/metaborg/java-front.git java-bootstrap"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "strategoxtJava"
-    type              = "git"
-    value             = "https://github.com/metaborg/strategoxt.git strj-front-end-refactor"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 0
-
-  email_notifications = true
-  email_override      = "v.a.vergu@tudelft.nl, e.visser@tudelft.nl, xrj3dctbrf3a@bxc.io"
+  email_notifications = 
+  email_override      = ""
 }
