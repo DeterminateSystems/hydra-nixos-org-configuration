@@ -4264,6 +4264,48 @@ resource "hydra_jobset" "nixpkgs_stdenv-fixes" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_stdenvBoot_aarch64-linux" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "stdenvBoot_aarch64-linux"
+  type        = "legacy"
+  description = "Building new stdenv bootstrap tools for aarch64-linux"
+
+  nix_expression {
+    file  = "pkgs/top-level/tmp-stdenvBoot.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/vcunat/nixpkgs.git tmp/stdenvBoot_aarch64-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 5000
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_structured-attrs" {
   project     = hydra_project.nixpkgs.name
   state       = "one-at-a-time"
