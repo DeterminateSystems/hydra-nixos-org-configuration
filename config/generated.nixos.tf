@@ -1372,7 +1372,7 @@ resource "hydra_jobset" "nixos_pr-209870-gcc-external-bootstrap" {
     notify_committers = false
   }
 
-  check_interval    = 0
+  check_interval    = 86400
   scheduling_shares = 1
   keep_evaluations  = 1
 
