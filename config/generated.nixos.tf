@@ -1338,6 +1338,48 @@ resource "hydra_jobset" "nixos_pr-193600-aarch64-support" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_pr-209870-gcc-external-bootstrap" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-209870-gcc-external-bootstrap"
+  type        = "legacy"
+  description = "Testing #209870: stdenv: external gcc bootstrap"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/amjoseph-nixpkgs/nixpkgs.git pr/stdenv/external-gcc-bootstrap"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_python-test-refactoring" {
   project     = hydra_project.nixos.name
   state       = "enabled"
