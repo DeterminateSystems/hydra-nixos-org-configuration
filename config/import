@@ -343,6 +343,7 @@ terraform import hydra_jobset.nixpkgs_pr-19990 nixpkgs/pr-19990
 terraform import hydra_jobset.nixpkgs_pr-206907-gcc12 nixpkgs/pr-206907-gcc12
 terraform import hydra_jobset.nixpkgs_pr-211126-binutils-2_40 nixpkgs/pr-211126-binutils-2.40
 terraform import hydra_jobset.nixpkgs_pr-2131 nixpkgs/pr-2131
+terraform import hydra_jobset.nixpkgs_pr-213202-llvmPackages_latest-15 nixpkgs/pr-213202-llvmPackages_latest-15
 terraform import hydra_jobset.nixpkgs_pr-26799 nixpkgs/pr-26799
 terraform import hydra_jobset.nixpkgs_pr-27209 nixpkgs/pr-27209
 terraform import hydra_jobset.nixpkgs_pr-32112 nixpkgs/pr-32112
