@@ -251,6 +251,24 @@ resource "hydra_jobset" "nix_installer-test" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_lazy-trees" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "lazy-trees"
+  type        = "flake"
+  description = "lazy-trees branch"
+
+  flake_uri = "github:edolstra/nix/lazy-trees"
+
+  check_interval    = 7200
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_mac-hang" {
   project     = hydra_project.nix.name
   state       = "disabled"
@@ -739,8 +757,8 @@ resource "hydra_jobset" "nix_nixpkgs-master" {
 
 resource "hydra_jobset" "nix_pr-7774" {
   project     = hydra_project.nix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-7774"
   type        = "flake"
   description = "PR #7774"
