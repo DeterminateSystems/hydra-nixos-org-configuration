@@ -4035,7 +4035,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git staging-next"
+    value             = "https://github.com/ttuegel/nixpkgs.git ibus-build-without-dbus-launch"
     notify_committers = false
   }
 
@@ -4054,7 +4054,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 432000
-  scheduling_shares = 50
+  scheduling_shares = 500
   keep_evaluations  = 1
 
   email_notifications = false
