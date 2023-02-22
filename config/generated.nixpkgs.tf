@@ -3146,7 +3146,7 @@ resource "hydra_jobset" "nixpkgs_pr-213202-llvmPackages_latest-15" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" /*\"x86_64-darwin\" \"aarch64-darwin\"*/ ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\" ]"
     notify_committers = false
   }
 
@@ -4035,7 +4035,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/ttuegel/nixpkgs.git ibus-build-without-dbus-launch"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next"
     notify_committers = false
   }
 
