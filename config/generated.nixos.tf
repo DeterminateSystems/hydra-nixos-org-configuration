@@ -1338,6 +1338,48 @@ resource "hydra_jobset" "nixos_pr-193600-aarch64-support" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_pr-208706-go-1_20" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-208706-go-1.20"
+  type        = "legacy"
+  description = "Testing PR #208706: go: default to 1.20"
+
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/qowoz/nixpkgs.git go119120"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 2
+  keep_evaluations  = 2
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_pr-209870-gcc-external-bootstrap" {
   project     = hydra_project.nixos.name
   state       = "enabled"

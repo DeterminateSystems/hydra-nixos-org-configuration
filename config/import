@@ -200,6 +200,7 @@ terraform import hydra_jobset.nixos_perl-5_22 nixos/perl-5.22
 terraform import hydra_jobset.nixos_pr-154911-cryptsetup-unstable-small nixos/pr-154911-cryptsetup-unstable-small
 terraform import hydra_jobset.nixos_pr-181764-libxcrypt nixos/pr-181764-libxcrypt
 terraform import hydra_jobset.nixos_pr-193600-aarch64-support nixos/pr-193600-aarch64-support
+terraform import hydra_jobset.nixos_pr-208706-go-1_20 nixos/pr-208706-go-1.20
 terraform import hydra_jobset.nixos_pr-209870-gcc-external-bootstrap nixos/pr-209870-gcc-external-bootstrap
 terraform import hydra_jobset.nixos_python-test-refactoring nixos/python-test-refactoring
 terraform import hydra_jobset.nixos_release-13_10 nixos/release-13.10
