@@ -3158,6 +3158,48 @@ resource "hydra_jobset" "nixpkgs_pr-213202-llvmPackages_latest-15" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-217568-stdenv-parallel-install" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-217568-stdenv-parallel-install"
+  type        = "legacy"
+  description = "Testing PR #217568: stdenv: enable parallel installs for parallel builds"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/trofi/nixpkgs.git stdenv-parallel-install"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-26799" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
