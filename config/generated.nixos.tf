@@ -1340,8 +1340,8 @@ resource "hydra_jobset" "nixos_pr-193600-aarch64-support" {
 
 resource "hydra_jobset" "nixos_pr-208706-go-1_20" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-208706-go-1.20"
   type        = "legacy"
   description = "Testing PR #208706: go: default to 1.20"
