@@ -4350,8 +4350,8 @@ resource "hydra_jobset" "nixpkgs_stdenv-fixes" {
 
 resource "hydra_jobset" "nixpkgs_stdenvBoot_aarch64-linux" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "stdenvBoot_aarch64-linux"
   type        = "legacy"
   description = "Building new stdenv bootstrap tools for aarch64-linux"
@@ -4364,7 +4364,7 @@ resource "hydra_jobset" "nixpkgs_stdenvBoot_aarch64-linux" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/vcunat/nixpkgs.git tmp/stdenvBoot_aarch64-linux"
+    value             = "https://github.com/vcunat/nixpkgs.git 21ec906463ea8f11abf3f9091ddd4c3276516e58"
     notify_committers = false
   }
 
