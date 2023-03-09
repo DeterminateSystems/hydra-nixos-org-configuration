@@ -5,6 +5,7 @@ on:
   push:
     branches:
     - main
+  workflow_dispatch:
 jobs:
   hourly-mirror:
     runs-on: ubuntu-latest
