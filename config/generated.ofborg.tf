@@ -66,27 +66,10 @@ resource "hydra_jobset" "ofborg_release" {
   state       = "enabled"
   visible     = true
   name        = "release"
-  type        = "legacy"
+  type        = "flake"
   description = ""
 
-  nix_expression {
-    file  = "release.nix"
-    input = "ofborg"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/nixos/nixpkgs-channels.git nixpkgs-unstable"
-    notify_committers = false
-  }
-
-  input {
-    name              = "ofborg"
-    type              = "git"
-    value             = "https://github.com/nixos/ofborg.git released"
-    notify_committers = false
-  }
+  flake_uri = "github:nixos/ofborg"
 
   check_interval    = 3600
   scheduling_shares = 1000000
