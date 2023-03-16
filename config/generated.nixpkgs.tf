@@ -3160,8 +3160,8 @@ resource "hydra_jobset" "nixpkgs_pr-213202-llvmPackages_latest-15" {
 
 resource "hydra_jobset" "nixpkgs_pr-217568-stdenv-parallel-install" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-217568-stdenv-parallel-install"
   type        = "legacy"
   description = "Testing PR #217568: stdenv: enable parallel installs for parallel builds"
