@@ -45,35 +45,18 @@ resource "hydra_jobset" "linux-on-mac-builder_master" {
 
 resource "hydra_jobset" "linux-on-mac-builder_staging" {
   project     = hydra_project.linux-on-mac-builder.name
-  state       = "enabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "staging"
-  type        = "legacy"
-  description = "LinuxKit Nix is a Linux builder for macOS machines. See https://github.com/nix-community/linuxkit-nix"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "release.nix"
-    input = "linuxkit-nix"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "linuxkit-nix"
-    type              = "git"
-    value             = "https://github.com/nix-community/linuxkit-nix.git staging"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs-channels.git nixpkgs-unstable"
-    notify_committers = false
-  }
-
-  check_interval    = 36000
-  scheduling_shares = 1000
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }

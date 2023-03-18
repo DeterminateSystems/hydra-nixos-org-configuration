@@ -66,118 +66,38 @@ resource "hydra_jobset" "gnu_autoconf-master" {
 
 resource "hydra_jobset" "gnu_automake-master" {
   project     = hydra_project.gnu.name
-  state       = "disabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "automake-master"
-  type        = "legacy"
-  description = "GNU Automake"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "automake/release.nix"
-    input = "hydraConfig"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "autoconf"
-    type              = "sysbuild"
-    value             = "autoconf-master:build"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "automakeSrc"
-    type              = "git"
-    value             = "git://git.sv.gnu.org/automake.git master 1"
-    notify_committers = false
-  }
-
-  input {
-    name              = "hydraConfig"
-    type              = "git"
-    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = true
+  email_notifications = 
   email_override      = ""
 }
 
 resource "hydra_jobset" "gnu_bash-master" {
   project     = hydra_project.gnu.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "bash-master"
   type        = "legacy"
-  description = "GNU Bourne Again Shell"
+  description = ""
 
   nix_expression {
-    file  = "bash/release.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "bashSrc"
-    type              = "git"
-    value             = "git://git.sv.gnu.org/bash.git master 1"
-    notify_committers = false
-  }
-
-  input {
-    name              = "hydraConfig"
-    type              = "git"
-    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

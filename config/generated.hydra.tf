@@ -55,13 +55,16 @@ resource "hydra_jobset" "hydra_flake" {
   state       = "disabled"
   visible     = false
   name        = "flake"
-  type        = "flake"
-  description = "Flake branch"
+  type        = "legacy"
+  description = ""
 
-  flake_uri = "github:NixOS/hydra/flake"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 600
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false

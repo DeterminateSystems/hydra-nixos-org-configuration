@@ -28,37 +28,23 @@ resource "hydra_jobset" "ofborg_cole-flake" {
 
 resource "hydra_jobset" "ofborg_next" {
   project     = hydra_project.ofborg.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "next"
   type        = "legacy"
   description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "ofborg"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/nixos/nixpkgs-channels.git nixpkgs-unstable"
-    notify_committers = false
-  }
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
-  input {
-    name              = "ofborg"
-    type              = "git"
-    value             = "https://github.com/grahamc/ofborg.git next"
-    notify_committers = false
-  }
-
-  check_interval    = 3600
-  scheduling_shares = 1000000
-  keep_evaluations  = 3
-
-  email_notifications = true
-  email_override      = "graham@grahamc.com"
+  email_notifications = false
+  email_override      = ""
 }
 
 resource "hydra_jobset" "ofborg_release" {

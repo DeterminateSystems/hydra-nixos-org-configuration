@@ -73,83 +73,38 @@ resource "hydra_jobset" "disnix_DisnixWebService-trunk" {
 
 resource "hydra_jobset" "disnix_WebServicesExample-trunk" {
   project     = hydra_project.disnix.name
-  state       = "disabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "WebServicesExample-trunk"
-  type        = "legacy"
-  description = "Web Services Example trunk"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "release.nix"
-    input = "WebServicesExample"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "WebServicesExample"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnix-stafftracker-java-example.git"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
 resource "hydra_jobset" "disnix_WebServicesExampleNET-trunk" {
   project     = hydra_project.disnix.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "WebServicesExampleNET-trunk"
   type        = "legacy"
-  description = "Web Services Example .NET version trunk"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "disnix_stafftracker_dotnet_example"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "disnix_stafftracker_dotnet_example"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnix-stafftracker-dotnet-example.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

@@ -46,17 +46,20 @@ resource "hydra_jobset" "flakes_dhdm" {
 
 resource "hydra_jobset" "flakes_hugefs" {
   project     = hydra_project.flakes.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "hugefs"
-  type        = "flake"
+  type        = "legacy"
   description = ""
 
-  flake_uri = "github:edolstra/hugefs"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 3600
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
