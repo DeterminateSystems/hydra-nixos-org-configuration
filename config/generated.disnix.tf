@@ -73,38 +73,83 @@ resource "hydra_jobset" "disnix_DisnixWebService-trunk" {
 
 resource "hydra_jobset" "disnix_WebServicesExample-trunk" {
   project     = hydra_project.disnix.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "WebServicesExample-trunk"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Web Services Example trunk"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "release.nix"
+    input = "WebServicesExample"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "WebServicesExample"
+    type              = "git"
+    value             = "https://github.com/svanderburg/disnix-stafftracker-java-example.git"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "disnix_WebServicesExampleNET-trunk" {
   project     = hydra_project.disnix.name
   state       = "disabled"
-  visible     = false
+  visible     = true
   name        = "WebServicesExampleNET-trunk"
   type        = "legacy"
-  description = ""
+  description = "Web Services Example .NET version trunk"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "release.nix"
+    input = "disnix_stafftracker_dotnet_example"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
-  keep_evaluations  = 0
+  input {
+    name              = "disnix_stafftracker_dotnet_example"
+    type              = "git"
+    value             = "https://github.com/svanderburg/disnix-stafftracker-dotnet-example.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
 
   email_notifications = false
   email_override      = ""

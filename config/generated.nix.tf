@@ -52,38 +52,59 @@ resource "hydra_jobset" "nix_PR-1643" {
 
 resource "hydra_jobset" "nix_boost-dylib" {
   project     = hydra_project.nix.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "boost-dylib"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "flake"
+  description = "Default branch"
 
-UNKNOWN INPUT TYPE
+  flake_uri = "github:edolstra/nix/boost-dylib"
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  check_interval    = 600
+  scheduling_shares = 100
+  keep_evaluations  = 1
 
-  email_notifications = 
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "nix_experimental" {
   project     = hydra_project.nix.name
   state       = "disabled"
-  visible     = false
+  visible     = true
   name        = "experimental"
   type        = "legacy"
-  description = ""
+  description = "Experimental branch"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "release.nix"
+    input = "nix"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
-  keep_evaluations  = 0
+  input {
+    name              = "nix"
+    type              = "git"
+    value             = "https://github.com/edolstra/nix.git experimental"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.03-small"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 100
+  keep_evaluations  = 1
 
   email_notifications = false
   email_override      = ""

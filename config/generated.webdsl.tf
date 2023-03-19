@@ -10,19 +10,50 @@ resource "hydra_project" "webdsl" {
 
 resource "hydra_jobset" "webdsl_reposearch-app" {
   project     = hydra_project.webdsl.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "reposearch-app"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Reposearch as standalone Java application"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "create-java-app.nix"
+    input = "reposearchSrc"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixos"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixos.git"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "reposearchSrc"
+    type              = "git"
+    value             = "https://github.com/webdsl/reposearch.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "webdsl"
+    type              = "build"
+    value             = "webdsl:trunk:buildJavaNoCheck"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
@@ -32,19 +63,89 @@ resource "hydra_jobset" "webdsl_separate-compilation" {
   visible     = false
   name        = "separate-compilation"
   type        = "legacy"
-  description = ""
+  description = "WebDSL trunk"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "release.nix"
+    input = "webdslsSrc"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "buildJava"
+    type              = "build"
+    value             = "buildJava"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixos"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixos.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "services"
+    type              = "svn"
+    value             = "https://nixos.org/repos/nix/services/trunk"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strcJava"
+    type              = "build"
+    value             = "strategoxt-java:strc-java-trunk:build  [system=\"i686-linux\"]"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "webdslsSrc"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/WebDSL/webdsls/trunk"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
-  email_override      = ""
+  email_notifications = true
+  email_override      = "rob.vermaas@gmail.com"
 }
 
 resource "hydra_jobset" "webdsl_trunk" {

@@ -63,16 +63,37 @@ resource "hydra_jobset" "nixpkgs_autoconf-2_70" {
   visible     = false
   name        = "autoconf-2.70"
   type        = "legacy"
-  description = ""
+  description = "Testing autoconf update"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
-  keep_evaluations  = 0
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/alyssais/nixpkgs.git autoconf"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
 
   email_notifications = false
   email_override      = ""

@@ -78,22 +78,43 @@ resource "hydra_jobset" "nixops_hetzner" {
 resource "hydra_jobset" "nixops_kms" {
   project     = hydra_project.nixops.name
   state       = "disabled"
-  visible     = false
+  visible     = true
   name        = "kms"
   type        = "legacy"
-  description = ""
+  description = "AWS KMS support"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "release.nix"
+    input = "nixopsSrc"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
-  keep_evaluations  = 0
+  input {
+    name              = "nixopsSrc"
+    type              = "git"
+    value             = "https://github.com/Bsami/nixops.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 1800
+  scheduling_shares = 100
+  keep_evaluations  = 1
 
   email_notifications = false
-  email_override      = ""
+  email_override      = "eelco.dolstra@logicblox.com, aszlig@redmoonstudios.org"
 }
 
 resource "hydra_jobset" "nixops_master" {

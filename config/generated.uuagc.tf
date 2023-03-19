@@ -11,20 +11,69 @@ resource "hydra_project" "uuagc" {
 resource "hydra_jobset" "uuagc_trunk" {
   project     = hydra_project.uuagc.name
   state       = "disabled"
-  visible     = false
+  visible     = true
   name        = "trunk"
   type        = "legacy"
-  description = ""
+  description = "Trunk build"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "release.nix"
+    input = "uuagcSrc"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "uuagcSrc"
+    type              = "svn"
+    value             = "https://subversion.cs.uu.nl/repos/project.STEC.uuagc/uuagc/trunk/"
+    notify_committers = false
+  }
+
+  input {
+    name              = "uulib_i686"
+    type              = "build"
+    value             = "uulib:trunk:build [system = \"i686-linux\"]"
+    notify_committers = false
+  }
+
+  input {
+    name              = "uulib_x64"
+    type              = "build"
+    value             = "uulib:trunk:build [system = \"x86_64-linux\"]"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
-  email_override      = ""
+  email_notifications = true
+  email_override      = "ariem@cs.uu.nl"
 }

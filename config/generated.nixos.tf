@@ -49,16 +49,30 @@ resource "hydra_jobset" "nixos_binutils-2_26" {
   visible     = false
   name        = "binutils-2.26"
   type        = "legacy"
-  description = ""
+  description = "Binutils 2.26 test"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "nixos/release-combined.nix"
+    input = "nixpkgs"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
-  keep_evaluations  = 0
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git binutils-2.26"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 7200
+  scheduling_shares = 100
+  keep_evaluations  = 1
 
   email_notifications = false
   email_override      = ""
