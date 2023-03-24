@@ -52,19 +52,19 @@ resource "hydra_jobset" "hydra_build-ng" {
 
 resource "hydra_jobset" "hydra_flake" {
   project     = hydra_project.hydra.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "flake"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "flake"
+  description = "Flake branch"
 
-UNKNOWN INPUT TYPE
+  flake_uri = "github:NixOS/hydra/flake"
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  check_interval    = 600
+  scheduling_shares = 100
+  keep_evaluations  = 0
 
-  email_notifications = 
+  email_notifications = false
   email_override      = ""
 }
 
