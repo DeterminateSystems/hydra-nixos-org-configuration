@@ -3354,6 +3354,48 @@ resource "hydra_jobset" "nixos_staging-17_03" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_staging-next-22_11-small" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "staging-next-22.11-small"
+  type        = "legacy"
+  description = "staging{,-next}-22.11 branch, manually depending on situation"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-22.11"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_staging-next-small" {
   project     = hydra_project.nixos.name
   state       = "enabled"
