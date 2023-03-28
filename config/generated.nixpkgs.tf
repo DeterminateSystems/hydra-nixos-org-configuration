@@ -4231,7 +4231,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-22_05" {
 
 resource "hydra_jobset" "nixpkgs_staging-next-22_11" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = true
   name        = "staging-next-22.11"
   type        = "legacy"
@@ -4263,8 +4263,8 @@ resource "hydra_jobset" "nixpkgs_staging-next-22_11" {
     notify_committers = false
   }
 
-  check_interval    = 172800
-  scheduling_shares = 10000
+  check_interval    = 0
+  scheduling_shares = 100
   keep_evaluations  = 1
 
   email_notifications = false
