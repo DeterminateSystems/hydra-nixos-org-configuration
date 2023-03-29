@@ -1382,7 +1382,7 @@ resource "hydra_jobset" "nixos_pr-208706-go-1_20" {
 
 resource "hydra_jobset" "nixos_pr-209870-gcc-external-bootstrap" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "pr-209870-gcc-external-bootstrap"
   type        = "legacy"
@@ -3370,7 +3370,7 @@ resource "hydra_jobset" "nixos_staging-next-22_11-small" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-22.11"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-22.11"
     notify_committers = false
   }
 
@@ -3389,7 +3389,7 @@ resource "hydra_jobset" "nixos_staging-next-22_11-small" {
   }
 
   check_interval    = 0
-  scheduling_shares = 1
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
