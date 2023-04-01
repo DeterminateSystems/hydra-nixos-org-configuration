@@ -2915,19 +2915,50 @@ resource "hydra_jobset" "nixos_release-21_11" {
 
 resource "hydra_jobset" "nixos_release-21_11-aarch64" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "enabled"
+  visible     = true
   name        = "release-21.11-aarch64"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "NixOS 21.11 release branch"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release-combined.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "limitedSupportedSystems"
+    type              = "nix"
+    value             = "[]"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 2
+  keep_evaluations  = 1
+
+  email_notifications = false
   email_override      = ""
 }
 
