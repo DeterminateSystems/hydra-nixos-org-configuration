@@ -1383,7 +1383,7 @@ resource "hydra_jobset" "nixos_pr-208706-go-1_20" {
 resource "hydra_jobset" "nixos_pr-209870-gcc-external-bootstrap" {
   project     = hydra_project.nixos.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "pr-209870-gcc-external-bootstrap"
   type        = "legacy"
   description = "Testing #209870: stdenv: external gcc bootstrap"

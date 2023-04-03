@@ -2913,7 +2913,7 @@ resource "hydra_jobset" "nixpkgs_pr-188492-glibc-2_36" {
   }
 
   check_interval    = 172800
-  scheduling_shares = 1
+  scheduling_shares = 100
   keep_evaluations  = 1
 
   email_notifications = false
