@@ -2880,8 +2880,8 @@ resource "hydra_jobset" "nixpkgs_pr-185297-binutils-2_39" {
 
 resource "hydra_jobset" "nixpkgs_pr-188492-glibc-2_36" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-188492-glibc-2.36"
   type        = "legacy"
   description = "Testing glibc 2.36: https://github.com/NixOS/nixpkgs/pull/188492"
@@ -2913,7 +2913,7 @@ resource "hydra_jobset" "nixpkgs_pr-188492-glibc-2_36" {
   }
 
   check_interval    = 172800
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
