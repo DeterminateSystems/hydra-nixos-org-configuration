@@ -3150,7 +3150,7 @@ resource "hydra_jobset" "nixpkgs_pr-213202-llvmPackages_latest-15" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = 0
   scheduling_shares = 1
   keep_evaluations  = 1
 
