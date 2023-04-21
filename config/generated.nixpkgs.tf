@@ -3200,6 +3200,48 @@ resource "hydra_jobset" "nixpkgs_pr-217568-stdenv-parallel-install" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-226048-stdenv-delete-NIX_COREFOUNDATION_RPATH" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-226048-stdenv-delete-NIX_COREFOUNDATION_RPATH"
+  type        = "legacy"
+  description = "Testing PR #226048: stdenv: delete the NIX_COREFOUNDATION_RPATH sledgehammer"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/eliasnaur/nixpkgs.git delete-nix-corefoundation-rpath"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ /*\"x86_64-darwin\"*/ \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-26799" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"

@@ -350,6 +350,7 @@ terraform import hydra_jobset.nixpkgs_pr-211126-binutils-2_40 nixpkgs/pr-211126-
 terraform import hydra_jobset.nixpkgs_pr-2131 nixpkgs/pr-2131
 terraform import hydra_jobset.nixpkgs_pr-213202-llvmPackages_latest-15 nixpkgs/pr-213202-llvmPackages_latest-15
 terraform import hydra_jobset.nixpkgs_pr-217568-stdenv-parallel-install nixpkgs/pr-217568-stdenv-parallel-install
+terraform import hydra_jobset.nixpkgs_pr-226048-stdenv-delete-NIX_COREFOUNDATION_RPATH nixpkgs/pr-226048-stdenv-delete-NIX_COREFOUNDATION_RPATH
 terraform import hydra_jobset.nixpkgs_pr-26799 nixpkgs/pr-26799
 terraform import hydra_jobset.nixpkgs_pr-27209 nixpkgs/pr-27209
 terraform import hydra_jobset.nixpkgs_pr-32112 nixpkgs/pr-32112
