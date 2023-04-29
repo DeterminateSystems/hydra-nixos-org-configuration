@@ -2600,8 +2600,8 @@ resource "hydra_jobset" "nixpkgs_pr-139514" {
 
 resource "hydra_jobset" "nixpkgs_pr-142860-stdenv-failglob" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-142860-stdenv-failglob"
   type        = "legacy"
   description = "Testing failglob in stdenv: PR #142860"
