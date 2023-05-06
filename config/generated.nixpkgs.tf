@@ -3202,8 +3202,8 @@ resource "hydra_jobset" "nixpkgs_pr-217568-stdenv-parallel-install" {
 
 resource "hydra_jobset" "nixpkgs_pr-226048-stdenv-delete-NIX_COREFOUNDATION_RPATH" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-226048-stdenv-delete-NIX_COREFOUNDATION_RPATH"
   type        = "legacy"
   description = "Testing PR #226048: stdenv: delete the NIX_COREFOUNDATION_RPATH sledgehammer"
