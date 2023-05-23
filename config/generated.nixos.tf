@@ -960,6 +960,41 @@ resource "hydra_jobset" "nixos_nix-2_0" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_nixos-23_05-small" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "nixos-23.05-small"
+  type        = "legacy"
+  description = "NixOS 23.05 release branch"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 28800
+  scheduling_shares = 20000000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_nixos-test-expensive-eval" {
   project     = hydra_project.nixos.name
   state       = "disabled"
@@ -3236,41 +3271,6 @@ resource "hydra_jobset" "nixos_release-23_05" {
 
   check_interval    = 86400
   scheduling_shares = 5000000
-  keep_evaluations  = 1
-
-  email_notifications = false
-  email_override      = ""
-}
-
-resource "hydra_jobset" "nixos_release-23_05-small" {
-  project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
-  name        = "release-23.05-small"
-  type        = "legacy"
-  description = "NixOS 23.05 release branch"
-
-  nix_expression {
-    file  = "nixos/release-small.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 28800
-  scheduling_shares = 20000000
   keep_evaluations  = 1
 
   email_notifications = false

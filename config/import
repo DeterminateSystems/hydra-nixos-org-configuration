@@ -193,6 +193,7 @@ terraform import hydra_jobset.nixos_mariadb-10_2 nixos/mariadb-10.2
 terraform import hydra_jobset.nixos_master nixos/master
 terraform import hydra_jobset.nixos_modular nixos/modular
 terraform import hydra_jobset.nixos_nix-2_0 nixos/nix-2.0
+terraform import hydra_jobset.nixos_nixos-23_05-small nixos/nixos-23.05-small
 terraform import hydra_jobset.nixos_nixos-test-expensive-eval nixos/nixos-test-expensive-eval
 terraform import hydra_jobset.nixos_nixup nixos/nixup
 terraform import hydra_jobset.nixos_openssl-1_1 nixos/openssl-1.1
@@ -251,7 +252,6 @@ terraform import hydra_jobset.nixos_release-22_05-small nixos/release-22.05-smal
 terraform import hydra_jobset.nixos_release-22_11 nixos/release-22.11
 terraform import hydra_jobset.nixos_release-22_11-small nixos/release-22.11-small
 terraform import hydra_jobset.nixos_release-23_05 nixos/release-23.05
-terraform import hydra_jobset.nixos_release-23_05-small nixos/release-23.05-small
 terraform import hydra_jobset.nixos_reproducibility nixos/reproducibility
 terraform import hydra_jobset.nixos_rhel6 nixos/rhel6
 terraform import hydra_jobset.nixos_staging nixos/staging
