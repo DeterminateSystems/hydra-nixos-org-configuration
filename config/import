@@ -250,6 +250,8 @@ terraform import hydra_jobset.nixos_release-22_05-aarch64 nixos/release-22.05-aa
 terraform import hydra_jobset.nixos_release-22_05-small nixos/release-22.05-small
 terraform import hydra_jobset.nixos_release-22_11 nixos/release-22.11
 terraform import hydra_jobset.nixos_release-22_11-small nixos/release-22.11-small
+terraform import hydra_jobset.nixos_release-23_05 nixos/release-23.05
+terraform import hydra_jobset.nixos_release-23_05-small nixos/release-23.05-small
 terraform import hydra_jobset.nixos_reproducibility nixos/reproducibility
 terraform import hydra_jobset.nixos_rhel6 nixos/rhel6
 terraform import hydra_jobset.nixos_staging nixos/staging
@@ -325,8 +327,10 @@ terraform import hydra_jobset.nixpkgs_nixpkgs-21_05-darwin nixpkgs/nixpkgs-21.05
 terraform import hydra_jobset.nixpkgs_nixpkgs-21_11-darwin nixpkgs/nixpkgs-21.11-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-22_05-darwin nixpkgs/nixpkgs-22.05-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-22_11-darwin nixpkgs/nixpkgs-22.11-darwin
+terraform import hydra_jobset.nixpkgs_nixpkgs-23_05-darwin nixpkgs/nixpkgs-23.05-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-aarch64-darwin nixpkgs/nixpkgs-unstable-aarch64-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-armv7l nixpkgs/nixpkgs-unstable-armv7l
+terraform import hydra_jobset.nixpkgs_nixpkgsxx-23_05-darwin nixpkgs/nixpkgsxx-23.05-darwin
 terraform import hydra_jobset.nixpkgs_openssl-1_1 nixpkgs/openssl-1.1
 terraform import hydra_jobset.nixpkgs_openssl-1_1_x-update nixpkgs/openssl-1.1.x-update
 terraform import hydra_jobset.nixpkgs_parallel-building-merger nixpkgs/parallel-building-merger
