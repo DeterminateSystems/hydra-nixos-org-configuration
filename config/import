@@ -142,6 +142,7 @@ terraform import hydra_jobset.nix_maintenance-2_12 nix/maintenance-2.12
 terraform import hydra_jobset.nix_maintenance-2_13 nix/maintenance-2.13
 terraform import hydra_jobset.nix_maintenance-2_14 nix/maintenance-2.14
 terraform import hydra_jobset.nix_maintenance-2_15 nix/maintenance-2.15
+terraform import hydra_jobset.nix_maintenance-2_16 nix/maintenance-2.16
 terraform import hydra_jobset.nix_maintenance-2_2 nix/maintenance-2.2
 terraform import hydra_jobset.nix_maintenance-2_3 nix/maintenance-2.3
 terraform import hydra_jobset.nix_maintenance-2_4 nix/maintenance-2.4
