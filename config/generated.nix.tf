@@ -827,6 +827,24 @@ resource "hydra_jobset" "nix_pr-7774" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_pr-8477" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = false
+  name        = "pr-8477"
+  type        = "flake"
+  description = "PR #8477"
+
+  flake_uri = "github:edolstra/nix/tarball-flake-redirects"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_sqlite-branch" {
   project     = hydra_project.nix.name
   state       = "disabled"
