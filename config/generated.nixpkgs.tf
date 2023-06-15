@@ -2170,7 +2170,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-22_11-darwin" {
     notify_committers = false
   }
 
-  check_interval    = 43200
+  check_interval    = 86400
   scheduling_shares = 5000
   keep_evaluations  = 1
 
