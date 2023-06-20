@@ -4777,7 +4777,7 @@ resource "hydra_jobset" "nixpkgs_trunk" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git afa5d57f536fe5c6c59578e2ee17af53f323b31b"
+    value             = "https://github.com/NixOS/nixpkgs.git  604ee3faec7a26a5bc35cdda4a37b0275f34cdf0"
     notify_committers = false
   }
 
