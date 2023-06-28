@@ -3615,7 +3615,7 @@ resource "hydra_jobset" "nixos_staging-small" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/risicle/nixpkgs.git ris-fortify3-default"
+    value             = "https://github.com/nixos/nixpkgs.git staging"
     notify_committers = false
   }
 
