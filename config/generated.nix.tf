@@ -845,6 +845,24 @@ resource "hydra_jobset" "nix_pr-8477" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_pr-8569" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = false
+  name        = "pr-8569"
+  type        = "flake"
+  description = "PR #8569"
+
+  flake_uri = "github:vcunat/nix/p/flake-update"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_sqlite-branch" {
   project     = hydra_project.nix.name
   state       = "disabled"
