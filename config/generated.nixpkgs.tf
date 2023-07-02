@@ -4413,7 +4413,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-next-23.05"
+    value             = "https://github.com/NixOS/nixpkgs.git revert-238508-backport-237066-to-staging-23.05"
     notify_committers = false
   }
 
