@@ -12,12 +12,15 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     steps:
     - name: Checking out the repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
     - name: Installing Nix
       uses: DeterminateSystems/nix-installer-action@main
+
+    - name: Enable magic Nix cache
+      uses: DeterminateSystems/magic-nix-cache-action@main
 
     - name: Update config
       run: ./mirror.sh
