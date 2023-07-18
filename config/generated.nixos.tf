@@ -2082,36 +2082,19 @@ resource "hydra_jobset" "nixos_release-18_03-aarch64" {
 
 resource "hydra_jobset" "nixos_release-18_03-small" {
   project     = hydra_project.nixos.name
-  state       = "disabled"
-  visible     = false
+  state       = "UNKNOWN"
+  visible     = 
   name        = "release-18.03-small"
-  type        = "legacy"
-  description = "NixOS 18.03 small release branch"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "nixos/release-small.nix"
-    input = "nixpkgs"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-18.03"
-    notify_committers = true
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 7200
-  scheduling_shares = 1
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
