@@ -3559,7 +3559,7 @@ resource "hydra_jobset" "nixos_staging-next-23_05-small" {
 
 resource "hydra_jobset" "nixos_staging-next-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "staging-next-small"
   type        = "legacy"
@@ -3573,7 +3573,7 @@ resource "hydra_jobset" "nixos_staging-next-small" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git e913a05c"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next"
     notify_committers = false
   }
 
