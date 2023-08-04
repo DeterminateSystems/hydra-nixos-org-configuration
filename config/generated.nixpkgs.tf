@@ -2768,8 +2768,8 @@ resource "hydra_jobset" "nixpkgs_pr-146685" {
 
 resource "hydra_jobset" "nixpkgs_pr-150093" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-150093"
   type        = "legacy"
   description = "PR #150093: treewide: default openssl to 3.0"
