@@ -2621,7 +2621,7 @@ resource "hydra_jobset" "nixos_release-20_03-small" {
 
 resource "hydra_jobset" "nixos_release-20_09" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "release-20.09"
   type        = "legacy"
@@ -2712,7 +2712,7 @@ resource "hydra_jobset" "nixos_release-20_09-aarch64" {
 
 resource "hydra_jobset" "nixos_release-20_09-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "release-20.09-small"
   type        = "legacy"
