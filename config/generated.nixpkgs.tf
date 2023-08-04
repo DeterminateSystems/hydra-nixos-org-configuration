@@ -2012,7 +2012,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-20_09-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-21_05-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "nixpkgs-21.05-darwin"
   type        = "legacy"
@@ -2054,7 +2054,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-21_05-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-21_11-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "nixpkgs-21.11-darwin"
   type        = "legacy"
@@ -4273,7 +4273,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-21_05" {
 
 resource "hydra_jobset" "nixpkgs_staging-next-21_11" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "staging-next-21.11"
   type        = "legacy"
