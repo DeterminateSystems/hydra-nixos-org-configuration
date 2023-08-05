@@ -3573,7 +3573,7 @@ resource "hydra_jobset" "nixos_staging-next-small" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/vcunat/nixpkgs.git tmp/glibc-aarch64-hack"
+    value             = "https://github.com/nixos/nixpkgs.git staging-next"
     notify_committers = false
   }
 
@@ -3587,7 +3587,7 @@ resource "hydra_jobset" "nixos_staging-next-small" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ /*\"x86_64-linux\"*/ \"aarch64-linux\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
     notify_committers = false
   }
 
