@@ -938,7 +938,7 @@ resource "hydra_jobset" "gnu_emacs-trunk" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = 864000
   scheduling_shares = 100
   keep_evaluations  = 1
 
@@ -2814,7 +2814,7 @@ resource "hydra_jobset" "gnu_inetutils-master" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = 864000
   scheduling_shares = 100
   keep_evaluations  = 1
 
@@ -3787,7 +3787,7 @@ resource "hydra_jobset" "gnu_rcs-master" {
     notify_committers = false
   }
 
-  check_interval    = 86381
+  check_interval    = 864000
   scheduling_shares = 100
   keep_evaluations  = 1
 
