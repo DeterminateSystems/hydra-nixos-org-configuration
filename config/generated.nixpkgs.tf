@@ -3356,7 +3356,7 @@ resource "hydra_jobset" "nixpkgs_pr-247401-glibc-2_38" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" ]"
+    value             = "[ \"aarch64-linux\" ]"
     notify_committers = false
   }
 
