@@ -4245,7 +4245,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/reckenrode/nixpkgs.git swift-fix"
+    value             = "https://github.com/nixos/nixpkgs.git staging-next"
     notify_committers = false
   }
 
@@ -4264,7 +4264,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 0
-  scheduling_shares = 10000
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
