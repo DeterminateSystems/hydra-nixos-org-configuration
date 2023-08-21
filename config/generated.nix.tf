@@ -547,7 +547,7 @@ resource "hydra_jobset" "nix_maintenance-2_17" {
   type        = "flake"
   description = "2.17 release branch"
 
-  flake_uri = "github:NixOS/nix/2.17-maintenance"
+  flake_uri = "github:NixOS/nix/2.17.0"
 
   check_interval    = 3600
   scheduling_shares = 100
