@@ -10,57 +10,19 @@ resource "hydra_project" "psat" {
 
 resource "hydra_jobset" "psat_php-front" {
   project     = hydra_project.psat.name
-  state       = "disabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "php-front"
-  type        = "legacy"
-  description = "Parser and pretty-printer for PHP"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "release.nix"
-    input = "phpfrontSrc"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "phpfrontSrc"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/psat/php-front/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 0
-
-  email_notifications = true
+  email_notifications = 
   email_override      = ""
 }
 
