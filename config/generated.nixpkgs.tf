@@ -3872,7 +3872,7 @@ resource "hydra_jobset" "nixpkgs_python-updates" {
   }
 
   check_interval    = 0
-  scheduling_shares = 1000
+  scheduling_shares = 1
   keep_evaluations  = 0
 
   email_notifications = false
