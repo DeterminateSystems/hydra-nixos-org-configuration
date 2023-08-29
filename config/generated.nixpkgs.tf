@@ -4091,19 +4091,36 @@ resource "hydra_jobset" "nixpkgs_staging-18_09" {
 
 resource "hydra_jobset" "nixpkgs_staging-19_03" {
   project     = hydra_project.nixpkgs.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "staging-19.03"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Staging-19.03 branch"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-19.03"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
   email_override      = ""
 }
 
