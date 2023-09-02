@@ -3326,6 +3326,48 @@ resource "hydra_jobset" "nixpkgs_pr-226048-stdenv-delete-NIX_COREFOUNDATION_RPAT
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-241692-llvmPackages_16" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-241692-llvmPackages_16"
+  type        = "legacy"
+  description = "Testing PR #241692: llvmPackages: 11 -> 16 on Darwin and Linux"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/reckenrode/nixpkgs.git darwin-llvm16-update"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-247401-glibc-2_38" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
@@ -4264,7 +4306,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 0
-  scheduling_shares = 1000
+  scheduling_shares = 50000
   keep_evaluations  = 1
 
   email_notifications = false
