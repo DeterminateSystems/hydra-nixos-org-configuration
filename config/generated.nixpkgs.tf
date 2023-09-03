@@ -3356,7 +3356,7 @@ resource "hydra_jobset" "nixpkgs_pr-241692-llvmPackages_16" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\"*/ ]"
+    value             = "[ \"x86_64-linux\" \"x86_64-darwin\" /*\"aarch64-linux\" \"aarch64-darwin\"*/ ]"
     notify_committers = false
   }
 
@@ -4516,7 +4516,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
   }
 
   check_interval    = 0
-  scheduling_shares = 10
+  scheduling_shares = 10000
   keep_evaluations  = 1
 
   email_notifications = false
