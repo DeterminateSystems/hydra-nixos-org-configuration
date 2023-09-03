@@ -4516,7 +4516,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
   }
 
   check_interval    = 0
-  scheduling_shares = 1
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
@@ -4686,19 +4686,43 @@ resource "hydra_jobset" "nixpkgs_structured-attrs" {
 
 resource "hydra_jobset" "nixpkgs_syscall-tracing" {
   project     = hydra_project.nixpkgs.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "syscall-tracing"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Trunk"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git syscall-tracing"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
