@@ -4516,7 +4516,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
   }
 
   check_interval    = 0
-  scheduling_shares = 10
+  scheduling_shares = 10000
   keep_evaluations  = 1
 
   email_notifications = false
@@ -4847,7 +4847,7 @@ resource "hydra_jobset" "nixpkgs_toonn-wip" {
 
 resource "hydra_jobset" "nixpkgs_trunk" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "trunk"
   type        = "legacy"
