@@ -31,7 +31,7 @@ resource "hydra_jobset" "mobile-nixos_unstable" {
   input {
     name              = "mobile-nixos"
     type              = "git"
-    value             = "https://github.com/NixOS/mobile-nixos.git master"
+    value             = "https://github.com/NixOS/mobile-nixos.git development"
     notify_committers = false
   }
 
