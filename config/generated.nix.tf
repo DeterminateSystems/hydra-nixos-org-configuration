@@ -866,7 +866,7 @@ resource "hydra_jobset" "nix_pr-8477" {
 resource "hydra_jobset" "nix_pr-8569" {
   project     = hydra_project.nix.name
   state       = "enabled"
-  visible     = false
+  visible     = true
   name        = "pr-8569"
   type        = "flake"
   description = "PR #8569"
