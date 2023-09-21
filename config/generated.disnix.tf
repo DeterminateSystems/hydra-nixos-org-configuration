@@ -45,7 +45,7 @@ resource "hydra_jobset" "disnix_DisnixWebService-trunk" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-22.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
     notify_committers = false
   }
 
@@ -451,7 +451,7 @@ resource "hydra_jobset" "disnix_disnixos-trunk" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git release-22.05"
+    value             = "https://github.com/nixos/nixpkgs.git release-23.05"
     notify_committers = false
   }
 
@@ -514,7 +514,7 @@ resource "hydra_jobset" "disnix_dydisnix-avahi-master" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-22.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
     notify_committers = false
   }
 
@@ -570,7 +570,7 @@ resource "hydra_jobset" "disnix_dydisnix-trunk" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-22.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
     notify_committers = false
   }
 
