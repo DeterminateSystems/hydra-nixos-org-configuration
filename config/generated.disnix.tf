@@ -388,7 +388,7 @@ resource "hydra_jobset" "disnix_disnix-trunk" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-22.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
     notify_committers = false
   }
 
@@ -619,7 +619,7 @@ resource "hydra_jobset" "disnix_dysnomia-master" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-22.05"
+    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
     notify_committers = false
   }
 
