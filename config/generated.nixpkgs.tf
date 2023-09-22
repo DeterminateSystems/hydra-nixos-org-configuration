@@ -4525,19 +4525,43 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
 
 resource "hydra_jobset" "nixpkgs_stdenv" {
   project     = hydra_project.nixpkgs.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "stdenv"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Branch for stdenv changes"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git stdenv-updates"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-freebsd"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 500
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
