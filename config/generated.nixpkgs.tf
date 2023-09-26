@@ -3913,6 +3913,13 @@ resource "hydra_jobset" "nixpkgs_python-updates" {
     notify_committers = false
   }
 
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
   check_interval    = 0
   scheduling_shares = 1
   keep_evaluations  = 0
