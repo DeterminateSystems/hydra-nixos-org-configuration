@@ -4287,7 +4287,7 @@ resource "hydra_jobset" "nixpkgs_staging-20_09" {
 
 resource "hydra_jobset" "nixpkgs_staging-next" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = true
   name        = "staging-next"
   type        = "legacy"
