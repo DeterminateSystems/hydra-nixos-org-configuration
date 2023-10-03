@@ -1422,6 +1422,48 @@ resource "hydra_jobset" "nixos_pr-209870-gcc-external-bootstrap" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_pr-258680-systemd_network-online_target" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-258680-systemd_network-online.target"
+  type        = "legacy"
+  description = "Testing PR #258680: nixos/systemd: don't require network-online.target for multi-user.target"
+
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/lf-/nixpkgs.git jade/remove-multiuser-netonline-dep"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_python-test-refactoring" {
   project     = hydra_project.nixos.name
   state       = "enabled"
