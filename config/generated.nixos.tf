@@ -4165,7 +4165,7 @@ resource "hydra_jobset" "nixos_unstable-small" {
     notify_committers = false
   }
 
-  check_interval    = 28800
+  check_interval    = 43200
   scheduling_shares = 20000
   keep_evaluations  = 3
 
