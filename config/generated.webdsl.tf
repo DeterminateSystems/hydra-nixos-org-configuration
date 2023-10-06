@@ -780,91 +780,18 @@ resource "hydra_jobset" "webdsl_webdsl-tests-search" {
 
 resource "hydra_jobset" "webdsl_webdsl-tests-separate-compilation" {
   project     = hydra_project.webdsl.name
-  state       = "disabled"
-  visible     = false
+  state       = "UNKNOWN"
+  visible     = 
   name        = "webdsl-tests-separate-compilation"
-  type        = "legacy"
-  description = "researchr.org/webdsl continious integration builds"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "webdsl/tests-separate-compilation.nix"
-    input = "hydraConfig"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "feedbackSrc"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/feedback/trunk"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixos"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixos.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "researchrSrc"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/researchr/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "services"
-    type              = "svn"
-    value             = "https://nixos.org/repos/nix/services/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "webdsl"
-    type              = "build"
-    value             = "webdsl:trunk:build[system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  input {
-    name              = "webdslSrc"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/WebDSL/webdsls/branch/separate-compilation"
-    notify_committers = false
-  }
-
-  input {
-    name              = "webdslorgSrc"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/WebDSL/webdslorg/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "yellowgrassSrc"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/issolar/trunk"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 0
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
