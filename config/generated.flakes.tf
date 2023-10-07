@@ -100,19 +100,19 @@ resource "hydra_jobset" "flakes_nix-serve" {
 
 resource "hydra_jobset" "flakes_nixos-homepage" {
   project     = hydra_project.flakes.name
-  state       = "enabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "nixos-homepage"
-  type        = "flake"
+  type        = "UNKNOWN"
   description = ""
 
-  flake_uri = "github:NixOS/nixos-homepage"
+UNKNOWN INPUT TYPE
 
-  check_interval    = 1800
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
