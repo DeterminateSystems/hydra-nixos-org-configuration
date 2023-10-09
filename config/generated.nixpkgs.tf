@@ -3377,8 +3377,8 @@ resource "hydra_jobset" "nixpkgs_pr-241692-llvmPackages_16" {
 
 resource "hydra_jobset" "nixpkgs_pr-247401-glibc-2_38" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-247401-glibc-2.38"
   type        = "legacy"
   description = "See PR #247401: glibc: 2.37-8 -> 2.38-0"
@@ -3410,6 +3410,48 @@ resource "hydra_jobset" "nixpkgs_pr-247401-glibc-2_38" {
   }
 
   check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-257301-cairo-1_18" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-257301-cairo-1.18"
+  type        = "legacy"
+  description = "Testing PR #257301: cairo: 1.16.0 -> 1.18.0"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/alyssais/nixpkgs.git cairo-1.18.0"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
   scheduling_shares = 1
   keep_evaluations  = 1
 
@@ -4320,7 +4362,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 0
-  scheduling_shares = 50000
+  scheduling_shares = 5000
   keep_evaluations  = 1
 
   email_notifications = false
