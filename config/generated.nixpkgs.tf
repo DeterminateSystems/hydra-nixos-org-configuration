@@ -4553,7 +4553,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-next-23.05"
+    value             = "https://github.com/vcunat/nixpkgs.git tmp/no-curl"
     notify_committers = false
   }
 
@@ -4567,12 +4567,12 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" /*\"aarch64-darwin\" \"x86_64-darwin\"*/ ]"
     notify_committers = false
   }
 
   check_interval    = 0
-  scheduling_shares = 10000
+  scheduling_shares = 100
   keep_evaluations  = 1
 
   email_notifications = false
