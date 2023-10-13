@@ -2418,19 +2418,43 @@ resource "hydra_jobset" "nixpkgs_openssl-1_1_x-update" {
 
 resource "hydra_jobset" "nixpkgs_parallel-building-merger" {
   project     = hydra_project.nixpkgs.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "parallel-building-merger"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Trunk"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git parallel-building-merger"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-cygwin"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
