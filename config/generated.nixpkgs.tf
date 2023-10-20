@@ -3451,6 +3451,48 @@ resource "hydra_jobset" "nixpkgs_pr-257301-cairo-1_18" {
     notify_committers = false
   }
 
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-262304-perl-updates" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-262304-perl-updates"
+  type        = "legacy"
+  description = "Testing PR #262304: Updates to perlPackages 2023-10"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git perl-updates"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\"*/ ]"
+    notify_committers = false
+  }
+
   check_interval    = 86400
   scheduling_shares = 1
   keep_evaluations  = 1

@@ -367,6 +367,7 @@ terraform import hydra_jobset.nixpkgs_pr-226048-stdenv-delete-NIX_COREFOUNDATION
 terraform import hydra_jobset.nixpkgs_pr-241692-llvmPackages_16 nixpkgs/pr-241692-llvmPackages_16
 terraform import hydra_jobset.nixpkgs_pr-247401-glibc-2_38 nixpkgs/pr-247401-glibc-2.38
 terraform import hydra_jobset.nixpkgs_pr-257301-cairo-1_18 nixpkgs/pr-257301-cairo-1.18
+terraform import hydra_jobset.nixpkgs_pr-262304-perl-updates nixpkgs/pr-262304-perl-updates
 terraform import hydra_jobset.nixpkgs_pr-26799 nixpkgs/pr-26799
 terraform import hydra_jobset.nixpkgs_pr-27209 nixpkgs/pr-27209
 terraform import hydra_jobset.nixpkgs_pr-32112 nixpkgs/pr-32112
