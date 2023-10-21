@@ -3494,7 +3494,7 @@ resource "hydra_jobset" "nixpkgs_pr-262304-perl-updates" {
   }
 
   check_interval    = 86400
-  scheduling_shares = 1
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
