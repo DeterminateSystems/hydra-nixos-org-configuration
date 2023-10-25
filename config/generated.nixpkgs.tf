@@ -3293,211 +3293,91 @@ resource "hydra_jobset" "nixpkgs_pr-217568-stdenv-parallel-install" {
 
 resource "hydra_jobset" "nixpkgs_pr-226048-stdenv-delete-NIX_COREFOUNDATION_RPATH" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
-  visible     = false
+  state       = "UNKNOWN"
+  visible     = 
   name        = "pr-226048-stdenv-delete-NIX_COREFOUNDATION_RPATH"
-  type        = "legacy"
-  description = "Testing PR #226048: stdenv: delete the NIX_COREFOUNDATION_RPATH sledgehammer"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/eliasnaur/nixpkgs.git delete-nix-corefoundation-rpath"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ /*\"x86_64-darwin\"*/ \"aarch64-darwin\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 1
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
 resource "hydra_jobset" "nixpkgs_pr-241692-llvmPackages_16" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "pr-241692-llvmPackages_16"
-  type        = "legacy"
-  description = "Testing PR #241692: llvmPackages: 11 -> 16 on Darwin and Linux"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/reckenrode/nixpkgs.git darwin-llvm16-update"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" \"x86_64-darwin\" /*\"aarch64-linux\" \"aarch64-darwin\"*/ ]"
-    notify_committers = false
-  }
-
-  check_interval    = 0
-  scheduling_shares = 1
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
 resource "hydra_jobset" "nixpkgs_pr-247401-glibc-2_38" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
-  visible     = false
+  state       = "UNKNOWN"
+  visible     = 
   name        = "pr-247401-glibc-2.38"
-  type        = "legacy"
-  description = "See PR #247401: glibc: 2.37-8 -> 2.38-0"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git glibc-2.38"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
-    notify_committers = false
-  }
-
-  check_interval    = 0
-  scheduling_shares = 1
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
 resource "hydra_jobset" "nixpkgs_pr-257301-cairo-1_18" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "pr-257301-cairo-1.18"
-  type        = "legacy"
-  description = "Testing PR #257301: cairo: 1.16.0 -> 1.18.0"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/alyssais/nixpkgs.git cairo-1.18.0"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-darwin\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 0
-  scheduling_shares = 1
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
 resource "hydra_jobset" "nixpkgs_pr-262304-perl-updates" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "pr-262304-perl-updates"
-  type        = "legacy"
-  description = "Testing PR #262304: Updates to perlPackages 2023-10"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git perl-updates"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\"*/ ]"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 10
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
