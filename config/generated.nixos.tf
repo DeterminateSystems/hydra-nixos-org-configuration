@@ -3839,109 +3839,218 @@ resource "hydra_jobset" "nixos_systemd" {
 
 resource "hydra_jobset" "nixos_systemd-217" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "systemd-217"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Systemd 217 test"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git systemd-217"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 7200
+  scheduling_shares = 1000
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "nixos_systemd-227" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "systemd-227"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Systemd 227 test"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git systemd-219"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 7200
+  scheduling_shares = 1000
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "nixos_systemd-249" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "enabled"
+  visible     = true
   name        = "systemd-249"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Systemd 249"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/andir/nixpkgs.git systemdv249"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 7200
+  scheduling_shares = 1000
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "nixos_systemd-250" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "enabled"
+  visible     = true
   name        = "systemd-250"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Systemd 250"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/andir/nixpkgs.git systemd-250"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 7200
+  scheduling_shares = 1000
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "nixos_systemd-update" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "systemd-update"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Systemd 212 test"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git systemd-update"
+    notify_committers = false
+  }
 
-  email_notifications = 
-  email_override      = ""
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 1000
+  keep_evaluations  = 0
+
+  email_notifications = true
+  email_override      = "eelco.dolstra@logicblox.com"
 }
 
 resource "hydra_jobset" "nixos_trunk-combined" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "enabled"
+  visible     = true
   name        = "trunk-combined"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Combined NixOS/Nixpkgs unstable"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release-combined.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 768
+  keep_evaluations  = 2
+
+  email_notifications = false
   email_override      = ""
 }
 
