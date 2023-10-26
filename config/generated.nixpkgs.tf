@@ -3461,8 +3461,8 @@ resource "hydra_jobset" "nixpkgs_pr-257301-cairo-1_18" {
 
 resource "hydra_jobset" "nixpkgs_pr-262304-perl-updates" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-262304-perl-updates"
   type        = "legacy"
   description = "Testing PR #262304: Updates to perlPackages 2023-10"
@@ -4385,7 +4385,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git staging-next"
+    value             = "https://github.com/vcunat/nixpkgs.git p/staging-next"
     notify_committers = false
   }
 
@@ -4404,7 +4404,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 0
-  scheduling_shares = 5000
+  scheduling_shares = 5
   keep_evaluations  = 1
 
   email_notifications = false
