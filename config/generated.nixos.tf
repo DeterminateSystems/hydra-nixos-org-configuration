@@ -1858,19 +1858,36 @@ resource "hydra_jobset" "nixos_release-16_09" {
 
 resource "hydra_jobset" "nixos_release-16_09-small" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "release-16.09-small"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "NixOS 16.09 small release branch"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-16.09"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 2000000
+  keep_evaluations  = 1
+
+  email_notifications = false
   email_override      = ""
 }
 
