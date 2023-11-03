@@ -878,19 +878,50 @@ resource "hydra_jobset" "nixos_master" {
 
 resource "hydra_jobset" "nixos_modular" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "modular"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Modular NixOS branch"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "release.nix"
+    input = "nixosSrc"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixosSrc"
+    type              = "svn"
+    value             = "https://nixos.org/repos/nix/nixos/branches/modular-nixos"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = true
   email_override      = ""
 }
 
