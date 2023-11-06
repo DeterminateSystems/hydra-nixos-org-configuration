@@ -3592,7 +3592,7 @@ resource "hydra_jobset" "nixos_staging-next-23_05-small" {
   }
 
   check_interval    = 0
-  scheduling_shares = 100
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
