@@ -2607,8 +2607,8 @@ resource "hydra_jobset" "nixpkgs_pr-12701" {
 
 resource "hydra_jobset" "nixpkgs_pr-132490" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-132490"
   type        = "legacy"
   description = "Testing cleanups in stdenv shell code"
@@ -3013,8 +3013,8 @@ resource "hydra_jobset" "nixpkgs_pr-188492-glibc-2_36" {
 
 resource "hydra_jobset" "nixpkgs_pr-196565-darwin-gcc11_3" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-196565-darwin-gcc11.3"
   type        = "legacy"
   description = "Testing gcc 11.3 for *-darwin: https://github.com/NixOS/nixpkgs/pull/196565"
@@ -3209,8 +3209,8 @@ resource "hydra_jobset" "nixpkgs_pr-2131" {
 
 resource "hydra_jobset" "nixpkgs_pr-213202-llvmPackages_latest-15" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-213202-llvmPackages_latest-15"
   type        = "legacy"
   description = "Testing #213202: llvmPackages_latest: 14 -> 15"
@@ -3335,8 +3335,8 @@ resource "hydra_jobset" "nixpkgs_pr-226048-stdenv-delete-NIX_COREFOUNDATION_RPAT
 
 resource "hydra_jobset" "nixpkgs_pr-241692-llvmPackages_16" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-241692-llvmPackages_16"
   type        = "legacy"
   description = "Testing PR #241692: llvmPackages: 11 -> 16 on Darwin and Linux"
@@ -4336,8 +4336,8 @@ resource "hydra_jobset" "nixpkgs_staging-20_03" {
 
 resource "hydra_jobset" "nixpkgs_staging-20_09" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-20.09"
   type        = "legacy"
   description = "Staging 20.09"
@@ -4413,8 +4413,8 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
 
 resource "hydra_jobset" "nixpkgs_staging-next-21_05" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-next-21.05"
   type        = "legacy"
   description = "Staging 21.05"
@@ -4497,8 +4497,8 @@ resource "hydra_jobset" "nixpkgs_staging-next-21_11" {
 
 resource "hydra_jobset" "nixpkgs_staging-next-22_05" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-next-22.05"
   type        = "legacy"
   description = "Staging-next 22.05"
@@ -4742,8 +4742,8 @@ resource "hydra_jobset" "nixpkgs_stdenvBoot_aarch64-linux" {
 
 resource "hydra_jobset" "nixpkgs_structured-attrs" {
   project     = hydra_project.nixpkgs.name
-  state       = "one-at-a-time"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "structured-attrs"
   type        = "legacy"
   description = "no aarch64 due to reduced builders"
