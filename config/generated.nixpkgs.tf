@@ -4385,7 +4385,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git staging-next"
+    value             = "https://github.com/nixos/nixpkgs.git gnome"
     notify_committers = false
   }
 
@@ -4399,12 +4399,12 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\" ]"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\"*/ ]"
     notify_committers = false
   }
 
   check_interval    = 0
-  scheduling_shares = 5000
+  scheduling_shares = 500
   keep_evaluations  = 1
 
   email_notifications = false
