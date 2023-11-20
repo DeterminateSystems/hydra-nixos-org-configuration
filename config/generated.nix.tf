@@ -575,6 +575,24 @@ resource "hydra_jobset" "nix_maintenance-2_18" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_maintenance-2_19" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "maintenance-2.19"
+  type        = "flake"
+  description = "2.19 release branch"
+
+  flake_uri = "github:NixOS/nix/2.19-maintenance"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_maintenance-2_2" {
   project     = hydra_project.nix.name
   state       = "disabled"
