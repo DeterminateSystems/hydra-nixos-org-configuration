@@ -338,6 +338,7 @@ terraform import hydra_jobset.nixpkgs_nixpkgs-21_11-darwin nixpkgs/nixpkgs-21.11
 terraform import hydra_jobset.nixpkgs_nixpkgs-22_05-darwin nixpkgs/nixpkgs-22.05-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-22_11-darwin nixpkgs/nixpkgs-22.11-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-23_05-darwin nixpkgs/nixpkgs-23.05-darwin
+terraform import hydra_jobset.nixpkgs_nixpkgs-23_11-darwin nixpkgs/nixpkgs-23.11-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-aarch64-darwin nixpkgs/nixpkgs-unstable-aarch64-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-armv7l nixpkgs/nixpkgs-unstable-armv7l
 terraform import hydra_jobset.nixpkgs_nixpkgsxx-23_05-darwin nixpkgs/nixpkgsxx-23.05-darwin
