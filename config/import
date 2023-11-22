@@ -259,6 +259,7 @@ terraform import hydra_jobset.nixos_release-22_11 nixos/release-22.11
 terraform import hydra_jobset.nixos_release-22_11-small nixos/release-22.11-small
 terraform import hydra_jobset.nixos_release-23_05 nixos/release-23.05
 terraform import hydra_jobset.nixos_release-23_05-small nixos/release-23.05-small
+terraform import hydra_jobset.nixos_release-23_11-small nixos/release-23.11-small
 terraform import hydra_jobset.nixos_releasexx-23_05 nixos/releasexx-23.05
 terraform import hydra_jobset.nixos_reproducibility nixos/reproducibility
 terraform import hydra_jobset.nixos_rhel6 nixos/rhel6
