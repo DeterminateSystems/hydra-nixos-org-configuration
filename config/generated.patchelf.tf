@@ -10,18 +10,18 @@ resource "hydra_project" "patchelf" {
 
 resource "hydra_jobset" "patchelf_master" {
   project     = hydra_project.patchelf.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "enabled"
+  visible     = true
   name        = "master"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "flake"
+  description = "PatchELF trunk jobs"
 
-UNKNOWN INPUT TYPE
+  flake_uri = "github:NixOS/patchelf"
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  check_interval    = 7200
+  scheduling_shares = 100
+  keep_evaluations  = 3
 
-  email_notifications = 
+  email_notifications = false
   email_override      = ""
 }

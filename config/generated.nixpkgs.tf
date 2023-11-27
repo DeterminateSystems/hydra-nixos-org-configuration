@@ -10,19 +10,50 @@ resource "hydra_project" "nixpkgs" {
 
 resource "hydra_jobset" "nixpkgs_aarch64-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "aarch64-darwin"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "testing aarch64-darwin: PR #105026"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "limitedSupportedSystems"
+    type              = "nix"
+    value             = "[ ]"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/thefloweringash/nixpkgs.git apple-silicon"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 43200
+  scheduling_shares = 3000
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 

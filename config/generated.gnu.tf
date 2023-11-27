@@ -10,19 +10,57 @@ resource "hydra_project" "gnu" {
 
 resource "hydra_jobset" "gnu_autoconf-master" {
   project     = hydra_project.gnu.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "autoconf-master"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "GNU Autoconf"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "autoconf/release.nix"
+    input = "hydraConfig"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "autoconfSrc"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/autoconf.git master 1"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
   email_override      = ""
 }
 

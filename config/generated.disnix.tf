@@ -10,19 +10,64 @@ resource "hydra_project" "disnix" {
 
 resource "hydra_jobset" "disnix_DisnixWebService-trunk" {
   project     = hydra_project.disnix.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "enabled"
+  visible     = true
   name        = "DisnixWebService-trunk"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Disnix Web Service interface trunk"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "release.nix"
+    input = "DisnixWebService"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "DisnixWebService"
+    type              = "git"
+    value             = "https://github.com/svanderburg/DisnixWebService.git"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "disnix"
+    type              = "git"
+    value             = "https://github.com/svanderburg/disnix.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "dysnomia"
+    type              = "git"
+    value             = "https://github.com/svanderburg/dysnomia.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  input {
+    name              = "systems"
+    type              = "nix"
+    value             = "[ \"i686-linux\" \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 28800
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
   email_override      = ""
 }
 

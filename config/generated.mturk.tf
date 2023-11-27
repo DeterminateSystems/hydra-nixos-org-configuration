@@ -10,20 +10,44 @@ resource "hydra_project" "mturk" {
 
 resource "hydra_jobset" "mturk_kde" {
   project     = hydra_project.mturk.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "kde"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "KDE tests"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "kde-tests.nix"
+    input = "mturk"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "mturk"
+    type              = "svn"
+    value             = "https://nixos.org/repos/varia/trunk/papers/icse-2012/evaluation/tests"
+    notify_committers = false
+  }
 
-  email_notifications = 
-  email_override      = ""
+  input {
+    name              = "nixos"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixos.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = true
+  email_override      = "eelco.dolstra@logicblox.com"
 }
 
 resource "hydra_jobset" "mturk_tribler-5-4-x" {

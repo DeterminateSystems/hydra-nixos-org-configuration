@@ -10,18 +10,63 @@ resource "hydra_project" "acoda" {
 
 resource "hydra_jobset" "acoda_trunk" {
   project     = hydra_project.acoda.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "trunk"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Acoda trunk"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "trunk.nix"
+    input = "acodaSrc"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "acodaSrc"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/structure-evolution/trunk"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "nixos"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixos.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "services"
+    type              = "svn"
+    value             = "https://nixos.org/repos/nix/services/trunk"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "webdslBuild"
+    type              = "sysbuild"
+    value             = "webdsl:trunk:build"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = true
   email_override      = ""
 }

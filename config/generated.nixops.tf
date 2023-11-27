@@ -10,19 +10,19 @@ resource "hydra_project" "nixops" {
 
 resource "hydra_jobset" "nixops_flake-support" {
   project     = hydra_project.nixops.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "enabled"
+  visible     = true
   name        = "flake-support"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "flake"
+  description = "Flake support"
 
-UNKNOWN INPUT TYPE
+  flake_uri = "github:NixOS/nixops/flake-support"
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
 
-  email_notifications = 
+  email_notifications = false
   email_override      = ""
 }
 
@@ -294,20 +294,44 @@ resource "hydra_jobset" "nixops_nixops-gce" {
 
 resource "hydra_jobset" "nixops_release-1_4" {
   project     = hydra_project.nixops.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "release-1.4"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Master branch"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "release.nix"
+    input = "nixopsSrc"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixopsSrc"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixops.git release-1.4"
+    notify_committers = false
+  }
 
-  email_notifications = 
-  email_override      = ""
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-16.09-small"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = true
+  email_override      = "eelco.dolstra@logicblox.com, aszlig@redmoonstudios.org"
 }
 
 resource "hydra_jobset" "nixops_release-1_5" {

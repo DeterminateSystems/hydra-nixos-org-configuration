@@ -10,18 +10,18 @@ resource "hydra_project" "experimental-nix-installer" {
 
 resource "hydra_jobset" "experimental-nix-installer_experimental-installer" {
   project     = hydra_project.experimental-nix-installer.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "enabled"
+  visible     = true
   name        = "experimental-installer"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "flake"
+  description = "installer crimes"
 
-UNKNOWN INPUT TYPE
+  flake_uri = "github:NixOS/experimental-nix-installer/working_jobset"
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  check_interval    = 6000
+  scheduling_shares = 10000
+  keep_evaluations  = 2
 
-  email_notifications = 
+  email_notifications = false
   email_override      = ""
 }

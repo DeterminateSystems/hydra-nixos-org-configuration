@@ -10,19 +10,19 @@ resource "hydra_project" "ofborg" {
 
 resource "hydra_jobset" "ofborg_cole-flake" {
   project     = hydra_project.ofborg.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "cole-flake"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "flake"
+  description = "Cole's work to make ofborg a flake."
 
-UNKNOWN INPUT TYPE
+  flake_uri = "github:cole-h/ofborg/flakeify"
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  check_interval    = 3600
+  scheduling_shares = 10000
+  keep_evaluations  = 1
 
-  email_notifications = 
+  email_notifications = false
   email_override      = ""
 }
 

@@ -10,19 +10,19 @@ resource "hydra_project" "flakes" {
 
 resource "hydra_jobset" "flakes_blender-bin" {
   project     = hydra_project.flakes.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "enabled"
+  visible     = true
   name        = "blender-bin"
-  type        = "UNKNOWN"
+  type        = "flake"
   description = ""
 
-UNKNOWN INPUT TYPE
+  flake_uri = "github:edolstra/nix-warez?dir=blender"
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
 
-  email_notifications = 
+  email_notifications = false
   email_override      = ""
 }
 

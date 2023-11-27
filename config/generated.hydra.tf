@@ -10,20 +10,44 @@ resource "hydra_project" "hydra" {
 
 resource "hydra_jobset" "hydra_build-ng" {
   project     = hydra_project.hydra.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "build-ng"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "New queue runner"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "release.nix"
+    input = "hydraSrc"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "hydraSrc"
+    type              = "git"
+    value             = "https://github.com/NixOS/hydra.git build-ng"
+    notify_committers = false
+  }
 
-  email_notifications = 
-  email_override      = ""
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 2
+
+  email_notifications = true
+  email_override      = "rob.vermaas@gmail.com, eelco.dolstra@logicblox.com"
 }
 
 resource "hydra_jobset" "hydra_flake" {

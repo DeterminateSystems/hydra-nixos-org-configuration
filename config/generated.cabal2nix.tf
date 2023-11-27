@@ -10,18 +10,42 @@ resource "hydra_project" "cabal2nix" {
 
 resource "hydra_jobset" "cabal2nix_master" {
   project     = hydra_project.cabal2nix.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "master"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "master branch"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "cabal2nix.nix"
+    input = "ciSrc"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "cabal2nixSrc"
+    type              = "git"
+    value             = "https://github.com/NixOS/cabal2nix.git"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "ciSrc"
+    type              = "git"
+    value             = "https://github.com/peti/ci.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 50000
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
