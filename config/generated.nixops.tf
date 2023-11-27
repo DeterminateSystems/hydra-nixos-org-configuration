@@ -10,19 +10,19 @@ resource "hydra_project" "nixops" {
 
 resource "hydra_jobset" "nixops_flake-support" {
   project     = hydra_project.nixops.name
-  state       = "enabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "flake-support"
-  type        = "flake"
-  description = "Flake support"
+  type        = "UNKNOWN"
+  description = ""
 
-  flake_uri = "github:NixOS/nixops/flake-support"
+UNKNOWN INPUT TYPE
 
-  check_interval    = 3600
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
@@ -294,44 +294,20 @@ resource "hydra_jobset" "nixops_nixops-gce" {
 
 resource "hydra_jobset" "nixops_release-1_4" {
   project     = hydra_project.nixops.name
-  state       = "disabled"
-  visible     = false
+  state       = "UNKNOWN"
+  visible     = 
   name        = "release-1.4"
-  type        = "legacy"
-  description = "Master branch"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "release.nix"
-    input = "nixopsSrc"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixopsSrc"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixops.git release-1.4"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-16.09-small"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 3
-
-  email_notifications = true
-  email_override      = "eelco.dolstra@logicblox.com, aszlig@redmoonstudios.org"
+  email_notifications = 
+  email_override      = ""
 }
 
 resource "hydra_jobset" "nixops_release-1_5" {

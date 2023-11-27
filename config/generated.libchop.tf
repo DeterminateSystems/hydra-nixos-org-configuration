@@ -10,63 +10,18 @@ resource "hydra_project" "libchop" {
 
 resource "hydra_jobset" "libchop_master" {
   project     = hydra_project.libchop.name
-  state       = "disabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "master"
-  type        = "legacy"
-  description = "`master' branch of libchop"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "release.nix"
-    input = "libchopSrc"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "gnulib"
-    type              = "git"
-    value             = "git://git.sv.gnu.org/gnulib.git"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "guile"
-    type              = "sysbuild"
-    value             = "gnu:guile-2-0:build"
-    notify_committers = false
-  }
-
-  input {
-    name              = "libchopSrc"
-    type              = "git"
-    value             = "git://git.sv.gnu.org/libchop.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "x86_64-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = true
+  email_notifications = 
   email_override      = ""
 }

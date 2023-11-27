@@ -10,18 +10,18 @@ resource "hydra_project" "dwarffs" {
 
 resource "hydra_jobset" "dwarffs_master" {
   project     = hydra_project.dwarffs.name
-  state       = "enabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "master"
-  type        = "flake"
-  description = "Default branch"
+  type        = "UNKNOWN"
+  description = ""
 
-  flake_uri = "github:edolstra/dwarffs"
+UNKNOWN INPUT TYPE
 
-  check_interval    = 86400
-  scheduling_shares = 100
-  keep_evaluations  = 0
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }

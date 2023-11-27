@@ -10,43 +10,19 @@ resource "hydra_project" "nix" {
 
 resource "hydra_jobset" "nix_PR-1643" {
   project     = hydra_project.nix.name
-  state       = "disabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "PR-1643"
-  type        = "legacy"
-  description = "Preserve file context across readFile, second take"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "release.nix"
-    input = "nix"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nix"
-    type              = "git"
-    value             = "git://github.com/abbradar/nix.git readfile 1"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-17.09"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 

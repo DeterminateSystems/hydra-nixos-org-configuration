@@ -10,18 +10,18 @@ resource "hydra_project" "equinix-metal-builders" {
 
 resource "hydra_jobset" "equinix-metal-builders_main" {
   project     = hydra_project.equinix-metal-builders.name
-  state       = "enabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "main"
-  type        = "flake"
+  type        = "UNKNOWN"
   description = ""
 
-  flake_uri = "github:NixOS/equinix-metal-builders"
+UNKNOWN INPUT TYPE
 
-  check_interval    = 43200
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }

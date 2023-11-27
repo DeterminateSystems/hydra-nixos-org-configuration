@@ -10,43 +10,19 @@ resource "hydra_project" "composer2nix" {
 
 resource "hydra_jobset" "composer2nix_master" {
   project     = hydra_project.composer2nix.name
-  state       = "enabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "master"
-  type        = "legacy"
-  description = "composer2nix master"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "release.nix"
-    input = "composer2nix"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "composer2nix"
-    type              = "git"
-    value             = "https://github.com/svanderburg/composer2nix.git"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
-    notify_committers = false
-  }
-
-  input {
-    name              = "systems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" \"x86_64-darwin\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 1
-  keep_evaluations  = 3
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
