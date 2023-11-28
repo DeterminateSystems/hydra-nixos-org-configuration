@@ -1564,19 +1564,43 @@ resource "hydra_jobset" "nixpkgs_libpng15" {
 
 resource "hydra_jobset" "nixpkgs_linux-llvm-bump" {
   project     = hydra_project.nixpkgs.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "linux-llvm-bump"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Testing LLVM bump: PR #142593"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/toonn/nixpkgs.git linux-llvm-bump"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 10
+  keep_evaluations  = 0
+
+  email_notifications = false
   email_override      = ""
 }
 
@@ -2226,7 +2250,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-23_11-darwin" {
   input {
     name              = "officialRelease"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 
