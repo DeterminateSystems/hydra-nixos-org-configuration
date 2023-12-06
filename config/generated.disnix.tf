@@ -63,8 +63,8 @@ resource "hydra_jobset" "disnix_DisnixWebService-trunk" {
     notify_committers = false
   }
 
-  check_interval    = 28800
-  scheduling_shares = 100
+  check_interval    = 172800
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
@@ -406,8 +406,8 @@ resource "hydra_jobset" "disnix_disnix-trunk" {
     notify_committers = false
   }
 
-  check_interval    = 28800
-  scheduling_shares = 100
+  check_interval    = 172800
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
@@ -469,8 +469,8 @@ resource "hydra_jobset" "disnix_disnixos-trunk" {
     notify_committers = false
   }
 
-  check_interval    = 28800
-  scheduling_shares = 100
+  check_interval    = 172800
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
@@ -525,7 +525,7 @@ resource "hydra_jobset" "disnix_dydisnix-avahi-master" {
     notify_committers = false
   }
 
-  check_interval    = 28800
+  check_interval    = 172800
   scheduling_shares = 1
   keep_evaluations  = 1
 
@@ -588,8 +588,8 @@ resource "hydra_jobset" "disnix_dydisnix-trunk" {
     notify_committers = false
   }
 
-  check_interval    = 28800
-  scheduling_shares = 100
+  check_interval    = 172800
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
@@ -637,8 +637,8 @@ resource "hydra_jobset" "disnix_dysnomia-master" {
     notify_committers = false
   }
 
-  check_interval    = 28800
-  scheduling_shares = 100
+  check_interval    = 172800
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
@@ -679,7 +679,7 @@ resource "hydra_jobset" "disnix_libnixxml-master" {
     notify_committers = false
   }
 
-  check_interval    = 28800
+  check_interval    = 172800
   scheduling_shares = 1
   keep_evaluations  = 3
 
@@ -728,7 +728,7 @@ resource "hydra_jobset" "disnix_libprocreact-master" {
     notify_committers = false
   }
 
-  check_interval    = 28800
+  check_interval    = 172800
   scheduling_shares = 1
   keep_evaluations  = 3
 
@@ -770,7 +770,7 @@ resource "hydra_jobset" "disnix_nix-processmgmt-master" {
     notify_committers = false
   }
 
-  check_interval    = 28800
+  check_interval    = 172800
   scheduling_shares = 1
   keep_evaluations  = 1
 
