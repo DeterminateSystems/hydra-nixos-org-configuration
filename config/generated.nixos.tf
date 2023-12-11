@@ -3594,8 +3594,8 @@ resource "hydra_jobset" "nixos_staging-17_03" {
 
 resource "hydra_jobset" "nixos_staging-next-22_11-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-next-22.11-small"
   type        = "legacy"
   description = "staging{,-next}-22.11 branch, manually depending on situation"
@@ -3650,7 +3650,7 @@ resource "hydra_jobset" "nixos_staging-next-23_05-small" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-next-23.05"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-23.05"
     notify_committers = false
   }
 
@@ -3669,7 +3669,7 @@ resource "hydra_jobset" "nixos_staging-next-23_05-small" {
   }
 
   check_interval    = 0
-  scheduling_shares = 10
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -4028,8 +4028,8 @@ resource "hydra_jobset" "nixos_systemd-227" {
 
 resource "hydra_jobset" "nixos_systemd-249" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "systemd-249"
   type        = "legacy"
   description = "Systemd 249"
@@ -4063,8 +4063,8 @@ resource "hydra_jobset" "nixos_systemd-249" {
 
 resource "hydra_jobset" "nixos_systemd-250" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "systemd-250"
   type        = "legacy"
   description = "Systemd 250"
