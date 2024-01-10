@@ -2219,8 +2219,8 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-23_05-darwin" {
     notify_committers = false
   }
 
-  check_interval    = 43200
-  scheduling_shares = 5000
+  check_interval    = 259200
+  scheduling_shares = 50
   keep_evaluations  = 1
 
   email_notifications = false
@@ -4446,7 +4446,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 0
-  scheduling_shares = 5
+  scheduling_shares = 50000
   keep_evaluations  = 1
 
   email_notifications = false
@@ -4656,7 +4656,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
   }
 
   check_interval    = 0
-  scheduling_shares = 10
+  scheduling_shares = 10000
   keep_evaluations  = 1
 
   email_notifications = false
@@ -4693,12 +4693,12 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_11" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\" \"aarch64-darwin\"*/ \"x86_64-darwin\" ]"
     notify_committers = false
   }
 
   check_interval    = 0
-  scheduling_shares = 10000
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
@@ -5054,7 +5054,7 @@ resource "hydra_jobset" "nixpkgs_trunk" {
     notify_committers = false
   }
 
-  check_interval    = -28800
+  check_interval    = 28800
   scheduling_shares = 3000
   keep_evaluations  = 3
 
