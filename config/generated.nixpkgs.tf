@@ -5029,7 +5029,7 @@ resource "hydra_jobset" "nixpkgs_toonn-wip" {
 
 resource "hydra_jobset" "nixpkgs_trunk" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "trunk"
   type        = "legacy"
