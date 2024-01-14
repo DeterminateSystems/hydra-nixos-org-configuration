@@ -3132,7 +3132,7 @@ resource "hydra_jobset" "nixos_release-22_05-aarch64" {
 
 resource "hydra_jobset" "nixos_release-22_05-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "release-22.05-small"
   type        = "legacy"
@@ -3167,7 +3167,7 @@ resource "hydra_jobset" "nixos_release-22_05-small" {
 
 resource "hydra_jobset" "nixos_release-22_11" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "release-22.11"
   type        = "legacy"
@@ -3209,7 +3209,7 @@ resource "hydra_jobset" "nixos_release-22_11" {
 
 resource "hydra_jobset" "nixos_release-22_11-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "release-22.11-small"
   type        = "legacy"
@@ -3244,7 +3244,7 @@ resource "hydra_jobset" "nixos_release-22_11-small" {
 
 resource "hydra_jobset" "nixos_release-23_05" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "release-23.05"
   type        = "legacy"
@@ -3286,7 +3286,7 @@ resource "hydra_jobset" "nixos_release-23_05" {
 
 resource "hydra_jobset" "nixos_release-23_05-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "release-23.05-small"
   type        = "legacy"
@@ -3636,7 +3636,7 @@ resource "hydra_jobset" "nixos_staging-next-22_11-small" {
 
 resource "hydra_jobset" "nixos_staging-next-23_05-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "staging-next-23.05-small"
   type        = "legacy"

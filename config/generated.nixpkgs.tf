@@ -2145,7 +2145,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-22_05-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-22_11-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "nixpkgs-22.11-darwin"
   type        = "legacy"
@@ -2187,7 +2187,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-22_11-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-23_05-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "nixpkgs-23.05-darwin"
   type        = "legacy"
@@ -4168,7 +4168,7 @@ resource "hydra_jobset" "nixpkgs_release-17_03" {
 
 resource "hydra_jobset" "nixpkgs_staging" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "staging"
   type        = "legacy"
@@ -4581,7 +4581,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-22_05" {
 
 resource "hydra_jobset" "nixpkgs_staging-next-22_11" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "staging-next-22.11"
   type        = "legacy"
@@ -4623,7 +4623,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-22_11" {
 
 resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "staging-next-23.05"
   type        = "legacy"
@@ -4693,7 +4693,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_11" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\" \"aarch64-darwin\"*/ \"x86_64-darwin\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
     notify_committers = false
   }
 
