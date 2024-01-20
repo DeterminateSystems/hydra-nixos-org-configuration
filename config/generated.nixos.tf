@@ -675,38 +675,93 @@ resource "hydra_jobset" "nixos_grsec-stdenv" {
 
 resource "hydra_jobset" "nixos_issue-18312-webkitgtk24-removal" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "issue-18312-webkitgtk24-removal"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Get rid of webkitgtk24"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "nixos/release-combined.nix"
+    input = "nixpkgs"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/domenkozar/nixpkgs.git webkitgtk24-removal"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 14400
+  scheduling_shares = 15000
+  keep_evaluations  = 0
+
+  email_notifications = true
   email_override      = ""
 }
 
 resource "hydra_jobset" "nixos_kde47-test" {
   project     = hydra_project.nixos.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = false
   name        = "kde47-test"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "Trunk"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "release.nix"
+    input = "nixosSrc"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "nixosSrc"
+    type              = "svn"
+    value             = "https://nixos.org/repos/nix/nixos/trunk"
+    notify_committers = false
+  }
 
-  email_notifications = 
-  email_override      = ""
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git kde-4.7"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "services"
+    type              = "svn"
+    value             = "https://nixos.org/repos/nix/services/trunk"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = true
+  email_override      = "eelco.dolstra@logicblox.com"
 }
 
 resource "hydra_jobset" "nixos_keymap-test-debug" {

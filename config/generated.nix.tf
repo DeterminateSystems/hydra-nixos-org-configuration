@@ -679,19 +679,19 @@ resource "hydra_jobset" "nix_maintenance-2_3" {
 
 resource "hydra_jobset" "nix_maintenance-2_4" {
   project     = hydra_project.nix.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "enabled"
+  visible     = true
   name        = "maintenance-2.4"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "flake"
+  description = "2.4 release branch"
 
-UNKNOWN INPUT TYPE
+  flake_uri = "github:NixOS/nix/2.4-maintenance"
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
 
-  email_notifications = 
+  email_notifications = false
   email_override      = ""
 }
 
