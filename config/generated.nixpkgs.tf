@@ -570,36 +570,19 @@ resource "hydra_jobset" "nixpkgs_cve-2010-3856" {
 
 resource "hydra_jobset" "nixpkgs_darwin-next" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "darwin-next"
-  type        = "legacy"
-  description = "Testing ground for forthcoming darwin changes"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git darwin-next"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 600
-  keep_evaluations  = 0
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 

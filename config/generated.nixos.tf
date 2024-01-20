@@ -675,93 +675,38 @@ resource "hydra_jobset" "nixos_grsec-stdenv" {
 
 resource "hydra_jobset" "nixos_issue-18312-webkitgtk24-removal" {
   project     = hydra_project.nixos.name
-  state       = "disabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "issue-18312-webkitgtk24-removal"
-  type        = "legacy"
-  description = "Get rid of webkitgtk24"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "nixos/release-combined.nix"
-    input = "nixpkgs"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/domenkozar/nixpkgs.git webkitgtk24-removal"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 14400
-  scheduling_shares = 15000
-  keep_evaluations  = 0
-
-  email_notifications = true
+  email_notifications = 
   email_override      = ""
 }
 
 resource "hydra_jobset" "nixos_kde47-test" {
   project     = hydra_project.nixos.name
-  state       = "disabled"
-  visible     = false
+  state       = "UNKNOWN"
+  visible     = 
   name        = "kde47-test"
-  type        = "legacy"
-  description = "Trunk"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "release.nix"
-    input = "nixosSrc"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixosSrc"
-    type              = "svn"
-    value             = "https://nixos.org/repos/nix/nixos/trunk"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git kde-4.7"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "services"
-    type              = "svn"
-    value             = "https://nixos.org/repos/nix/services/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "x86_64-linux"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 0
-
-  email_notifications = true
-  email_override      = "eelco.dolstra@logicblox.com"
+  email_notifications = 
+  email_override      = ""
 }
 
 resource "hydra_jobset" "nixos_keymap-test-debug" {
@@ -1424,8 +1369,8 @@ resource "hydra_jobset" "nixos_pr-209870-gcc-external-bootstrap" {
 
 resource "hydra_jobset" "nixos_pr-258680-systemd_network-online_target" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-258680-systemd_network-online.target"
   type        = "legacy"
   description = "Testing PR #258680: nixos/systemd: don't require network-online.target for multi-user.target"

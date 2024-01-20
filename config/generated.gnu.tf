@@ -1452,57 +1452,19 @@ resource "hydra_jobset" "gnu_gnu-on-linux" {
 
 resource "hydra_jobset" "gnu_gnumach-master" {
   project     = hydra_project.gnu.name
-  state       = "disabled"
-  visible     = true
+  state       = "UNKNOWN"
+  visible     = 
   name        = "gnumach-master"
-  type        = "legacy"
-  description = "GNU Mach"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "gnumach/release.nix"
-    input = "hydraConfig"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "hydraConfig"
-    type              = "git"
-    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "machSrc"
-    type              = "git"
-    value             = "git://git.sv.gnu.org/hurd/gnumach.git master 1"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
