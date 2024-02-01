@@ -3613,6 +3613,48 @@ resource "hydra_jobset" "nixpkgs_pr-27209" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-285333-llvmPackages_17-linux" {
+  project     = hydra_project.nixpkgs.name
+  state       = "one-at-a-time"
+  visible     = true
+  name        = "pr-285333-llvmPackages_17-linux"
+  type        = "legacy"
+  description = "Testing PR #285333:  llvmPackages: 16.0.6 -> 17.0.6 on Linux"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/alyssais/nixpkgs.git llvm-17-default"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-32112" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
