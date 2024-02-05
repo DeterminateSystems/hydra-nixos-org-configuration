@@ -173,6 +173,9 @@ terraform import hydra_jobset.nixops_nixops-1_1_2 nixops/nixops-1.1.2
 terraform import hydra_jobset.nixops_nixops-azure nixops/nixops-azure
 terraform import hydra_jobset.nixops_nixops-gce nixops/nixops-gce
 terraform import hydra_jobset.nixops_release-1_4 nixops/release-1.4
+terraform import hydra_jobset.nixops_release-1_5 nixops/release-1.5
+terraform import hydra_jobset.nixops_release-1_6_1 nixops/release-1.6.1
+terraform import hydra_jobset.nixops_release-1_7 nixops/release-1.7
 terraform import hydra_jobset.nixos_bash-4_3 nixos/bash-4.3
 terraform import hydra_jobset.nixos_binutils-2_26 nixos/binutils-2.26
 terraform import hydra_jobset.nixos_binutils-2_34 nixos/binutils-2.34
