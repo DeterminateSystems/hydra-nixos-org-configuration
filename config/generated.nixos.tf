@@ -1422,6 +1422,48 @@ resource "hydra_jobset" "nixos_pr-209870-gcc-external-bootstrap" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_pr-244907-bootloaders-init" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-244907-bootloaders-init"
+  type        = "legacy"
+  description = "Testing PR #244907: nixos/system/boot/bootloaders: init"
+
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/RaitoBezarius/nixpkgs.git bootloader-composition"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 2
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_pr-258680-systemd_network-online_target" {
   project     = hydra_project.nixos.name
   state       = "disabled"
@@ -3692,7 +3734,7 @@ resource "hydra_jobset" "nixos_staging-next-23_11-small" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-next-23.11"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-23.11"
     notify_committers = false
   }
 
@@ -3711,7 +3753,7 @@ resource "hydra_jobset" "nixos_staging-next-23_11-small" {
   }
 
   check_interval    = 0
-  scheduling_shares = 1
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
@@ -4165,7 +4207,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
     notify_committers = false
   }
 
-  check_interval    = 172800
+  check_interval    = -172800
   scheduling_shares = 768
   keep_evaluations  = 2
 
