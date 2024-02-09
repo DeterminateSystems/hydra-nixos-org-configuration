@@ -3790,12 +3790,12 @@ resource "hydra_jobset" "nixos_staging-next-small" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
     notify_committers = false
   }
 
   check_interval    = 0
-  scheduling_shares = 10
+  scheduling_shares = 1000
   keep_evaluations  = 1
 
   email_notifications = false
