@@ -3655,6 +3655,48 @@ resource "hydra_jobset" "nixpkgs_pr-285333-llvmPackages_17-linux" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-287594-glibc-2_39" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = false
+  name        = "pr-287594-glibc-2.39"
+  type        = "legacy"
+  description = "See PR #287594: glibc: 2.38-44 -> 2.39-2"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/Ma27/nixpkgs.git glibc-2.39"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-32112" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
