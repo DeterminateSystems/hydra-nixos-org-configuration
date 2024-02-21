@@ -3697,6 +3697,48 @@ resource "hydra_jobset" "nixpkgs_pr-287594-glibc-2_39" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-290170-cmake-hook-shenanigans" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-290170-cmake-hook-shenanigans"
+  type        = "legacy"
+  description = "Testing PR #290170: Cmake hook shenanigans"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/K900/nixpkgs.git cmake-hook-shenanigans"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-32112" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
@@ -4530,7 +4572,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 0
-  scheduling_shares = 10
+  scheduling_shares = 1000
   keep_evaluations  = 1
 
   email_notifications = false
