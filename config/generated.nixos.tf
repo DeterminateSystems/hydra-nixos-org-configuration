@@ -3734,7 +3734,7 @@ resource "hydra_jobset" "nixos_staging-next-23_11-small" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-next-23.11"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-23.11"
     notify_committers = false
   }
 
@@ -3748,12 +3748,12 @@ resource "hydra_jobset" "nixos_staging-next-23_11-small" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ /*\"x86_64-linux\"*/ \"aarch64-linux\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
     notify_committers = false
   }
 
   check_interval    = 0
-  scheduling_shares = 10
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -3790,7 +3790,7 @@ resource "hydra_jobset" "nixos_staging-next-small" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ /*\"x86_64-linux\"*/ \"aarch64-linux\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
     notify_committers = false
   }
 
