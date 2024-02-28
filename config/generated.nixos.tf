@@ -1438,7 +1438,7 @@ resource "hydra_jobset" "nixos_pr-244907-bootloaders-init" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/RaitoBezarius/nixpkgs.git bootloader-composition"
+    value             = "https://github.com/nixos/nixpkgs.git pr-jobset-244907"
     notify_committers = false
   }
 
