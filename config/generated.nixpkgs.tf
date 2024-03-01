@@ -1200,7 +1200,7 @@ resource "hydra_jobset" "nixpkgs_gnome" {
 
 resource "hydra_jobset" "nixpkgs_gnome-stable" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "gnome-stable"
   type        = "legacy"

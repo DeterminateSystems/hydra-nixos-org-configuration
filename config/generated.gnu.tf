@@ -1991,7 +1991,7 @@ resource "hydra_jobset" "gnu_guile-1-8" {
 
 resource "hydra_jobset" "gnu_guile-2-0" {
   project     = hydra_project.gnu.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "guile-2-0"
   type        = "legacy"
