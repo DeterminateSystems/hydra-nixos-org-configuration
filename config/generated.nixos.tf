@@ -3753,7 +3753,7 @@ resource "hydra_jobset" "nixos_staging-next-23_11-small" {
   }
 
   check_interval    = 0
-  scheduling_shares = 1
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
@@ -4327,7 +4327,7 @@ resource "hydra_jobset" "nixos_unstable-small" {
   }
 
   check_interval    = 43200
-  scheduling_shares = 20000
+  scheduling_shares = 200000
   keep_evaluations  = 3
 
   email_notifications = false
