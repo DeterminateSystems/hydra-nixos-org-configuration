@@ -4182,7 +4182,7 @@ resource "hydra_jobset" "nixos_systemd-update" {
 
 resource "hydra_jobset" "nixos_trunk-combined" {
   project     = hydra_project.nixos.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = true
   name        = "trunk-combined"
   type        = "legacy"
