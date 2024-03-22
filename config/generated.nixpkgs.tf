@@ -3613,6 +3613,48 @@ resource "hydra_jobset" "nixpkgs_pr-27209" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-284165-gcc13-darwin" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-284165-gcc13-darwin"
+  type        = "legacy"
+  description = "Testing PR #284165: default-gcc-version: 12 -> 13 if stdenv.isDarwin"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/wegank/nixpkgs.git gcc-13-everywhere"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-285333-llvmPackages_17-linux" {
   project     = hydra_project.nixpkgs.name
   state       = "one-at-a-time"

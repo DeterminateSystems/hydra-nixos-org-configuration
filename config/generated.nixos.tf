@@ -3405,7 +3405,7 @@ resource "hydra_jobset" "nixos_release-23_11" {
 
 resource "hydra_jobset" "nixos_release-23_11-small" {
   project     = hydra_project.nixos.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = true
   name        = "release-23.11-small"
   type        = "legacy"

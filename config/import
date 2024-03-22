@@ -378,6 +378,7 @@ terraform import hydra_jobset.nixpkgs_pr-257301-cairo-1_18 nixpkgs/pr-257301-cai
 terraform import hydra_jobset.nixpkgs_pr-262304-perl-updates nixpkgs/pr-262304-perl-updates
 terraform import hydra_jobset.nixpkgs_pr-26799 nixpkgs/pr-26799
 terraform import hydra_jobset.nixpkgs_pr-27209 nixpkgs/pr-27209
+terraform import hydra_jobset.nixpkgs_pr-284165-gcc13-darwin nixpkgs/pr-284165-gcc13-darwin
 terraform import hydra_jobset.nixpkgs_pr-285333-llvmPackages_17-linux nixpkgs/pr-285333-llvmPackages_17-linux
 terraform import hydra_jobset.nixpkgs_pr-287594-glibc-2_39 nixpkgs/pr-287594-glibc-2.39
 terraform import hydra_jobset.nixpkgs_pr-290170-cmake-hook-shenanigans nixpkgs/pr-290170-cmake-hook-shenanigans
