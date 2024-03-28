@@ -3615,8 +3615,8 @@ resource "hydra_jobset" "nixpkgs_pr-27209" {
 
 resource "hydra_jobset" "nixpkgs_pr-284165-gcc13-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-284165-gcc13-darwin"
   type        = "legacy"
   description = "Testing PR #284165: default-gcc-version: 12 -> 13 if stdenv.isDarwin"
