@@ -19,7 +19,7 @@ resource "hydra_jobset" "equinix-metal-builders_main" {
   flake_uri = "github:NixOS/equinix-metal-builders"
 
   check_interval    = 43200
-  scheduling_shares = 100
+  scheduling_shares = 5000
   keep_evaluations  = 1
 
   email_notifications = false
