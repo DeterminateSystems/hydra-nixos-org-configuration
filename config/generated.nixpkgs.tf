@@ -1172,7 +1172,7 @@ resource "hydra_jobset" "nixpkgs_gnome" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git gnome"
+    value             = "https://github.com/NixOS/nixpkgs.git gnome-46"
     notify_committers = false
   }
 
