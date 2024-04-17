@@ -1428,7 +1428,7 @@ resource "hydra_jobset" "nixpkgs_haskell-updates" {
     notify_committers = false
   }
 
-  check_interval    = 14400
+  check_interval    = -14400
   scheduling_shares = 50
   keep_evaluations  = 0
 
@@ -4614,7 +4614,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = 0
-  scheduling_shares = 1000
+  scheduling_shares = 10000
   keep_evaluations  = 1
 
   email_notifications = false
