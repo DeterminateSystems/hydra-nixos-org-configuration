@@ -250,3 +250,212 @@ resource "hydra_jobset" "nixops_nixops-azure" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixops_nixops-gce" {
+  project     = hydra_project.nixops.name
+  state       = "disabled"
+  visible     = false
+  name        = "nixops-gce"
+  type        = "legacy"
+  description = "GCE branch"
+
+  nix_expression {
+    file  = "release.nix"
+    input = "nixopsSrc"
+  }
+
+  input {
+    name              = "nixopsSrc"
+    type              = "git"
+    value             = "https://github.com/Phreedom/nixops.git gce"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = true
+  email_override      = "rob.vermaas@gmail.com"
+}
+
+resource "hydra_jobset" "nixops_release-1_4" {
+  project     = hydra_project.nixops.name
+  state       = "disabled"
+  visible     = false
+  name        = "release-1.4"
+  type        = "legacy"
+  description = "Master branch"
+
+  nix_expression {
+    file  = "release.nix"
+    input = "nixopsSrc"
+  }
+
+  input {
+    name              = "nixopsSrc"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixops.git release-1.4"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-16.09-small"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = true
+  email_override      = "eelco.dolstra@logicblox.com, aszlig@redmoonstudios.org"
+}
+
+resource "hydra_jobset" "nixops_release-1_5" {
+  project     = hydra_project.nixops.name
+  state       = "enabled"
+  visible     = true
+  name        = "release-1.5"
+  type        = "legacy"
+  description = "1.5 branch"
+
+  nix_expression {
+    file  = "release.nix"
+    input = "nixopsSrc"
+  }
+
+  input {
+    name              = "nixopsSrc"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixops.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-17.03"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = "eelco.dolstra@logicblox.com, aszlig@redmoonstudios.org"
+}
+
+resource "hydra_jobset" "nixops_release-1_6_1" {
+  project     = hydra_project.nixops.name
+  state       = "enabled"
+  visible     = true
+  name        = "release-1.6.1"
+  type        = "legacy"
+  description = "Release branch"
+
+  nix_expression {
+    file  = "release.nix"
+    input = "nixopsSrc"
+  }
+
+  input {
+    name              = "nixopsSrc"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixops.git v1.6.1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-17.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixops_release-1_7" {
+  project     = hydra_project.nixops.name
+  state       = "enabled"
+  visible     = true
+  name        = "release-1.7"
+  type        = "legacy"
+  description = "Release branch"
+
+  nix_expression {
+    file  = "release.nix"
+    input = "nixopsSrc"
+  }
+
+  input {
+    name              = "nixopsSrc"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixops.git release-1.7"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-19.03"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
