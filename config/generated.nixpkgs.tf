@@ -4581,7 +4581,7 @@ resource "hydra_jobset" "nixpkgs_staging-20_09" {
 
 resource "hydra_jobset" "nixpkgs_staging-next" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = true
   name        = "staging-next"
   type        = "legacy"
@@ -4609,12 +4609,12 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" /*\"x86_64-darwin\"*/ \"aarch64-darwin\" ]"
     notify_committers = false
   }
 
   check_interval    = 0
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
