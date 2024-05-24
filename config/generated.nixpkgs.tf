@@ -3585,3 +3585,1801 @@ resource "hydra_jobset" "nixpkgs_pr-262304-perl-updates" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_pr-26799" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-26799"
+  type        = "legacy"
+  description = "haskell infra: Fix cross compilation to work with new system"
+
+  nix_expression {
+    file  = "haskell-nixpkgs.nix"
+    input = "ciSrc"
+  }
+
+  input {
+    name              = "ciSrc"
+    type              = "git"
+    value             = "git://github.com/peti/ci.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "git://github.com/obsidiansystems/nixpkgs.git cross-haskell"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 100000
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-27209" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-27209"
+  type        = "legacy"
+  description = "https://github.com/NixOS/nixpkgs/pull/27209"
+
+  nix_expression {
+    file  = "haskell-nixpkgs.nix"
+    input = "ciSrc"
+  }
+
+  input {
+    name              = "ciSrc"
+    type              = "git"
+    value             = "git://github.com/peti/ci.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "git://github.com/nc6/nixpkgs.git nc/haskell-multiple-out"
+    notify_committers = false
+  }
+
+  check_interval    = 186400
+  scheduling_shares = 50000
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-284165-gcc13-darwin" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-284165-gcc13-darwin"
+  type        = "legacy"
+  description = "Testing PR #284165: default-gcc-version: 12 -> 13 if stdenv.isDarwin"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/wegank/nixpkgs.git gcc-13-everywhere"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-285333-llvmPackages_17-linux" {
+  project     = hydra_project.nixpkgs.name
+  state       = "one-at-a-time"
+  visible     = true
+  name        = "pr-285333-llvmPackages_17-linux"
+  type        = "legacy"
+  description = "Testing PR #285333:  llvmPackages: 16.0.6 -> 17.0.6 on Linux"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/alyssais/nixpkgs.git llvm-17-default"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-287594-glibc-2_39" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = false
+  name        = "pr-287594-glibc-2.39"
+  type        = "legacy"
+  description = "See PR #287594: glibc: 2.38-44 -> 2.39-2"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/Ma27/nixpkgs.git glibc-2.39"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-290170-cmake-hook-shenanigans" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-290170-cmake-hook-shenanigans"
+  type        = "legacy"
+  description = "Testing PR #290170: Cmake hook shenanigans"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/K900/nixpkgs.git cmake-hook-shenanigans"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-32112" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "pr-32112"
+  type        = "legacy"
+  description = "Revive multiple outputs for Haskell packages."
+
+  nix_expression {
+    file  = "haskell-nixpkgs.nix"
+    input = "ciSrc"
+  }
+
+  input {
+    name              = "ciSrc"
+    type              = "git"
+    value             = "git://github.com/peti/ci.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "git://github.com/nc6/nixpkgs.git hask-split-out"
+    notify_committers = false
+  }
+
+  check_interval    = 14400
+  scheduling_shares = 50000
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-32629" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-32629"
+  type        = "legacy"
+  description = "master branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git haskell-outputs-bin-etc-lib"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-4085" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-4085"
+  type        = "legacy"
+  description = "Boost Library re-factoring"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/wkennington/nixpkgs.git master.boost"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 250
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = "simons@cryp.to"
+}
+
+resource "hydra_jobset" "nixpkgs_pr-4857" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-4857"
+  type        = "legacy"
+  description = "Improve printing experience and update related packages"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/abbradar/nixpkgs.git cups2"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 250
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = "domen@dev.si"
+}
+
+resource "hydra_jobset" "nixpkgs_pr-4943" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-4943"
+  type        = "legacy"
+  description = "Testing stdenv changing PR 4943"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/peti/nixpkgs.git make-4.x"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 600
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = "simons@cryp.to"
+}
+
+resource "hydra_jobset" "nixpkgs_pr-5091" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-5091"
+  type        = "legacy"
+  description = "Update Boost to version 1.57"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/wkennington/nixpkgs.git master.boost"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 250
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = "simons@cryp.to"
+}
+
+resource "hydra_jobset" "nixpkgs_pr-63493-meson-auto-features" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-63493-meson-auto-features"
+  type        = "legacy"
+  description = "PR 63493: Enable auto features for Meson"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/jtojnar/nixpkgs.git meson-auto-features"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 43200
+  scheduling_shares = 2000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-7465" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-7465"
+  type        = "legacy"
+  description = "https://github.com/NixOS/nixpkgs/pull/7465"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/peti/nixpkgs.git drop-obsolete-haskell-code"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-82342" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-82342"
+  type        = "legacy"
+  description = "PR: rustPlatform checkPhase speed"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/Ma27/nixpkgs.git increase-rust-build-speed"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 43200
+  scheduling_shares = 1000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_pr-91557" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-91557"
+  type        = "legacy"
+  description = "Testing ground for Haskell pr-91557"
+
+  nix_expression {
+    file  = "haskell-nixpkgs.nix"
+    input = "ciSrc"
+  }
+
+  input {
+    name              = "ciSrc"
+    type              = "git"
+    value             = "https://github.com/peti/ci"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs pr-91557"
+    notify_committers = false
+  }
+
+  check_interval    = 14400
+  scheduling_shares = 1
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_prs-6254-and-6166" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "prs-6254-and-6166"
+  type        = "legacy"
+  description = "kill libiconvOr* and cc-wrapper improvements"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/copumpkin/nixpkgs.git prs-6254-and-6166"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 600
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_python-rework" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "python-rework"
+  type        = "legacy"
+  description = "Rework of python support"
+
+  nix_expression {
+    file  = "pkgs/top-level/release-python.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/chaoflow/nixpkgs.git python"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = true
+  email_override      = "python@chaoflow.net"
+}
+
+resource "hydra_jobset" "nixpkgs_python-updates" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "python-updates"
+  type        = "legacy"
+  description = ""
+
+  nix_expression {
+    file  = "pkgs/top-level/release-python.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git python-updates"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_python3" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "python3"
+  type        = "legacy"
+  description = "https://git.io/vPXON"
+
+  nix_expression {
+    file  = "nixos/release-combined.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git python3"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1000
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_r-updates" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "r-updates"
+  type        = "legacy"
+  description = "Testing ground for updates to the R package set"
+
+  nix_expression {
+    file  = "pkgs/top-level/release-r.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git r-updates"
+    notify_committers = false
+  }
+
+  check_interval    = 28800
+  scheduling_shares = 600
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_release-17_03" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "release-17.03"
+  type        = "legacy"
+  description = "release-17.03"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-17.03"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 28800
+  scheduling_shares = 300
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "staging"
+  type        = "legacy"
+  description = "staging branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-18_03" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "staging-18.03"
+  type        = "legacy"
+  description = "Staging-18.03 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-18.03"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-18_09" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "staging-18.09"
+  type        = "legacy"
+  description = "Staging-18.09 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-19_03" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "staging-19.03"
+  type        = "legacy"
+  description = "Staging-19.03 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-19.03"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-19_09" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "staging-19.09"
+  type        = "legacy"
+  description = "Staging-19.09 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-19.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-20_03" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "staging-20.03"
+  type        = "legacy"
+  description = "Staging 20.03"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-20.03"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-20_09" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "staging-20.09"
+  type        = "legacy"
+  description = "Staging 20.09"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-20.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 2000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "staging-next"
+  type        = "legacy"
+  description = "staging-next branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git staging-next"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 10
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-21_05" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "staging-next-21.05"
+  type        = "legacy"
+  description = "Staging 21.05"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-21.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 2000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-21_11" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "staging-next-21.11"
+  type        = "legacy"
+  description = "Staging-next 21.11"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-21.11"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 172800
+  scheduling_shares = 5000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-22_05" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "staging-next-22.05"
+  type        = "legacy"
+  description = "Staging-next 22.05"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-22.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-22_11" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "staging-next-22.11"
+  type        = "legacy"
+  description = "staging-next-22.11 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-22.11"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 5
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "staging-next-23.05"
+  type        = "legacy"
+  description = "staging-next-23.05 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git staging-next-23.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 10000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-23_11" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "staging-next-23.11"
+  type        = "legacy"
+  description = "staging-next-23.11 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git staging-next-23.11"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" /*\"x86_64-darwin\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-24_05" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "staging-next-24.05"
+  type        = "legacy"
+  description = "staging-next-24.05 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git staging-next-24.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"aarch64-darwin\" \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 10
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_stdenv" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "stdenv"
+  type        = "legacy"
+  description = "Branch for stdenv changes"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git stdenv-updates"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-freebsd"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 500
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_stdenv-fixes" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "stdenv-fixes"
+  type        = "legacy"
+  description = "Trunk"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git stdenv-fixes"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_stdenvBoot_aarch64-linux" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "stdenvBoot_aarch64-linux"
+  type        = "legacy"
+  description = "Building new stdenv bootstrap tools for aarch64-linux"
+
+  nix_expression {
+    file  = "pkgs/top-level/tmp-stdenvBoot.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/vcunat/nixpkgs.git 21ec906463ea8f11abf3f9091ddd4c3276516e58"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 5000
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_structured-attrs" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "structured-attrs"
+  type        = "legacy"
+  description = "no aarch64 due to reduced builders"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git structured-attrs"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 600
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_syscall-tracing" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "syscall-tracing"
+  type        = "legacy"
+  description = "Trunk"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git syscall-tracing"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_systemd" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "systemd"
+  type        = "legacy"
+  description = "Trunk"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git systemd"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_tmp-fetch-sources" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = false
+  name        = "tmp-fetch-sources"
+  type        = "legacy"
+  description = "TMP: fetch sources missing on Hydra"
+
+  nix_expression {
+    file  = "pkgs/top-level/fetch-sources.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/vcunat/nixpkgs.git p/fetch-sources"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 3000000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_toonn-wip" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "toonn-wip"
+  type        = "legacy"
+  description = "darwin playground"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/toonn/nixpkgs.git toonn-wip"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 10
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_trunk" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "trunk"
+  type        = "legacy"
+  description = "master branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git master"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 28800
+  scheduling_shares = 3000
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_vcunat-stdenv" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "vcunat-stdenv"
+  type        = "legacy"
+  description = "Vcunat's stdenv changes"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/vcunat/nixpkgs.git p/stdenv"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 200
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_xorg-test" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "xorg-test"
+  type        = "legacy"
+  description = "Branch for X11-related updates"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git x-updates"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
