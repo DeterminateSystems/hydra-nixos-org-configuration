@@ -2577,6 +2577,34 @@ resource "hydra_jobset" "nixpkgs_perl-5_20" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_perl-updates" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "perl-updates"
+  type        = "legacy"
+  description = "Testing ground for updates to the Perl package set"
+
+  nix_expression {
+    file  = "pkgs/top-level/release-perl.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git perl-updates"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 600
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-10399" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
