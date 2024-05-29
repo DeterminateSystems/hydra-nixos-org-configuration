@@ -2292,7 +2292,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-24_05-darwin" {
   input {
     name              = "officialRelease"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 
@@ -4936,7 +4936,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_11" {
   }
 
   check_interval    = 0
-  scheduling_shares = 1000
+  scheduling_shares = 10000
   keep_evaluations  = 1
 
   email_notifications = false
