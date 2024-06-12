@@ -277,6 +277,7 @@ terraform import hydra_jobset.nixos_staging-17_03 nixos/staging-17.03
 terraform import hydra_jobset.nixos_staging-next-22_11-small nixos/staging-next-22.11-small
 terraform import hydra_jobset.nixos_staging-next-23_05-small nixos/staging-next-23.05-small
 terraform import hydra_jobset.nixos_staging-next-23_11-small nixos/staging-next-23.11-small
+terraform import hydra_jobset.nixos_staging-next-24_05-small nixos/staging-next-24.05-small
 terraform import hydra_jobset.nixos_staging-next-small nixos/staging-next-small
 terraform import hydra_jobset.nixos_staging-small nixos/staging-small
 terraform import hydra_jobset.nixos_stdenv-test nixos/stdenv-test
