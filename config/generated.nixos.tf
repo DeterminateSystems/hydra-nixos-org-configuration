@@ -4340,30 +4340,16 @@ resource "hydra_jobset" "nixos_trunk-combined-test-eval" {
   visible     = false
   name        = "trunk-combined-test-eval"
   type        = "legacy"
-  description = "Testing eval regression in: Combined NixOS/Nixpkgs unstable"
+  description = ""
 
   nix_expression {
-    file  = "nixos/release-combined.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git master-test-eval"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 7284
-  keep_evaluations  = 2
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -4372,47 +4358,19 @@ resource "hydra_jobset" "nixos_trunk-combined-test-eval" {
 resource "hydra_jobset" "nixos_unstable-aarch64" {
   project     = hydra_project.nixos.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "unstable-aarch64"
   type        = "legacy"
-  description = "Testing the addition of aarch64 to the Tested jobset"
+  description = ""
 
   nix_expression {
-    file  = "nixos/release-combined.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "limitedSupportedSystems"
-    type              = "nix"
-    value             = "[]"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git unstable-aarch64"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[\"aarch64-linux\"]"
-    notify_committers = false
+    file  = ""
+    input = ""
   }
 
   check_interval    = 0
-  scheduling_shares = 7284
-  keep_evaluations  = 1
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -4420,34 +4378,20 @@ resource "hydra_jobset" "nixos_unstable-aarch64" {
 
 resource "hydra_jobset" "nixos_unstable-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "unstable-small"
   type        = "legacy"
-  description = "NixOS small unstable channel"
+  description = ""
 
   nix_expression {
-    file  = "nixos/release-small.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 43200
-  scheduling_shares = 200000
-  keep_evaluations  = 3
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -4456,33 +4400,19 @@ resource "hydra_jobset" "nixos_unstable-small" {
 resource "hydra_jobset" "nixos_unstable-small-CVE-2018-15688" {
   project     = hydra_project.nixos.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "unstable-small-CVE-2018-15688"
   type        = "legacy"
-  description = "NixOS small unstable with systemd CVE-2018-15688 fix"
+  description = ""
 
   nix_expression {
-    file  = "nixos/release-small.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git package/systemd-v239.20181031"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
+    file  = ""
+    input = ""
   }
 
   check_interval    = 0
-  scheduling_shares = 200000
-  keep_evaluations  = 1
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -4494,52 +4424,17 @@ resource "hydra_jobset" "nixos_xorg-test" {
   visible     = false
   name        = "xorg-test"
   type        = "legacy"
-  description = "Integration test of the Nixpkgs x-updates branch"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "nixosSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixosSrc"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixos.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git x-updates"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "services"
-    type              = "svn"
-    value             = "https://nixos.org/repos/nix/services/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
-  email_override      = "eelco.dolstra@logicblox.com"
+  email_notifications = false
+  email_override      = ""
 }
