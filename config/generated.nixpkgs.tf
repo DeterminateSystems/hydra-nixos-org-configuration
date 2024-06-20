@@ -2356,7 +2356,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-aarch64-darwin" {
 resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-armv7l" {
   project     = hydra_project.nixpkgs.name
   state       = "one-at-a-time"
-  visible     = true
+  visible     = false
   name        = "nixpkgs-unstable-armv7l"
   type        = "legacy"
   description = ""
