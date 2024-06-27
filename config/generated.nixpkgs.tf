@@ -4665,7 +4665,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git staging-next"
+    value             = "https://github.com/reckenrode/nixpkgs.git binutils-darwin-fix"
     notify_committers = false
   }
 
