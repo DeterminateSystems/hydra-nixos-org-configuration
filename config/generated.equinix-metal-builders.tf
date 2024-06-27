@@ -16,7 +16,7 @@ resource "hydra_jobset" "equinix-metal-builders_aarch64-community-box" {
   type        = "flake"
   description = ""
 
-  flake_uri = "github:lheckemann/aarch64-build-box"
+  flake_uri = "github:NixOS/aarch64-build-box"
 
   check_interval    = 900
   scheduling_shares = 500000
