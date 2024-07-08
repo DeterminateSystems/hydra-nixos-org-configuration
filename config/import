@@ -401,6 +401,7 @@ terraform import hydra_jobset.nixpkgs_pr-7465 nixpkgs/pr-7465
 terraform import hydra_jobset.nixpkgs_pr-82342 nixpkgs/pr-82342
 terraform import hydra_jobset.nixpkgs_pr-91557 nixpkgs/pr-91557
 terraform import hydra_jobset.nixpkgs_prs-6254-and-6166 nixpkgs/prs-6254-and-6166
+terraform import hydra_jobset.nixpkgs_python-env-venv nixpkgs/python-env-venv
 terraform import hydra_jobset.nixpkgs_python-rework nixpkgs/python-rework
 terraform import hydra_jobset.nixpkgs_python-updates nixpkgs/python-updates
 terraform import hydra_jobset.nixpkgs_python3 nixpkgs/python3

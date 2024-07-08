@@ -4222,6 +4222,41 @@ resource "hydra_jobset" "nixpkgs_prs-6254-and-6166" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_python-env-venv" {
+  project     = hydra_project.nixpkgs.name
+  state       = "disabled"
+  visible     = true
+  name        = "python-env-venv"
+  type        = "legacy"
+  description = "master branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/mcdonc/nixpkgs.git python-env-venv"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 28800
+  scheduling_shares = 3000
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_python-rework" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
