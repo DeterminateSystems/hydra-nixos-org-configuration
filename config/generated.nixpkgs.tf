@@ -2243,7 +2243,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-23_11-darwin" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git release-23.11"
+    value             = "https://github.com/nixos/nixpkgs.git 7144d6241f02d171d25fba3edeaf15e0f2592105"
     notify_committers = false
   }
 
@@ -2261,8 +2261,8 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-23_11-darwin" {
     notify_committers = false
   }
 
-  check_interval    = 86400
-  scheduling_shares = 1000
+  check_interval    = -86400
+  scheduling_shares = 10
   keep_evaluations  = 1
 
   email_notifications = false
@@ -4228,18 +4228,11 @@ resource "hydra_jobset" "nixpkgs_python-env-venv" {
   visible     = false
   name        = "python-env-venv"
   type        = "legacy"
-  description = "??"
+  description = "Talk to the infra team before restarting jobs or creating a new eval!"
 
   nix_expression {
     file  = "pkgs/top-level/release.nix"
     input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/mcdonc/nixpkgs.git python-env-venv"
-    notify_committers = false
   }
 
   input {
@@ -4250,8 +4243,8 @@ resource "hydra_jobset" "nixpkgs_python-env-venv" {
   }
 
   check_interval    = 28800
-  scheduling_shares = 3000
-  keep_evaluations  = 3
+  scheduling_shares = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
