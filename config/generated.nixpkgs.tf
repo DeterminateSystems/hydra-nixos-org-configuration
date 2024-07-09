@@ -4225,10 +4225,10 @@ resource "hydra_jobset" "nixpkgs_prs-6254-and-6166" {
 resource "hydra_jobset" "nixpkgs_python-env-venv" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "python-env-venv"
   type        = "legacy"
-  description = "master branch"
+  description = "??"
 
   nix_expression {
     file  = "pkgs/top-level/release.nix"
