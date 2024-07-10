@@ -4224,11 +4224,11 @@ resource "hydra_jobset" "nixpkgs_prs-6254-and-6166" {
 
 resource "hydra_jobset" "nixpkgs_python-env-venv" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
-  visible     = false
+  state       = "enabled"
+  visible     = true
   name        = "python-env-venv"
   type        = "legacy"
-  description = "Talk to the infra team before restarting jobs or creating a new eval!"
+  description = "https://github.com/NixOS/nixpkgs/pull/326094"
 
   nix_expression {
     file  = "pkgs/top-level/release.nix"
@@ -4236,9 +4236,23 @@ resource "hydra_jobset" "nixpkgs_python-env-venv" {
   }
 
   input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/mcdonc/nixpkgs.git python-env-venv"
+    notify_committers = false
+  }
+
+  input {
     name              = "officialRelease"
     type              = "boolean"
     value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-darwin\" ]"
     notify_committers = false
   }
 
