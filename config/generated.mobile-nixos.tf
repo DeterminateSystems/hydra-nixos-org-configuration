@@ -4,8 +4,8 @@ resource "hydra_project" "mobile-nixos" {
   homepage     = "https://mobile.nixos.org"
   description  = "NixOS, for your phone"
   owner        = "samuel@dionne-riel.com"
-  enabled      = true
-  visible      = true
+  enabled      = false
+  visible      = false
 }
 
 resource "hydra_jobset" "mobile-nixos_unstable" {
