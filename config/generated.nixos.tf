@@ -3867,7 +3867,7 @@ resource "hydra_jobset" "nixos_staging-next-24_05-small" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ /*\"x86_64-linux\"*/ \"aarch64-linux\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
     notify_committers = false
   }
 
