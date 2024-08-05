@@ -3843,7 +3843,7 @@ resource "hydra_jobset" "nixos_staging-next-24_05-small" {
   visible     = true
   name        = "staging-next-24.05-small"
   type        = "legacy"
-  description = "staging-next-23.11 branch"
+  description = "staging-next-24.05 branch, small jobset"
 
   nix_expression {
     file  = "nixos/release-small.nix"
@@ -3867,7 +3867,7 @@ resource "hydra_jobset" "nixos_staging-next-24_05-small" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
+    value             = "[ /*\"x86_64-linux\"*/ \"aarch64-linux\" ]"
     notify_committers = false
   }
 
