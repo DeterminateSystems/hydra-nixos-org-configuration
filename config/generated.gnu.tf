@@ -892,7 +892,7 @@ resource "hydra_jobset" "gnu_emacs-25" {
 
 resource "hydra_jobset" "gnu_emacs-trunk" {
   project     = hydra_project.gnu.name
-  state       = "one-shot"
+  state       = "disabled"
   visible     = true
   name        = "emacs-trunk"
   type        = "legacy"
@@ -2397,7 +2397,7 @@ resource "hydra_jobset" "gnu_gzip-master" {
 
 resource "hydra_jobset" "gnu_hello-master" {
   project     = hydra_project.gnu.name
-  state       = "one-shot"
+  state       = "disabled"
   visible     = true
   name        = "hello-master"
   type        = "legacy"
@@ -3734,7 +3734,7 @@ resource "hydra_jobset" "gnu_patch-master" {
 
 resource "hydra_jobset" "gnu_rcs-master" {
   project     = hydra_project.gnu.name
-  state       = "one-shot"
+  state       = "disabled"
   visible     = true
   name        = "rcs-master"
   type        = "legacy"
