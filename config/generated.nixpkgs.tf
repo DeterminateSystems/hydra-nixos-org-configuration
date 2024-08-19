@@ -4404,7 +4404,7 @@ resource "hydra_jobset" "nixpkgs_r-updates" {
   }
 
   check_interval    = 28800
-  scheduling_shares = 600
+  scheduling_shares = 60
   keep_evaluations  = 0
 
   email_notifications = false
