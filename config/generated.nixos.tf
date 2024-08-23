@@ -960,6 +960,34 @@ resource "hydra_jobset" "nixos_nix-2_0" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_nix-2_24-upgrade" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "nix-2.24-upgrade"
+  type        = "legacy"
+  description = "Testing PR #335342: nix: 2.18 -> 2.24"
+
+  nix_expression {
+    file  = "nixos/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git nix-2.24-upgrade"
+    notify_committers = false
+  }
+
+  check_interval    = 36000
+  scheduling_shares = 1
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_nixos-test-expensive-eval" {
   project     = hydra_project.nixos.name
   state       = "disabled"

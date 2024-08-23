@@ -205,6 +205,7 @@ terraform import hydra_jobset.nixos_mariadb-10_2 nixos/mariadb-10.2
 terraform import hydra_jobset.nixos_master nixos/master
 terraform import hydra_jobset.nixos_modular nixos/modular
 terraform import hydra_jobset.nixos_nix-2_0 nixos/nix-2.0
+terraform import hydra_jobset.nixos_nix-2_24-upgrade nixos/nix-2.24-upgrade
 terraform import hydra_jobset.nixos_nixos-test-expensive-eval nixos/nixos-test-expensive-eval
 terraform import hydra_jobset.nixos_nixup nixos/nixup
 terraform import hydra_jobset.nixos_openssl-1_1 nixos/openssl-1.1
