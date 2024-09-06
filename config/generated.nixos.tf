@@ -4329,7 +4329,7 @@ resource "hydra_jobset" "nixos_systemd-update" {
 
 resource "hydra_jobset" "nixos_trunk-combined" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "trunk-combined"
   type        = "legacy"
@@ -4354,7 +4354,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
     notify_committers = false
   }
 
-  check_interval    = 172800
+  check_interval    = -172800
   scheduling_shares = 768
   keep_evaluations  = 2
 
