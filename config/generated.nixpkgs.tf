@@ -1156,6 +1156,48 @@ resource "hydra_jobset" "nixpkgs_glibc-232" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_glibc-bump" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = false
+  name        = "glibc-bump"
+  type        = "legacy"
+  description = "See PR #342073: glibc: 2.39 -> 2.40"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/Ma27/nixpkgs.git bump-glibc"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_gnome" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
