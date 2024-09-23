@@ -1164,3 +1164,21 @@ resource "hydra_jobset" "nix_tmp-rust" {
   email_notifications = false
   email_override      = ""
 }
+
+resource "hydra_jobset" "nix_verify-tls" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = false
+  name        = "verify-tls"
+  type        = "flake"
+  description = "Default branch"
+
+  flake_uri = "github:NixOS/nix/verify-tls"
+
+  check_interval    = 7200
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
