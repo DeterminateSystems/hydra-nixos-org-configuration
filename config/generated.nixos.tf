@@ -4355,7 +4355,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
   }
 
   check_interval    = -172800
-  scheduling_shares = 7
+  scheduling_shares = 768
   keep_evaluations  = 2
 
   email_notifications = false
