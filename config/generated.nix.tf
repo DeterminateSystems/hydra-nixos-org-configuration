@@ -953,6 +953,24 @@ resource "hydra_jobset" "nix_nixpkgs-master" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_pr-11566" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-11566"
+  type        = "flake"
+  description = "PR #11566"
+
+  flake_uri = "github:Mic92/nix-1/nixpkgs-upgrade"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_pr-7774" {
   project     = hydra_project.nix.name
   state       = "disabled"

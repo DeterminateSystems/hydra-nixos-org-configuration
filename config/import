@@ -163,6 +163,7 @@ terraform import hydra_jobset.nix_maintenance-2_9 nix/maintenance-2.9
 terraform import hydra_jobset.nix_markdown nix/markdown
 terraform import hydra_jobset.nix_master nix/master
 terraform import hydra_jobset.nix_nixpkgs-master nix/nixpkgs-master
+terraform import hydra_jobset.nix_pr-11566 nix/pr-11566
 terraform import hydra_jobset.nix_pr-7774 nix/pr-7774
 terraform import hydra_jobset.nix_pr-8477 nix/pr-8477
 terraform import hydra_jobset.nix_pr-8569 nix/pr-8569
