@@ -4445,8 +4445,15 @@ resource "hydra_jobset" "nixpkgs_r-updates" {
     notify_committers = false
   }
 
-  check_interval    = 28800
-  scheduling_shares = 60
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"x86_64-darwin\"*/ \"aarch64-linux\" \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = -28800
+  scheduling_shares = 10
   keep_evaluations  = 0
 
   email_notifications = false
