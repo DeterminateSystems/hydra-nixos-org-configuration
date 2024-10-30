@@ -134,3 +134,38 @@ resource "hydra_jobset" "flakes_sst" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "flakes_template-c-hello" {
+  project     = hydra_project.flakes.name
+  state       = "enabled"
+  visible     = true
+  name        = "template-c-hello"
+  type        = "flake"
+  description = "C Hello template"
+
+  flake_uri = "github:NixOS/templates?dir=c-hello"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "flakes_template-rust-web-server" {
+  project     = hydra_project.flakes.name
+  state       = "enabled"
+  visible     = true
+  name        = "template-rust-web-server"
+  type        = "flake"
+  description = "Rust web server template"
+
+  flake_uri = "github:NixOS/templates?dir=rust-web-server"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}

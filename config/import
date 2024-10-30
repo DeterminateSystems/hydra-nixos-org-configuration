@@ -34,6 +34,8 @@ terraform import hydra_jobset.flakes_nickel flakes/nickel
 terraform import hydra_jobset.flakes_nix-serve flakes/nix-serve
 terraform import hydra_jobset.flakes_nixos-homepage flakes/nixos-homepage
 terraform import hydra_jobset.flakes_sst flakes/sst
+terraform import hydra_jobset.flakes_template-c-hello flakes/template-c-hello
+terraform import hydra_jobset.flakes_template-rust-web-server flakes/template-rust-web-server
 terraform import hydra_jobset.gnu_autoconf-master gnu/autoconf-master
 terraform import hydra_jobset.gnu_automake-master gnu/automake-master
 terraform import hydra_jobset.gnu_bash-master gnu/bash-master
