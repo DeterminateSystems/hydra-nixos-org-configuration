@@ -16,7 +16,7 @@ resource "hydra_jobset" "experimental-nix-installer_experimental-installer" {
   type        = "flake"
   description = "installer crimes"
 
-  flake_uri = "github:NixOS/experimental-nix-installer/main"
+  flake_uri = "github:NixOS/experimental-nix-installer/fix_hydra"
 
   check_interval    = 6000
   scheduling_shares = 10000
