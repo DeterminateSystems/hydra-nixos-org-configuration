@@ -3895,7 +3895,7 @@ resource "hydra_jobset" "nixos_staging-next-24_05-small" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ /*\"x86_64-linux\"*/ \"aarch64-linux\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
     notify_committers = false
   }
 
@@ -4354,7 +4354,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
     notify_committers = false
   }
 
-  check_interval    = -172800
+  check_interval    = 172800
   scheduling_shares = 768
   keep_evaluations  = 2
 
