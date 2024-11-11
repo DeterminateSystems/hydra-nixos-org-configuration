@@ -415,7 +415,7 @@ resource "hydra_jobset" "nix_maintenance-2_1" {
 
 resource "hydra_jobset" "nix_maintenance-2_10" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.10"
   type        = "flake"
@@ -433,7 +433,7 @@ resource "hydra_jobset" "nix_maintenance-2_10" {
 
 resource "hydra_jobset" "nix_maintenance-2_11" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.11"
   type        = "flake"
@@ -451,7 +451,7 @@ resource "hydra_jobset" "nix_maintenance-2_11" {
 
 resource "hydra_jobset" "nix_maintenance-2_12" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.12"
   type        = "flake"
@@ -469,7 +469,7 @@ resource "hydra_jobset" "nix_maintenance-2_12" {
 
 resource "hydra_jobset" "nix_maintenance-2_13" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.13"
   type        = "flake"
@@ -487,7 +487,7 @@ resource "hydra_jobset" "nix_maintenance-2_13" {
 
 resource "hydra_jobset" "nix_maintenance-2_14" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.14"
   type        = "flake"
@@ -505,7 +505,7 @@ resource "hydra_jobset" "nix_maintenance-2_14" {
 
 resource "hydra_jobset" "nix_maintenance-2_15" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.15"
   type        = "flake"
@@ -523,7 +523,7 @@ resource "hydra_jobset" "nix_maintenance-2_15" {
 
 resource "hydra_jobset" "nix_maintenance-2_16" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.16"
   type        = "flake"
@@ -541,7 +541,7 @@ resource "hydra_jobset" "nix_maintenance-2_16" {
 
 resource "hydra_jobset" "nix_maintenance-2_17" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.17"
   type        = "flake"
@@ -725,6 +725,24 @@ resource "hydra_jobset" "nix_maintenance-2_24" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_maintenance-2_25" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "maintenance-2.25"
+  type        = "flake"
+  description = "2.25 release branch"
+
+  flake_uri = "github:NixOS/nix/2.25-maintenance"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_maintenance-2_3" {
   project     = hydra_project.nix.name
   state       = "enabled"
@@ -769,7 +787,7 @@ resource "hydra_jobset" "nix_maintenance-2_3" {
 
 resource "hydra_jobset" "nix_maintenance-2_4" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.4"
   type        = "flake"
@@ -787,7 +805,7 @@ resource "hydra_jobset" "nix_maintenance-2_4" {
 
 resource "hydra_jobset" "nix_maintenance-2_5" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.5"
   type        = "flake"
@@ -805,7 +823,7 @@ resource "hydra_jobset" "nix_maintenance-2_5" {
 
 resource "hydra_jobset" "nix_maintenance-2_6" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.6"
   type        = "flake"
@@ -823,7 +841,7 @@ resource "hydra_jobset" "nix_maintenance-2_6" {
 
 resource "hydra_jobset" "nix_maintenance-2_7" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.7"
   type        = "flake"
@@ -841,7 +859,7 @@ resource "hydra_jobset" "nix_maintenance-2_7" {
 
 resource "hydra_jobset" "nix_maintenance-2_8" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.8"
   type        = "flake"
@@ -859,7 +877,7 @@ resource "hydra_jobset" "nix_maintenance-2_8" {
 
 resource "hydra_jobset" "nix_maintenance-2_9" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.9"
   type        = "flake"
