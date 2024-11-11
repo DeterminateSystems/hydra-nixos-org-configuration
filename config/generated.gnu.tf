@@ -2773,3 +2773,1332 @@ resource "hydra_jobset" "gnu_idutils-master" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "gnu_inetutils-master" {
+  project     = hydra_project.gnu.name
+  state       = "one-at-a-time"
+  visible     = true
+  name        = "inetutils-master"
+  type        = "legacy"
+  description = "GNU Internet Utilities"
+
+  nix_expression {
+    file  = "inetutils/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "inetutilsSrc"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/inetutils.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  check_interval    = 864000
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_libgcrypt-trunk" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "libgcrypt-trunk"
+  type        = "legacy"
+  description = "GNU libgcrypt"
+
+  nix_expression {
+    file  = "libgcrypt/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "libgcryptSrc"
+    type              = "git"
+    value             = "git://git.gnupg.org/libgcrypt.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "libgpgerror"
+    type              = "sysbuild"
+    value             = "libgpg-error:build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_libgpg-error" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "libgpg-error"
+  type        = "legacy"
+  description = "GNU libgpg-error"
+
+  nix_expression {
+    file  = "libgpg-error/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "libgpgerrorSrc"
+    type              = "git"
+    value             = "git://git.gnupg.org/libgpg-error.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_libidn-master" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "libidn-master"
+  type        = "legacy"
+  description = "GNU Libidn"
+
+  nix_expression {
+    file  = "libidn/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "libidnSrc"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/libidn.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_libredwg-master" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "libredwg-master"
+  type        = "legacy"
+  description = "GNU libredwg"
+
+  nix_expression {
+    file  = "libredwg/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "libredwgSrc"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/libredwg.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-cygwin"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_libtasn1-master" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "libtasn1-master"
+  type        = "legacy"
+  description = "GNU Libtasn1"
+
+  nix_expression {
+    file  = "libtasn1/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "libtasn1Src"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/libtasn1.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_libtool-master" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "libtool-master"
+  type        = "legacy"
+  description = "GNU Libtool"
+
+  nix_expression {
+    file  = "libtool/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "autoconf"
+    type              = "build"
+    value             = "autoconf-master:build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "automake"
+    type              = "build"
+    value             = "automake-master:build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "libtoolSrc"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/libtool.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_libunistring" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "libunistring"
+  type        = "legacy"
+  description = "GNU libunistring"
+
+  nix_expression {
+    file  = "libunistring/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulibSrc"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "libunistringSrc"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/libunistring.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i386-sunos"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_mpc-10x" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "mpc-10x"
+  type        = "legacy"
+  description = "GNU Multi-Precision Complex Number Library 1.0 branch"
+
+  nix_expression {
+    file  = "mpc/1.0.x.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gmp"
+    type              = "sysbuild"
+    value             = "gnu:gmp-default:build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "gmp_xgnu"
+    type              = "build"
+    value             = "gnu:gmp-default:xbuild_gnu"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mpc"
+    type              = "svn-checkout"
+    value             = "svn://scm.gforge.inria.fr/svn/mpc/branches/1.0"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mpfr"
+    type              = "sysbuild"
+    value             = "gnu:mpfr-trunk:build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mpfr_xgnu"
+    type              = "build"
+    value             = "gnu:mpfr-trunk:xbuild_gnu"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-freebsd"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_mpc-trunk" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "mpc-trunk"
+  type        = "legacy"
+  description = "GNU Multi-Precision Complex Number Library"
+
+  nix_expression {
+    file  = "mpc/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gmp"
+    type              = "sysbuild"
+    value             = "gnu:gmp-default:build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "gmp_xgnu"
+    type              = "build"
+    value             = "gnu:gmp-default:xbuild_gnu"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mpc"
+    type              = "svn-checkout"
+    value             = "svn://scm.gforge.inria.fr/svn/mpc/trunk"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mpfr"
+    type              = "sysbuild"
+    value             = "gnu:mpfr-trunk:build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mpfr_xgnu"
+    type              = "build"
+    value             = "gnu:mpfr-trunk:xbuild_gnu"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-cygwin"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_mpfr-trunk" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "mpfr-trunk"
+  type        = "legacy"
+  description = "GNU Multi-Precision Floating-point with Correct Rounding Library"
+
+  nix_expression {
+    file  = "mpfr/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gmp"
+    type              = "sysbuild"
+    value             = "gnu:gmp-default:build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "gmp_xgnu"
+    type              = "build"
+    value             = "gnu:gmp-default:xbuild_gnu"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mpfr"
+    type              = "svn"
+    value             = "svn://scm.gforge.inria.fr/svn/mpfr/trunk"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-cygwin"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_myserver-master" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "myserver-master"
+  type        = "legacy"
+  description = "GNU MyServer"
+
+  nix_expression {
+    file  = "myserver/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulibSrc"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "myserverSrc"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/myserver.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = true
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_octave-default" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "octave-default"
+  type        = "legacy"
+  description = "GNU Octave"
+
+  nix_expression {
+    file  = "octave/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "octave"
+    type              = "hg"
+    value             = "http://www.octave.org/hg/octave"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_parted-master" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "parted-master"
+  type        = "legacy"
+  description = "GNU Parted"
+
+  nix_expression {
+    file  = "parted/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "parted"
+    type              = "git"
+    value             = "git://git.debian.org/git/parted/parted.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_patch-master" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "patch-master"
+  type        = "legacy"
+  description = "GNU Patch"
+
+  nix_expression {
+    file  = "patch/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "patchSrc"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/patch.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_rcs-master" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "rcs-master"
+  type        = "legacy"
+  description = "GNU RCS"
+
+  nix_expression {
+    file  = "rcs/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "rcs"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/rcs.git p 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-darwin"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 864000
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_smalltalk-master" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "smalltalk-master"
+  type        = "legacy"
+  description = "GNU Smalltalk"
+
+  nix_expression {
+    file  = "smalltalk/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "smalltalk"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/smalltalk.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_wget-trunk" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = false
+  name        = "wget-trunk"
+  type        = "legacy"
+  description = "GNU wget"
+
+  nix_expression {
+    file  = "wget/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-darwin"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "wget"
+    type              = "bzr-checkout"
+    value             = "bzr://bzr.savannah.gnu.org/wget/trunk"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = true
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_zile-branch-2_4" {
+  project     = hydra_project.gnu.name
+  state       = "disabled"
+  visible     = true
+  name        = "zile-branch-2.4"
+  type        = "legacy"
+  description = "GNU Zile"
+
+  nix_expression {
+    file  = "zile/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "zile"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/zile.git branch-2.4 1"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_zile-master" {
+  project     = hydra_project.gnu.name
+  state       = "enabled"
+  visible     = true
+  name        = "zile-master"
+  type        = "legacy"
+  description = "GNU Zile"
+
+  nix_expression {
+    file  = "zile/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-20.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "zile"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/zile.git master 1"
+    notify_committers = false
+  }
+
+  check_interval    = 86382
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "gnu_zile-vala" {
+  project     = hydra_project.gnu.name
+  state       = "enabled"
+  visible     = true
+  name        = "zile-vala"
+  type        = "legacy"
+  description = "GNU Zile"
+
+  nix_expression {
+    file  = "zile/release.nix"
+    input = "hydraConfig"
+  }
+
+  input {
+    name              = "gnulib"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/gnulib.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-20.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "zile"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/zile.git vala 1"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}

@@ -3391,8 +3391,8 @@ resource "hydra_jobset" "nixos_release-23_05-small" {
 
 resource "hydra_jobset" "nixos_release-23_11" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-23.11"
   type        = "legacy"
   description = "NixOS 23.11 release branch"
@@ -3433,8 +3433,8 @@ resource "hydra_jobset" "nixos_release-23_11" {
 
 resource "hydra_jobset" "nixos_release-23_11-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-23.11-small"
   type        = "legacy"
   description = "NixOS 23.11 release branch"
