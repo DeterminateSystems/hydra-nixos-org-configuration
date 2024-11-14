@@ -274,6 +274,8 @@ terraform import hydra_jobset.nixos_release-23_11 nixos/release-23.11
 terraform import hydra_jobset.nixos_release-23_11-small nixos/release-23.11-small
 terraform import hydra_jobset.nixos_release-24_05 nixos/release-24.05
 terraform import hydra_jobset.nixos_release-24_05-small nixos/release-24.05-small
+terraform import hydra_jobset.nixos_release-24_11 nixos/release-24.11
+terraform import hydra_jobset.nixos_release-24_11-small nixos/release-24.11-small
 terraform import hydra_jobset.nixos_releasexx-23_05 nixos/releasexx-23.05
 terraform import hydra_jobset.nixos_reproducibility nixos/reproducibility
 terraform import hydra_jobset.nixos_rhel6 nixos/rhel6
@@ -283,6 +285,7 @@ terraform import hydra_jobset.nixos_staging-next-22_11-small nixos/staging-next-
 terraform import hydra_jobset.nixos_staging-next-23_05-small nixos/staging-next-23.05-small
 terraform import hydra_jobset.nixos_staging-next-23_11-small nixos/staging-next-23.11-small
 terraform import hydra_jobset.nixos_staging-next-24_05-small nixos/staging-next-24.05-small
+terraform import hydra_jobset.nixos_staging-next-24_11-small nixos/staging-next-24.11-small
 terraform import hydra_jobset.nixos_staging-next-small nixos/staging-next-small
 terraform import hydra_jobset.nixos_staging-small nixos/staging-small
 terraform import hydra_jobset.nixos_stdenv-test nixos/stdenv-test
@@ -357,6 +360,7 @@ terraform import hydra_jobset.nixpkgs_nixpkgs-22_11-darwin nixpkgs/nixpkgs-22.11
 terraform import hydra_jobset.nixpkgs_nixpkgs-23_05-darwin nixpkgs/nixpkgs-23.05-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-23_11-darwin nixpkgs/nixpkgs-23.11-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-24_05-darwin nixpkgs/nixpkgs-24.05-darwin
+terraform import hydra_jobset.nixpkgs_nixpkgs-24_11-darwin nixpkgs/nixpkgs-24.11-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-aarch64-darwin nixpkgs/nixpkgs-unstable-aarch64-darwin
 terraform import hydra_jobset.nixpkgs_nixpkgs-unstable-armv7l nixpkgs/nixpkgs-unstable-armv7l
 terraform import hydra_jobset.nixpkgs_nixpkgsxx-23_05-darwin nixpkgs/nixpkgsxx-23.05-darwin
@@ -428,6 +432,7 @@ terraform import hydra_jobset.nixpkgs_staging-next-22_11 nixpkgs/staging-next-22
 terraform import hydra_jobset.nixpkgs_staging-next-23_05 nixpkgs/staging-next-23.05
 terraform import hydra_jobset.nixpkgs_staging-next-23_11 nixpkgs/staging-next-23.11
 terraform import hydra_jobset.nixpkgs_staging-next-24_05 nixpkgs/staging-next-24.05
+terraform import hydra_jobset.nixpkgs_staging-next-24_11 nixpkgs/staging-next-24.11
 terraform import hydra_jobset.nixpkgs_stdenv nixpkgs/stdenv
 terraform import hydra_jobset.nixpkgs_stdenv-fixes nixpkgs/stdenv-fixes
 terraform import hydra_jobset.nixpkgs_stdenvBoot_aarch64-linux nixpkgs/stdenvBoot_aarch64-linux

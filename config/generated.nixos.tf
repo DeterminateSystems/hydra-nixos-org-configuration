@@ -3543,6 +3543,83 @@ resource "hydra_jobset" "nixos_release-24_05-small" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_release-24_11" {
+  project     = hydra_project.nixos.name
+  state       = "one-shot"
+  visible     = true
+  name        = "release-24.11"
+  type        = "legacy"
+  description = "NixOS 24.11 release branch"
+
+  nix_expression {
+    file  = "nixos/release-combined.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-24.11"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 129600
+  scheduling_shares = 5000000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixos_release-24_11-small" {
+  project     = hydra_project.nixos.name
+  state       = "one-shot"
+  visible     = true
+  name        = "release-24.11-small"
+  type        = "legacy"
+  description = "NixOS 24.11 release branch"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-24.11"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 43200
+  scheduling_shares = 20000000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_releasexx-23_05" {
   project     = hydra_project.nixos.name
   state       = "disabled"
@@ -3882,6 +3959,48 @@ resource "hydra_jobset" "nixos_staging-next-24_05-small" {
     name              = "nixpkgs"
     type              = "git"
     value             = "https://github.com/NixOS/nixpkgs.git staging-next-24.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ /*\"x86_64-linux\"*/ \"aarch64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixos_staging-next-24_11-small" {
+  project     = hydra_project.nixos.name
+  state       = "one-shot"
+  visible     = true
+  name        = "staging-next-24.11-small"
+  type        = "legacy"
+  description = "staging-next-24.11 branch, small jobset"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-24.11"
     notify_committers = false
   }
 
