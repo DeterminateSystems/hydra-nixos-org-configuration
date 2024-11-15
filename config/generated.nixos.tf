@@ -3545,7 +3545,7 @@ resource "hydra_jobset" "nixos_release-24_05-small" {
 
 resource "hydra_jobset" "nixos_release-24_11" {
   project     = hydra_project.nixos.name
-  state       = "one-shot"
+  state       = "enabled"
   visible     = true
   name        = "release-24.11"
   type        = "legacy"
@@ -3587,7 +3587,7 @@ resource "hydra_jobset" "nixos_release-24_11" {
 
 resource "hydra_jobset" "nixos_release-24_11-small" {
   project     = hydra_project.nixos.name
-  state       = "one-shot"
+  state       = "enabled"
   visible     = true
   name        = "release-24.11-small"
   type        = "legacy"
