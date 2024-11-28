@@ -3986,7 +3986,7 @@ resource "hydra_jobset" "nixos_staging-next-24_05-small" {
 
 resource "hydra_jobset" "nixos_staging-next-24_11-small" {
   project     = hydra_project.nixos.name
-  state       = "one-shot"
+  state       = "enabled"
   visible     = true
   name        = "staging-next-24.11-small"
   type        = "legacy"
@@ -4014,7 +4014,7 @@ resource "hydra_jobset" "nixos_staging-next-24_11-small" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ /*\"x86_64-linux\"*/ \"aarch64-linux\" ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
     notify_committers = false
   }
 
