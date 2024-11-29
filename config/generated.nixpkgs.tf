@@ -2355,7 +2355,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-24_05-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-24_11-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = true
   name        = "nixpkgs-24.11-darwin"
   type        = "legacy"
@@ -2387,7 +2387,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-24_11-darwin" {
     notify_committers = false
   }
 
-  check_interval    = -57600
+  check_interval    = 57600
   scheduling_shares = 5000
   keep_evaluations  = 1
 

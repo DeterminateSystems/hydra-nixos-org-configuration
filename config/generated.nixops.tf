@@ -378,7 +378,7 @@ resource "hydra_jobset" "nixops_release-1_5" {
 
 resource "hydra_jobset" "nixops_release-1_6_1" {
   project     = hydra_project.nixops.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "release-1.6.1"
   type        = "legacy"
