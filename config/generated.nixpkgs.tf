@@ -2355,7 +2355,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-24_05-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-24_11-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "nixpkgs-24.11-darwin"
   type        = "legacy"
@@ -2376,7 +2376,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-24_11-darwin" {
   input {
     name              = "officialRelease"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 

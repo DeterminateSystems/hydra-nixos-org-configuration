@@ -3545,7 +3545,7 @@ resource "hydra_jobset" "nixos_release-24_05-small" {
 
 resource "hydra_jobset" "nixos_release-24_11" {
   project     = hydra_project.nixos.name
-  state       = "disabled"
+  state       = "enabled"
   visible     = true
   name        = "release-24.11"
   type        = "legacy"
@@ -3566,7 +3566,7 @@ resource "hydra_jobset" "nixos_release-24_11" {
   input {
     name              = "stableBranch"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 
@@ -3577,7 +3577,7 @@ resource "hydra_jobset" "nixos_release-24_11" {
     notify_committers = false
   }
 
-  check_interval    = -129600
+  check_interval    = 129600
   scheduling_shares = 5000000
   keep_evaluations  = 1
 
@@ -3608,7 +3608,7 @@ resource "hydra_jobset" "nixos_release-24_11-small" {
   input {
     name              = "stableBranch"
     type              = "boolean"
-    value             = "false"
+    value             = "true"
     notify_committers = false
   }
 
@@ -4473,7 +4473,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
     notify_committers = false
   }
 
-  check_interval    = -172800
+  check_interval    = 172800
   scheduling_shares = 768
   keep_evaluations  = 2
 
