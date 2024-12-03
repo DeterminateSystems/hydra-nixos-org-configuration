@@ -2327,7 +2327,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-24_05-darwin" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git release-24.05"
+    value             = "https://github.com/vcunat/nixpkgs.git p/24.05-darwin"
     notify_committers = false
   }
 
