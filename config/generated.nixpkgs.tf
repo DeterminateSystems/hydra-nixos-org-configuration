@@ -2327,7 +2327,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-24_05-darwin" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/vcunat/nixpkgs.git p/24.05-darwin"
+    value             = "https://github.com/nixos/nixpkgs.git release-24.05"
     notify_committers = false
   }
 
@@ -2345,7 +2345,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-24_05-darwin" {
     notify_committers = false
   }
 
-  check_interval    = -57600
+  check_interval    = 57600
   scheduling_shares = 5000
   keep_evaluations  = 1
 
