@@ -2775,7 +2775,7 @@ resource "hydra_jobset" "gnu_idutils-master" {
 
 resource "hydra_jobset" "gnu_inetutils-master" {
   project     = hydra_project.gnu.name
-  state       = "one-at-a-time"
+  state       = "disabled"
   visible     = true
   name        = "inetutils-master"
   type        = "legacy"
