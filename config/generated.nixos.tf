@@ -2641,7 +2641,7 @@ resource "hydra_jobset" "nixos_release-20_03" {
 
   check_interval    = 43200
   scheduling_shares = 1
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2725,7 +2725,7 @@ resource "hydra_jobset" "nixos_release-20_03-small" {
 
   check_interval    = 14400
   scheduling_shares = 1
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2767,7 +2767,7 @@ resource "hydra_jobset" "nixos_release-20_09" {
 
   check_interval    = 43200
   scheduling_shares = 5000000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2816,7 +2816,7 @@ resource "hydra_jobset" "nixos_release-20_09-aarch64" {
 
   check_interval    = 86400
   scheduling_shares = 150000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2851,7 +2851,7 @@ resource "hydra_jobset" "nixos_release-20_09-small" {
 
   check_interval    = 14400
   scheduling_shares = 20000000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2893,7 +2893,7 @@ resource "hydra_jobset" "nixos_release-21_05" {
 
   check_interval    = 86400
   scheduling_shares = 500
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2942,7 +2942,7 @@ resource "hydra_jobset" "nixos_release-21_05-aarch64" {
 
   check_interval    = 86400
   scheduling_shares = 150000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2977,7 +2977,7 @@ resource "hydra_jobset" "nixos_release-21_05-small" {
 
   check_interval    = 86400
   scheduling_shares = 2000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3019,7 +3019,7 @@ resource "hydra_jobset" "nixos_release-21_11" {
 
   check_interval    = 172800
   scheduling_shares = 5
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3068,7 +3068,7 @@ resource "hydra_jobset" "nixos_release-21_11-aarch64" {
 
   check_interval    = 172800
   scheduling_shares = 2
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3103,7 +3103,7 @@ resource "hydra_jobset" "nixos_release-21_11-small" {
 
   check_interval    = 86400
   scheduling_shares = 20
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3145,7 +3145,7 @@ resource "hydra_jobset" "nixos_release-22_05" {
 
   check_interval    = 86400
   scheduling_shares = 50
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3194,7 +3194,7 @@ resource "hydra_jobset" "nixos_release-22_05-aarch64" {
 
   check_interval    = 86400
   scheduling_shares = 150
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3229,7 +3229,7 @@ resource "hydra_jobset" "nixos_release-22_05-small" {
 
   check_interval    = 43200
   scheduling_shares = 200
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3271,7 +3271,7 @@ resource "hydra_jobset" "nixos_release-22_11" {
 
   check_interval    = 129600
   scheduling_shares = 50000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3306,7 +3306,7 @@ resource "hydra_jobset" "nixos_release-22_11-small" {
 
   check_interval    = 43200
   scheduling_shares = 20000000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3348,7 +3348,7 @@ resource "hydra_jobset" "nixos_release-23_05" {
 
   check_interval    = 345600
   scheduling_shares = 50
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3383,7 +3383,7 @@ resource "hydra_jobset" "nixos_release-23_05-small" {
 
   check_interval    = 86400
   scheduling_shares = 2000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3425,7 +3425,7 @@ resource "hydra_jobset" "nixos_release-23_11" {
 
   check_interval    = 172800
   scheduling_shares = 1
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3460,7 +3460,7 @@ resource "hydra_jobset" "nixos_release-23_11-small" {
 
   check_interval    = 86400
   scheduling_shares = 200
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

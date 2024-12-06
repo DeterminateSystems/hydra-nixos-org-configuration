@@ -1276,7 +1276,7 @@ resource "hydra_jobset" "nixpkgs_gnome-stable" {
 
   check_interval    = 14400
   scheduling_shares = 200000
-  keep_evaluations  = 3
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2053,7 +2053,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-20_09-darwin" {
 
   check_interval    = 14400
   scheduling_shares = 5000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2095,7 +2095,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-21_05-darwin" {
 
   check_interval    = 86400
   scheduling_shares = 500
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2137,7 +2137,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-21_11-darwin" {
 
   check_interval    = 172800
   scheduling_shares = 2
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2179,7 +2179,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-22_05-darwin" {
 
   check_interval    = 43200
   scheduling_shares = 5000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2221,7 +2221,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-22_11-darwin" {
 
   check_interval    = 86400
   scheduling_shares = 5000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2263,7 +2263,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-23_05-darwin" {
 
   check_interval    = 259200
   scheduling_shares = 50
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -2271,7 +2271,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-23_05-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-23_11-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "nixpkgs-23.11-darwin"
   type        = "legacy"
@@ -2305,7 +2305,7 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-23_11-darwin" {
 
   check_interval    = -86400
   scheduling_shares = 10
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3811,7 +3811,7 @@ resource "hydra_jobset" "nixpkgs_pr-284165-gcc13-darwin" {
 
 resource "hydra_jobset" "nixpkgs_pr-285333-llvmPackages_17-linux" {
   project     = hydra_project.nixpkgs.name
-  state       = "one-at-a-time"
+  state       = "disabled"
   visible     = true
   name        = "pr-285333-llvmPackages_17-linux"
   type        = "legacy"
@@ -3845,7 +3845,7 @@ resource "hydra_jobset" "nixpkgs_pr-285333-llvmPackages_17-linux" {
 
   check_interval    = 0
   scheduling_shares = 1
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -4566,7 +4566,7 @@ resource "hydra_jobset" "nixpkgs_staging" {
 
   check_interval    = 0
   scheduling_shares = 100
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -4902,7 +4902,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-21_11" {
 
   check_interval    = 172800
   scheduling_shares = 5000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -4986,7 +4986,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-22_11" {
 
   check_interval    = 0
   scheduling_shares = 5
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
