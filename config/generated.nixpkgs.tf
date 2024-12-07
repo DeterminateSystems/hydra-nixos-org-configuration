@@ -5028,7 +5028,7 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_05" {
 
   check_interval    = 0
   scheduling_shares = 10000
-  keep_evaluations  = 1
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
