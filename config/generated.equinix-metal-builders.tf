@@ -4,13 +4,13 @@ resource "hydra_project" "equinix-metal-builders" {
   homepage     = ""
   description  = "NixOS systems for hydra.nixos.org's Equinix Metal builders."
   owner        = "graham@grahamc.com"
-  enabled      = true
+  enabled      = false
   visible      = true
 }
 
 resource "hydra_jobset" "equinix-metal-builders_aarch64-community-box" {
   project     = hydra_project.equinix-metal-builders.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "aarch64-community-box"
   type        = "flake"
@@ -28,7 +28,7 @@ resource "hydra_jobset" "equinix-metal-builders_aarch64-community-box" {
 
 resource "hydra_jobset" "equinix-metal-builders_main" {
   project     = hydra_project.equinix-metal-builders.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "main"
   type        = "flake"
