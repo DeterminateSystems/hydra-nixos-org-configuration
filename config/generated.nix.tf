@@ -875,3 +875,346 @@ resource "hydra_jobset" "nix_maintenance-2_8" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_maintenance-2_9" {
+  project     = hydra_project.nix.name
+  state       = "disabled"
+  visible     = true
+  name        = "maintenance-2.9"
+  type        = "flake"
+  description = "2.9 release branch"
+
+  flake_uri = "github:NixOS/nix/2.9-maintenance"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_markdown" {
+  project     = hydra_project.nix.name
+  state       = "disabled"
+  visible     = false
+  name        = "markdown"
+  type        = "flake"
+  description = "Markdown test"
+
+  flake_uri = "github:edolstra/nix/markdown"
+
+  check_interval    = 86400
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_master" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "master"
+  type        = "flake"
+  description = "Default branch"
+
+  flake_uri = "github:NixOS/nix"
+
+  check_interval    = 10800
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_nixpkgs-master" {
+  project     = hydra_project.nix.name
+  state       = "disabled"
+  visible     = false
+  name        = "nixpkgs-master"
+  type        = "legacy"
+  description = "Master branch against nixpkgs master"
+
+  nix_expression {
+    file  = "release.nix"
+    input = "nix"
+  }
+
+  input {
+    name              = "nix"
+    type              = "git"
+    value             = "https://github.com/NixOS/nix.git master 1"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git master"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_pr-11566" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-11566"
+  type        = "flake"
+  description = "PR #11566"
+
+  flake_uri = "github:Mic92/nix-1/nixpkgs-upgrade"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_pr-7774" {
+  project     = hydra_project.nix.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-7774"
+  type        = "flake"
+  description = "PR #7774"
+
+  flake_uri = "github:edolstra/nix/submodule-fixes"
+
+  check_interval    = 7200
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_pr-8477" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = false
+  name        = "pr-8477"
+  type        = "flake"
+  description = "PR #8477"
+
+  flake_uri = "github:edolstra/nix/tarball-flake-redirects"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_pr-8569" {
+  project     = hydra_project.nix.name
+  state       = "disabled"
+  visible     = false
+  name        = "pr-8569"
+  type        = "flake"
+  description = "PR #8569"
+
+  flake_uri = "github:vcunat/nix/p/flake-update"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_sqlite-branch" {
+  project     = hydra_project.nix.name
+  state       = "disabled"
+  visible     = false
+  name        = "sqlite-branch"
+  type        = "legacy"
+  description = "Nix with SQLite"
+
+  nix_expression {
+    file  = "release.nix"
+    input = "nix"
+  }
+
+  input {
+    name              = "nix"
+    type              = "svn"
+    value             = "https://nixos.org/repos/nix/nix/branches/sqlite"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i386-sunos"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = true
+  email_override      = "eelco.dolstra@logicblox.com"
+}
+
+resource "hydra_jobset" "nix_tmp-pr-2878" {
+  project     = hydra_project.nix.name
+  state       = "disabled"
+  visible     = false
+  name        = "tmp-pr-2878"
+  type        = "legacy"
+  description = "PR test"
+
+  nix_expression {
+    file  = "release.nix"
+    input = "nix"
+  }
+
+  input {
+    name              = "nix"
+    type              = "git"
+    value             = "https://github.com/NixOS/nix.git run-in-pts"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09-small"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_tmp-pr-test" {
+  project     = hydra_project.nix.name
+  state       = "disabled"
+  visible     = false
+  name        = "tmp-pr-test"
+  type        = "flake"
+  description = "Flakes branch"
+
+  flake_uri = "github:CSVdB/nix/nixIsTooPure"
+
+  check_interval    = 0
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_tmp-rust" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = false
+  name        = "tmp-rust"
+  type        = "legacy"
+  description = "Rust test"
+
+  nix_expression {
+    file  = "release.nix"
+    input = "nix"
+  }
+
+  input {
+    name              = "nix"
+    type              = "git"
+    value             = "https://github.com/edolstra/nix.git oxidize"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-19.09-small"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_verify-tls" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = false
+  name        = "verify-tls"
+  type        = "flake"
+  description = "Default branch"
+
+  flake_uri = "github:NixOS/nix/verify-tls"
+
+  check_interval    = 7200
+  scheduling_shares = 100
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
