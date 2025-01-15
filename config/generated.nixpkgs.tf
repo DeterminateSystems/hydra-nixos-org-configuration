@@ -4539,21 +4539,21 @@ resource "hydra_jobset" "nixpkgs_release-17_03" {
 
 resource "hydra_jobset" "nixpkgs_staging" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
+  state       = "one-at-a-time"
   visible     = true
   name        = "staging"
   type        = "legacy"
   description = "staging branch"
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
+    file  = "pkgs/top-level/release-staging.nix"
     input = "nixpkgs"
   }
 
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging"
+    value             = "https://github.com/emilazy/nixpkgs.git push-wuqszxlxpmtk"
     notify_committers = false
   }
 
@@ -4564,7 +4564,7 @@ resource "hydra_jobset" "nixpkgs_staging" {
     notify_committers = false
   }
 
-  check_interval    = 0
+  check_interval    = 3600
   scheduling_shares = 100
   keep_evaluations  = 0
 
