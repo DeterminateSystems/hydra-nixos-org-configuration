@@ -4553,7 +4553,7 @@ resource "hydra_jobset" "nixpkgs_staging" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/emilazy/nixpkgs.git push-wuqszxlxpmtk"
+    value             = "https://github.com/nixos/nixpkgs.git staging"
     notify_committers = false
   }
 
