@@ -4539,7 +4539,7 @@ resource "hydra_jobset" "nixpkgs_release-17_03" {
 
 resource "hydra_jobset" "nixpkgs_staging" {
   project     = hydra_project.nixpkgs.name
-  state       = "one-at-a-time"
+  state       = "enabled"
   visible     = true
   name        = "staging"
   type        = "legacy"
