@@ -42,7 +42,7 @@ resource "hydra_jobset" "composer2nix_master" {
     notify_committers = false
   }
 
-  check_interval    = 300
+  check_interval    = 3600
   scheduling_shares = 1
   keep_evaluations  = 3
 
@@ -84,7 +84,7 @@ resource "hydra_jobset" "composer2nix_pndp-master" {
     notify_committers = false
   }
 
-  check_interval    = 300
+  check_interval    = 3600
   scheduling_shares = 1
   keep_evaluations  = 3
 

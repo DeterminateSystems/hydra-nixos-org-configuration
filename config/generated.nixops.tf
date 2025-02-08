@@ -336,7 +336,7 @@ resource "hydra_jobset" "nixops_release-1_4" {
 
 resource "hydra_jobset" "nixops_release-1_5" {
   project     = hydra_project.nixops.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "release-1.5"
   type        = "legacy"
@@ -373,7 +373,7 @@ resource "hydra_jobset" "nixops_release-1_5" {
   keep_evaluations  = 3
 
   email_notifications = false
-  email_override      = "eelco.dolstra@logicblox.com, aszlig@redmoonstudios.org"
+  email_override      = ""
 }
 
 resource "hydra_jobset" "nixops_release-1_6_1" {
@@ -420,7 +420,7 @@ resource "hydra_jobset" "nixops_release-1_6_1" {
 
 resource "hydra_jobset" "nixops_release-1_7" {
   project     = hydra_project.nixops.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "release-1.7"
   type        = "legacy"
