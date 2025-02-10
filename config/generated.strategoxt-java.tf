@@ -14,60 +14,18 @@ resource "hydra_jobset" "strategoxt-java_aspectj-front-trunk" {
   visible     = false
   name        = "aspectj-front-trunk"
   type        = "legacy"
-  description = "AspectJ Front"
+  description = ""
 
   nix_expression {
-    file  = "jobs/aspectj-front.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "aspectjFrontCheckout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/aspectj-front/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-cygwin"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -154,67 +112,18 @@ resource "hydra_jobset" "strategoxt-java_dryad-trunk" {
   visible     = false
   name        = "dryad-trunk"
   type        = "legacy"
-  description = "Dryad"
+  description = ""
 
   nix_expression {
-    file  = "jobs/dryad.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "dryadCheckout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/dryad/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "javaFront"
-    type              = "sysbuild"
-    value             = "java-front-trunk:build"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "x86_64-darwin"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -224,60 +133,18 @@ resource "hydra_jobset" "strategoxt-java_java-front-trunk" {
   visible     = false
   name        = "java-front-trunk"
   type        = "legacy"
-  description = "JavaFront"
+  description = ""
 
   nix_expression {
-    file  = "jobs/java-front.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "javaFrontCheckout"
-    type              = "git"
-    value             = "https://github.com/metaborg/java-front.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-freebsd"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -287,60 +154,18 @@ resource "hydra_jobset" "strategoxt-java_jimple-front-trunk" {
   visible     = false
   name        = "jimple-front-trunk"
   type        = "legacy"
-  description = "Jimple Front"
+  description = ""
 
   nix_expression {
-    file  = "jobs/jimple-front.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "jimpleFrontCheckout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/sootxt/jimple-front/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-cygwin"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -350,40 +175,19 @@ resource "hydra_jobset" "strategoxt-java_strategoxt-java-bootstrap" {
   visible     = false
   name        = "strategoxt-java-bootstrap"
   type        = "legacy"
-  description = "Stratego/XT distribution for Java"
+  description = ""
 
   nix_expression {
-    file  = "strategoxt/strategoxt-java-bootstrap.nix"
-    input = "strategoxtJava"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "javaFront"
-    type              = "git"
-    value             = "https://github.com/metaborg/java-front.git java-bootstrap"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "strategoxtJava"
-    type              = "git"
-    value             = "https://github.com/metaborg/strategoxt.git java-bootstrap"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
-  email_override      = "v.a.vergu@tudelft.nl, xrj3dctbrf3a@bxc.io"
+  email_notifications = false
+  email_override      = ""
 }
 
 resource "hydra_jobset" "strategoxt-java_strategoxt-typesmart" {
@@ -392,54 +196,19 @@ resource "hydra_jobset" "strategoxt-java_strategoxt-typesmart" {
   visible     = false
   name        = "strategoxt-typesmart"
   type        = "legacy"
-  description = "Stratego/XT distribution for Java"
+  description = ""
 
   nix_expression {
-    file  = "jobs/strategoxt-java-bootstrap.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "baseline"
-    type              = "sysbuild"
-    value             = "strategoxt-java:strategoxt-java-bootstrap:bootstrap3"
-    notify_committers = false
-  }
-
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "javaFront"
-    type              = "git"
-    value             = "https://github.com/metaborg/java-front.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "strategoxtJava"
-    type              = "git"
-    value             = "https://github.com/metaborg/strategoxt.git typesmart-library"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
-  email_override      = "v.vergu@gmail.com"
+  email_notifications = false
+  email_override      = ""
 }
 
 resource "hydra_jobset" "strategoxt-java_strc-java-trunk" {
@@ -581,38 +350,17 @@ resource "hydra_jobset" "strategoxt-java_strj-frontend-refactor" {
   visible     = false
   name        = "strj-frontend-refactor"
   type        = "legacy"
-  description = "Stratego/XT distribution for Java"
+  description = ""
 
   nix_expression {
-    file  = "strategoxt/strategoxt-java-bootstrap.nix"
-    input = "strategoxtJava"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "javaFront"
-    type              = "git"
-    value             = "https://github.com/metaborg/java-front.git java-bootstrap"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "strategoxtJava"
-    type              = "git"
-    value             = "https://github.com/metaborg/strategoxt.git strj-front-end-refactor"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
-  email_override      = "v.a.vergu@tudelft.nl, e.visser@tudelft.nl, xrj3dctbrf3a@bxc.io"
+  email_notifications = false
+  email_override      = ""
 }

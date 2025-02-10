@@ -63,37 +63,16 @@ resource "hydra_jobset" "nixpkgs_autoconf-2_70" {
   visible     = false
   name        = "autoconf-2.70"
   type        = "legacy"
-  description = "Testing autoconf update"
+  description = ""
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/alyssais/nixpkgs.git autoconf"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 1
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -147,37 +126,16 @@ resource "hydra_jobset" "nixpkgs_bash-5" {
   visible     = false
   name        = "bash-5"
   type        = "legacy"
-  description = "PR #136677: testing bash upgrade"
+  description = ""
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/happysalada/nixpkgs.git testing_bash_upgrade"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"aarch64-linux\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -231,30 +189,16 @@ resource "hydra_jobset" "nixpkgs_binutils-2-30" {
   visible     = false
   name        = "binutils-2-30"
   type        = "legacy"
-  description = "binutils-2.30 branch"
+  description = ""
 
   nix_expression {
-    file  = "pkgs/top-level/release-small.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git binutils-2.30"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 1
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -305,33 +249,19 @@ resource "hydra_jobset" "nixpkgs_binutils-2_36" {
 resource "hydra_jobset" "nixpkgs_closure-size" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "closure-size"
   type        = "legacy"
-  description = "Closure size reduction branch"
+  description = ""
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git closure-size"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 7200
-  scheduling_shares = 600
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -382,33 +312,19 @@ resource "hydra_jobset" "nixpkgs_copumpkin-wip" {
 resource "hydra_jobset" "nixpkgs_cpan-update" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "cpan-update"
   type        = "legacy"
-  description = "cpan-update"
+  description = ""
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/nixos/nixpkgs cpan-update"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 14400
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3255,37 +3171,16 @@ resource "hydra_jobset" "nixpkgs_pr-196565-darwin-gcc11_3" {
   visible     = false
   name        = "pr-196565-darwin-gcc11.3"
   type        = "legacy"
-  description = "Testing gcc 11.3 for *-darwin: https://github.com/NixOS/nixpkgs/pull/196565"
+  description = ""
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/zhaofengli/nixpkgs.git darwin-gcc-11-3-master"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-darwin\" \"aarch64-darwin\" ]"
-    notify_committers = false
+    file  = ""
+    input = ""
   }
 
   check_interval    = 0
-  scheduling_shares = 1
-  keep_evaluations  = 1
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3374,37 +3269,16 @@ resource "hydra_jobset" "nixpkgs_pr-211126-binutils-2_40" {
   visible     = false
   name        = "pr-211126-binutils-2.40"
   type        = "legacy"
-  description = "Testing #211126: binutils: 2.39 -> 2.40"
+  description = ""
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/trofi/nixpkgs.git binutils-update"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"aarch64-linux\" \"aarch64-darwin\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 1
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3451,37 +3325,16 @@ resource "hydra_jobset" "nixpkgs_pr-213202-llvmPackages_latest-15" {
   visible     = false
   name        = "pr-213202-llvmPackages_latest-15"
   type        = "legacy"
-  description = "Testing #213202: llvmPackages_latest: 14 -> 15"
+  description = ""
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/rrbutani/nixpkgs.git bump-llvm-latest"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\" ]"
-    notify_committers = false
+    file  = ""
+    input = ""
   }
 
   check_interval    = 0
-  scheduling_shares = 1
-  keep_evaluations  = 1
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3577,37 +3430,16 @@ resource "hydra_jobset" "nixpkgs_pr-241692-llvmPackages_16" {
   visible     = false
   name        = "pr-241692-llvmPackages_16"
   type        = "legacy"
-  description = "Testing PR #241692: llvmPackages: 11 -> 16 on Darwin and Linux"
+  description = ""
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/reckenrode/nixpkgs.git darwin-llvm16-update"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" \"x86_64-darwin\" /*\"aarch64-linux\" \"aarch64-darwin\"*/ ]"
-    notify_committers = false
+    file  = ""
+    input = ""
   }
 
   check_interval    = 0
-  scheduling_shares = 1
-  keep_evaluations  = 1
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

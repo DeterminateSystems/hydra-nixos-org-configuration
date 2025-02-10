@@ -28,17 +28,20 @@ resource "hydra_jobset" "flakes_blender-bin" {
 
 resource "hydra_jobset" "flakes_dhdm" {
   project     = hydra_project.flakes.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "dhdm"
-  type        = "flake"
+  type        = "legacy"
   description = ""
 
-  flake_uri = "github:edolstra/dhdm"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 3600
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -46,17 +49,20 @@ resource "hydra_jobset" "flakes_dhdm" {
 
 resource "hydra_jobset" "flakes_hugefs" {
   project     = hydra_project.flakes.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "hugefs"
-  type        = "flake"
+  type        = "legacy"
   description = ""
 
-  flake_uri = "github:edolstra/hugefs"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 3600
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -64,17 +70,20 @@ resource "hydra_jobset" "flakes_hugefs" {
 
 resource "hydra_jobset" "flakes_nickel" {
   project     = hydra_project.flakes.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nickel"
-  type        = "flake"
-  description = "Nickel"
+  type        = "legacy"
+  description = ""
 
-  flake_uri = "github:tweag/nickel"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 1800
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -82,17 +91,20 @@ resource "hydra_jobset" "flakes_nickel" {
 
 resource "hydra_jobset" "flakes_nix-serve" {
   project     = hydra_project.flakes.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nix-serve"
-  type        = "flake"
-  description = "A binary cache server"
+  type        = "legacy"
+  description = ""
 
-  flake_uri = "github:edolstra/nix-serve"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 3600
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -100,17 +112,20 @@ resource "hydra_jobset" "flakes_nix-serve" {
 
 resource "hydra_jobset" "flakes_nixos-homepage" {
   project     = hydra_project.flakes.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nixos-homepage"
-  type        = "flake"
+  type        = "legacy"
   description = ""
 
-  flake_uri = "github:NixOS/nixos-homepage"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 1800
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

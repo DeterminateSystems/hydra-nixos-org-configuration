@@ -55,13 +55,16 @@ resource "hydra_jobset" "hydra_flake" {
   state       = "disabled"
   visible     = false
   name        = "flake"
-  type        = "flake"
-  description = "Flake branch"
+  type        = "legacy"
+  description = ""
 
-  flake_uri = "github:NixOS/hydra/flake"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 600
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false
@@ -71,40 +74,19 @@ resource "hydra_jobset" "hydra_flake" {
 resource "hydra_jobset" "hydra_hydra-ant-logger-trunk" {
   project     = hydra_project.hydra.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "hydra-ant-logger-trunk"
   type        = "legacy"
-  description = "Hydra Ant Logger"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "src"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "src"
-    type              = "git"
-    value             = "https://github.com/NixOS/hydra-ant-logger.git"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -116,54 +98,19 @@ resource "hydra_jobset" "hydra_hydra-master" {
   visible     = false
   name        = "hydra-master"
   type        = "legacy"
-  description = "Hydra 'branch' for Rob"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "hydraSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "hydraSrc"
-    type              = "git"
-    value             = "git://gitorious.org/hydra/hydra.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixos"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixos.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
-  email_override      = "rob.vermaas@gmail.com"
+  email_notifications = false
+  email_override      = ""
 }
 
 resource "hydra_jobset" "hydra_master" {

@@ -74,252 +74,84 @@ resource "hydra_jobset" "strategoxt-docs_aspectj-front-syntax-trunk" {
 resource "hydra_jobset" "strategoxt-docs_java-front-syntax-trunk" {
   project     = hydra_project.strategoxt-docs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "java-front-syntax-trunk"
   type        = "legacy"
-  description = "Java-Front Syntax Definitions"
+  description = ""
 
   nix_expression {
-    file  = "docs.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "checkout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/java-front/trunk/syntax/src"
-    notify_committers = false
-  }
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "packageName"
-    type              = "string"
-    value             = "java-front-syntax"
-    notify_committers = false
-  }
-
-  input {
-    name              = "title"
-    type              = "string"
-    value             = "Java-Front Syntax Definitions"
-    notify_committers = false
-  }
-
-  input {
-    name              = "xdoc"
-    type              = "build"
-    value             = "strategoxt:xdoc-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "strategoxt-docs_jimple-front-syntax-trunk" {
   project     = hydra_project.strategoxt-docs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "jimple-front-syntax-trunk"
   type        = "legacy"
-  description = "Jimple-Front Syntax Definitions"
+  description = ""
 
   nix_expression {
-    file  = "docs.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "checkout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/sootxt/jimple-front/trunk/syn"
-    notify_committers = false
-  }
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "packageName"
-    type              = "string"
-    value             = "jimple-front-syntax"
-    notify_committers = false
-  }
-
-  input {
-    name              = "title"
-    type              = "string"
-    value             = "Jimple-Front Syntax Definitions"
-    notify_committers = false
-  }
-
-  input {
-    name              = "xdoc"
-    type              = "build"
-    value             = "strategoxt:xdoc-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "strategoxt-docs_libdryad-docs-trunk" {
   project     = hydra_project.strategoxt-docs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "libdryad-docs-trunk"
   type        = "legacy"
-  description = "Dryad API Documentation"
+  description = ""
 
   nix_expression {
-    file  = "docs.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "checkout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/dryad/trunk/lib"
-    notify_committers = false
-  }
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "packageName"
-    type              = "string"
-    value             = "libdryad-docs"
-    notify_committers = false
-  }
-
-  input {
-    name              = "title"
-    type              = "string"
-    value             = "Dryad API Documentation"
-    notify_committers = false
-  }
-
-  input {
-    name              = "xdoc"
-    type              = "build"
-    value             = "strategoxt:xdoc-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "strategoxt-docs_libphp-front-docs-trunk" {
   project     = hydra_project.strategoxt-docs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "libphp-front-docs-trunk"
   type        = "legacy"
-  description = "Stratego PHP Front API Documentation"
+  description = ""
 
   nix_expression {
-    file  = "docs.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "checkout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/psat/php-front/trunk/src/lib"
-    notify_committers = false
-  }
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "packageName"
-    type              = "string"
-    value             = "libphp-front-docs"
-    notify_committers = false
-  }
-
-  input {
-    name              = "title"
-    type              = "string"
-    value             = "Stratego PHP Front API Documentation"
-    notify_committers = false
-  }
-
-  input {
-    name              = "xdoc"
-    type              = "build"
-    value             = "strategoxt:xdoc-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -515,189 +347,63 @@ resource "hydra_jobset" "strategoxt-docs_libstratego-rtg-docs-trunk" {
 resource "hydra_jobset" "strategoxt-docs_libstratego-sglr-docs-trunk" {
   project     = hydra_project.strategoxt-docs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "libstratego-sglr-docs-trunk"
   type        = "legacy"
-  description = "Stratego SGLR API Documentation"
+  description = ""
 
   nix_expression {
-    file  = "docs.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "checkout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/strategoxt/trunk/stratego-libraries/sglr/lib"
-    notify_committers = false
-  }
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "packageName"
-    type              = "string"
-    value             = "libstratego-sglr-docs"
-    notify_committers = false
-  }
-
-  input {
-    name              = "title"
-    type              = "string"
-    value             = "Stratego SGLR API Documentation"
-    notify_committers = false
-  }
-
-  input {
-    name              = "xdoc"
-    type              = "build"
-    value             = "strategoxt:xdoc-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "strategoxt-docs_libstratego-xtc-docs-trunk" {
   project     = hydra_project.strategoxt-docs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "libstratego-xtc-docs-trunk"
   type        = "legacy"
-  description = "Stratego XTC API Documentation"
+  description = ""
 
   nix_expression {
-    file  = "docs.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "checkout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/strategoxt/trunk/stratego-libraries/xtc/lib"
-    notify_committers = false
-  }
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "packageName"
-    type              = "string"
-    value             = "libstratego-xtc-docs"
-    notify_committers = false
-  }
-
-  input {
-    name              = "title"
-    type              = "string"
-    value             = "Stratego XTC Library API Documentation"
-    notify_committers = false
-  }
-
-  input {
-    name              = "xdoc"
-    type              = "build"
-    value             = "strategoxt:xdoc-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "strategoxt-docs_php-front-syntax-trunk" {
   project     = hydra_project.strategoxt-docs.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "php-front-syntax-trunk"
   type        = "legacy"
-  description = "PHP Front Syntax Definitions"
+  description = ""
 
   nix_expression {
-    file  = "docs.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "checkout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/psat/php-front/trunk/src/grammar"
-    notify_committers = false
-  }
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "packageName"
-    type              = "string"
-    value             = "php-front-syntax"
-    notify_committers = false
-  }
-
-  input {
-    name              = "title"
-    type              = "string"
-    value             = "PHP Front Syntax Definitions"
-    notify_committers = false
-  }
-
-  input {
-    name              = "xdoc"
-    type              = "build"
-    value             = "strategoxt:xdoc-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
-
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 

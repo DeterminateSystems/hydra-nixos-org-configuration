@@ -11,70 +11,21 @@ resource "hydra_project" "meta-environment" {
 resource "hydra_jobset" "meta-environment_aterm-trunk" {
   project     = hydra_project.meta-environment.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "aterm-trunk"
   type        = "legacy"
-  description = "ATerm trunk"
+  description = ""
 
   nix_expression {
-    file  = "jobs/aterm.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "atermCheckout"
-    type              = "svn"
-    value             = "svn+ssh://svn.cwi.nl/aterm/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "metaBuildEnv"
-    type              = "build"
-    value             = "meta-build-env-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -158,84 +109,21 @@ resource "hydra_jobset" "meta-environment_c-library-trunk" {
 resource "hydra_jobset" "meta-environment_error-support-trunk" {
   project     = hydra_project.meta-environment.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "error-support-trunk"
   type        = "legacy"
-  description = "Error Support"
+  description = ""
 
   nix_expression {
-    file  = "jobs/error-support.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "aterm"
-    type              = "build"
-    value             = "aterm-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  input {
-    name              = "errorSupportCheckout"
-    type              = "svn"
-    value             = "svn+ssh://svn.cwi.nl/error-support/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "metaBuildEnv"
-    type              = "build"
-    value             = "meta-build-env-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  input {
-    name              = "toolbuslib"
-    type              = "build"
-    value             = "toolbuslib-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
@@ -382,76 +270,20 @@ resource "hydra_jobset" "meta-environment_sdf-library-trunk" {
 resource "hydra_jobset" "meta-environment_toolbuslib-trunk" {
   project     = hydra_project.meta-environment.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "toolbuslib-trunk"
   type        = "legacy"
-  description = "Toolbuslib"
+  description = ""
 
   nix_expression {
-    file  = "jobs/toolbuslib.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "aterm"
-    type              = "build"
-    value             = "aterm-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "metaBuildEnv"
-    type              = "build"
-    value             = "meta-build-env-trunk:build [system=\"i686-linux\"]"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  input {
-    name              = "toolbuslibCheckout"
-    type              = "svn"
-    value             = "svn+ssh://svn.cwi.nl/toolbuslib/trunk"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }

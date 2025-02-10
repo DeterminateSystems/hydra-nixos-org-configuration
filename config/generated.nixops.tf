@@ -10,17 +10,20 @@ resource "hydra_project" "nixops" {
 
 resource "hydra_jobset" "nixops_flake-support" {
   project     = hydra_project.nixops.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "flake-support"
-  type        = "flake"
-  description = "Flake support"
+  type        = "legacy"
+  description = ""
 
-  flake_uri = "github:NixOS/nixops/flake-support"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 3600
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -32,43 +35,15 @@ resource "hydra_jobset" "nixops_hetzner" {
   visible     = false
   name        = "hetzner"
   type        = "legacy"
-  description = "Hetzner branch"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "nixopsSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixopsSrc"
-    type              = "git"
-    value             = "https://github.com/aszlig/nixops.git hetzner"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixos"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixos.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false
@@ -119,41 +94,20 @@ resource "hydra_jobset" "nixops_kms" {
 
 resource "hydra_jobset" "nixops_master" {
   project     = hydra_project.nixops.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "master"
   type        = "legacy"
-  description = "Master branch"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "nixopsSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixopsSrc"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixops.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-19.09"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 3600
-  scheduling_shares = 100
-  keep_evaluations  = 3
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -211,40 +165,19 @@ resource "hydra_jobset" "nixops_nixops-1_1_2" {
 resource "hydra_jobset" "nixops_nixops-azure" {
   project     = hydra_project.nixops.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "nixops-azure"
   type        = "legacy"
-  description = "Azure"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "nixopsSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixopsSrc"
-    type              = "git"
-    value             = "https://github.com/phreedom/nixops nixops-master"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 1800
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -256,40 +189,19 @@ resource "hydra_jobset" "nixops_nixops-gce" {
   visible     = false
   name        = "nixops-gce"
   type        = "legacy"
-  description = "GCE branch"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "nixopsSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixopsSrc"
-    type              = "git"
-    value             = "https://github.com/Phreedom/nixops.git gce"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
-  email_override      = "rob.vermaas@gmail.com"
+  email_notifications = false
+  email_override      = ""
 }
 
 resource "hydra_jobset" "nixops_release-1_4" {
@@ -337,40 +249,19 @@ resource "hydra_jobset" "nixops_release-1_4" {
 resource "hydra_jobset" "nixops_release-1_5" {
   project     = hydra_project.nixops.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "release-1.5"
   type        = "legacy"
-  description = "1.5 branch"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "nixopsSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixopsSrc"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixops.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-17.03"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 3
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

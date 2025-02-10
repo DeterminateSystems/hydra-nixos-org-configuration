@@ -11,46 +11,18 @@ resource "hydra_project" "coccinelle" {
 resource "hydra_jobset" "coccinelle_trunk" {
   project     = hydra_project.coccinelle.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "trunk"
   type        = "legacy"
-  description = "trunk"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "cocciSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "cocciSrc"
-    type              = "git"
-    value             = "https://github.com/amiddelk/cocci-head.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "x86_64-linux"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false

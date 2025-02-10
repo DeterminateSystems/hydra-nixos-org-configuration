@@ -52,41 +52,20 @@ resource "hydra_jobset" "composer2nix_master" {
 
 resource "hydra_jobset" "composer2nix_pndp-master" {
   project     = hydra_project.composer2nix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pndp-master"
   type        = "legacy"
-  description = "PNDP master"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "pndp"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.11"
-    notify_committers = false
-  }
-
-  input {
-    name              = "pndp"
-    type              = "git"
-    value             = "https://github.com/svanderburg/pndp.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "systems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 3600
-  scheduling_shares = 1
-  keep_evaluations  = 3
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

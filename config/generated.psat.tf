@@ -11,181 +11,62 @@ resource "hydra_project" "psat" {
 resource "hydra_jobset" "psat_php-front" {
   project     = hydra_project.psat.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "php-front"
   type        = "legacy"
-  description = "Parser and pretty-printer for PHP"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "phpfrontSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "phpfrontSrc"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/psat/php-front/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "psat_php-sat" {
   project     = hydra_project.psat.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "php-sat"
   type        = "legacy"
-  description = "Static analysis tool for PHP"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "phpsatSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "phpfront"
-    type              = "build"
-    value             = "php-front:build [system = \"i686-linux\"]"
-    notify_committers = false
-  }
-
-  input {
-    name              = "phpsatSrc"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/psat/php-sat/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
 
 resource "hydra_jobset" "psat_php-tools" {
   project     = hydra_project.psat.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "php-tools"
   type        = "legacy"
-  description = "Tools for analysing PHP code"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "phptoolsSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "phpfront"
-    type              = "build"
-    value             = "php-front:build [system = \"i686-linux\"]"
-    notify_committers = false
-  }
-
-  input {
-    name              = "phptoolsSrc"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/psat/php-tools/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "i686-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }

@@ -11,16 +11,19 @@ resource "hydra_project" "equinix-metal-builders" {
 resource "hydra_jobset" "equinix-metal-builders_aarch64-community-box" {
   project     = hydra_project.equinix-metal-builders.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "aarch64-community-box"
-  type        = "flake"
+  type        = "legacy"
   description = ""
 
-  flake_uri = "github:NixOS/aarch64-build-box"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 900
-  scheduling_shares = 500000
-  keep_evaluations  = 3
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -29,16 +32,19 @@ resource "hydra_jobset" "equinix-metal-builders_aarch64-community-box" {
 resource "hydra_jobset" "equinix-metal-builders_main" {
   project     = hydra_project.equinix-metal-builders.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "main"
-  type        = "flake"
+  type        = "legacy"
   description = ""
 
-  flake_uri = "github:NixOS/equinix-metal-builders"
+  nix_expression {
+    file  = ""
+    input = ""
+  }
 
-  check_interval    = 900
-  scheduling_shares = 5000000
-  keep_evaluations  = 3
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

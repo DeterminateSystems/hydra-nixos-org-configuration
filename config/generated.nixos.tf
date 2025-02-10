@@ -84,37 +84,16 @@ resource "hydra_jobset" "nixos_binutils-2_34" {
   visible     = false
   name        = "binutils-2.34"
   type        = "legacy"
-  description = "https://github.com/NixOS/nixpkgs/pull/89793"
+  description = ""
 
   nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/luc65r/nixpkgs.git staging"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 300
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -217,29 +196,15 @@ resource "hydra_jobset" "nixos_gcc-4_9" {
   visible     = false
   name        = "gcc-4.9"
   type        = "legacy"
-  description = "GCC 4.9 test"
+  description = ""
 
   nix_expression {
-    file  = "nixos/release.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git gcc-4.9"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 7200
-  scheduling_shares = 1000
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false
@@ -3280,32 +3245,18 @@ resource "hydra_jobset" "nixos_release-22_11" {
 resource "hydra_jobset" "nixos_release-22_11-small" {
   project     = hydra_project.nixos.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "release-22.11-small"
   type        = "legacy"
-  description = "NixOS 22.11 release branch"
+  description = ""
 
   nix_expression {
-    file  = "nixos/release-small.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-22.11"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 43200
-  scheduling_shares = 20000000
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false
@@ -3315,39 +3266,18 @@ resource "hydra_jobset" "nixos_release-22_11-small" {
 resource "hydra_jobset" "nixos_release-23_05" {
   project     = hydra_project.nixos.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "release-23.05"
   type        = "legacy"
-  description = "NixOS 23.05 release branch"
+  description = ""
 
   nix_expression {
-    file  = "nixos/release-combined.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 345600
-  scheduling_shares = 50
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false
@@ -3545,41 +3475,20 @@ resource "hydra_jobset" "nixos_release-24_05-small" {
 
 resource "hydra_jobset" "nixos_release-24_11" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-24.11"
   type        = "legacy"
-  description = "NixOS 24.11 release branch"
+  description = ""
 
   nix_expression {
-    file  = "nixos/release-combined.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-24.11"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 129600
-  scheduling_shares = 5000000
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -3587,34 +3496,20 @@ resource "hydra_jobset" "nixos_release-24_11" {
 
 resource "hydra_jobset" "nixos_release-24_11-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-24.11-small"
   type        = "legacy"
-  description = "NixOS 24.11 release branch"
+  description = ""
 
   nix_expression {
-    file  = "nixos/release-small.nix"
-    input = "nixpkgs"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-24.11"
-    notify_committers = false
-  }
-
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 43200
-  scheduling_shares = 20000000
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

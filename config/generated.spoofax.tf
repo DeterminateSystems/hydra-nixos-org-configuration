@@ -14,50 +14,15 @@ resource "hydra_jobset" "spoofax_plasticode" {
   visible     = false
   name        = "plasticode"
   type        = "legacy"
-  description = "Experimental and temporary"
+  description = ""
 
   nix_expression {
-    file  = "org.plasticode.releng/package/plasticode.nix"
-    input = "plasticode"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "plasticode"
-    type              = "hg"
-    value             = "https://bitbucket.org/karltk/plasticode"
-    notify_committers = false
-  }
-
-  input {
-    name              = "spoofax"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/spoofax/trunk/spoofax/"
-    notify_committers = false
-  }
-
-  input {
-    name              = "strategoxtJavaBackend"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/strategoxt-java-backend/trunk"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false
@@ -70,47 +35,19 @@ resource "hydra_jobset" "spoofax_runtime-libraries" {
   visible     = false
   name        = "runtime-libraries"
   type        = "legacy"
-  description = "Build runtime libraries into Stratego ctrees and jars"
+  description = ""
 
   nix_expression {
-    file  = "org.spoofax.meta.runtime.libraries/build.nix"
-    input = "runtime-libraries"
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "runtime-libraries"
-    type              = "git"
-    value             = "https://github.com/metaborg/runtime-libraries.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "strategoxt"
-    type              = "git"
-    value             = "https://github.com/metaborg/strategoxt.git java-bootstrap"
-    notify_committers = false
-  }
-
-  input {
-    name              = "strj"
-    type              = "sysbuild"
-    value             = "strategoxt-java:strategoxt-java-bootstrap:bootstrap3"
-    notify_committers = false
+    file  = ""
+    input = ""
   }
 
   check_interval    = 0
-  scheduling_shares = 200
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
-  email_override      = "g.d.p.konat@tudelft.nl"
+  email_notifications = false
+  email_override      = ""
 }
 
 resource "hydra_jobset" "spoofax_spoofax-ace" {
@@ -119,57 +56,15 @@ resource "hydra_jobset" "spoofax_spoofax-ace" {
   visible     = false
   name        = "spoofax-ace"
   type        = "legacy"
-  description = "Spoofax project to ace editor"
+  description = ""
 
   nix_expression {
-    file  = "jobs/spoofax-ace.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "jssglr"
-    type              = "sysbuild"
-    value             = "spoofax:spoofax-jssglr:build"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "spoofaxacesrc"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/spoofax-ace/trunk/spoofax-ace/"
-    notify_committers = false
-  }
-
-  input {
-    name              = "strategoxtJavaBackend"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/strategoxt-java-backend/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "strategoxtJavaScriptBackend"
-    type              = "sysbuild"
-    value             = "strategoxt-java:strc-javascript-trunk:build"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false
@@ -301,43 +196,15 @@ resource "hydra_jobset" "spoofax_spoofax-interpreter-core" {
   visible     = false
   name        = "spoofax-interpreter-core"
   type        = "legacy"
-  description = "Spoofax Interpreter Core"
+  description = ""
 
   nix_expression {
-    file  = "jobs/org.spoofax.interpreter.core.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
-    notify_committers = false
-  }
-
-  input {
-    name              = "spoofaxCore"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/spoofax/trunk/spoofax/org.spoofax.interpreter.core"
-    notify_committers = false
-  }
-
-  input {
-    name              = "spoofaxTerms"
-    type              = "sysbuild"
-    value             = "spoofax:spoofax-terms:build"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false

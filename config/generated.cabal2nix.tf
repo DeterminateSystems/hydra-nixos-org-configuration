@@ -14,36 +14,15 @@ resource "hydra_jobset" "cabal2nix_master" {
   visible     = false
   name        = "master"
   type        = "legacy"
-  description = "master branch"
+  description = ""
 
   nix_expression {
-    file  = "cabal2nix.nix"
-    input = "ciSrc"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "cabal2nixSrc"
-    type              = "git"
-    value             = "https://github.com/NixOS/cabal2nix.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "ciSrc"
-    type              = "git"
-    value             = "https://github.com/peti/ci.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  check_interval    = 3600
-  scheduling_shares = 50000
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
   email_notifications = false

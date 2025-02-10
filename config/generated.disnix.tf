@@ -74,40 +74,19 @@ resource "hydra_jobset" "disnix_DisnixWebService-trunk" {
 resource "hydra_jobset" "disnix_WebServicesExample-trunk" {
   project     = hydra_project.disnix.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "WebServicesExample-trunk"
   type        = "legacy"
-  description = "Web Services Example trunk"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "WebServicesExample"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "WebServicesExample"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnix-stafftracker-java-example.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -116,40 +95,19 @@ resource "hydra_jobset" "disnix_WebServicesExample-trunk" {
 resource "hydra_jobset" "disnix_WebServicesExampleNET-trunk" {
   project     = hydra_project.disnix.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "WebServicesExampleNET-trunk"
   type        = "legacy"
-  description = "Web Services Example .NET version trunk"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "disnix_stafftracker_dotnet_example"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "disnix_stafftracker_dotnet_example"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnix-stafftracker-dotnet-example.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -277,40 +235,19 @@ resource "hydra_jobset" "disnix_disnix-activation-scripts-trunk" {
 resource "hydra_jobset" "disnix_disnix-composition-example-master" {
   project     = hydra_project.disnix.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "disnix-composition-example-master"
   type        = "legacy"
-  description = "Demonstrates various ways to compose services together with Disnix"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "disnix_composition_example"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "disnix_composition_example"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnix-composition-example.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-21.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -319,40 +256,19 @@ resource "hydra_jobset" "disnix_disnix-composition-example-master" {
 resource "hydra_jobset" "disnix_disnix-proxy-example-trunk" {
   project     = hydra_project.disnix.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "disnix-proxy-example-trunk"
   type        = "legacy"
-  description = "Disnix proxy example trunk"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "disnix_proxy_example"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "disnix_proxy_example"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnix-proxy-example.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-18.03"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -360,55 +276,20 @@ resource "hydra_jobset" "disnix_disnix-proxy-example-trunk" {
 
 resource "hydra_jobset" "disnix_disnix-trunk" {
   project     = hydra_project.disnix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "disnix-trunk"
   type        = "legacy"
-  description = "Disnix trunk"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "disnix"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "disnix"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnix.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "dysnomia"
-    type              = "git"
-    value             = "https://github.com/svanderburg/dysnomia.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  input {
-    name              = "systems"
-    type              = "nix"
-    value             = "[ \"i686-linux\" \"x86_64-linux\" \"x86_64-darwin\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 172800
-  scheduling_shares = 10
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -416,62 +297,20 @@ resource "hydra_jobset" "disnix_disnix-trunk" {
 
 resource "hydra_jobset" "disnix_disnixos-trunk" {
   project     = hydra_project.disnix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "disnixos-trunk"
   type        = "legacy"
-  description = "DisnixOS trunk"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "disnixos"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "disnix"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnix.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "disnixos"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnixos.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "dysnomia"
-    type              = "git"
-    value             = "https://github.com/svanderburg/dysnomia.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git release-23.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  input {
-    name              = "systems"
-    type              = "nix"
-    value             = "[ \"i686-linux\" \"x86_64-linux\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 172800
-  scheduling_shares = 10
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -479,55 +318,20 @@ resource "hydra_jobset" "disnix_disnixos-trunk" {
 
 resource "hydra_jobset" "disnix_dydisnix-avahi-master" {
   project     = hydra_project.disnix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "dydisnix-avahi-master"
   type        = "legacy"
-  description = "Avahi-based discovery service for Dynamic Disnix"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "dydisnix_avahi"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "disnix"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnix.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "dydisnix_avahi"
-    type              = "git"
-    value             = "https://github.com/svanderburg/dydisnix-avahi.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "dysnomia"
-    type              = "git"
-    value             = "https://github.com/svanderburg/dysnomia.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  check_interval    = 172800
-  scheduling_shares = 1
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -535,62 +339,20 @@ resource "hydra_jobset" "disnix_dydisnix-avahi-master" {
 
 resource "hydra_jobset" "disnix_dydisnix-trunk" {
   project     = hydra_project.disnix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "dydisnix-trunk"
   type        = "legacy"
-  description = "Dynamic Disnix trunk"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "dydisnix"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "disnix"
-    type              = "git"
-    value             = "https://github.com/svanderburg/disnix.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "dydisnix"
-    type              = "git"
-    value             = "https://github.com/svanderburg/dydisnix.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "dysnomia"
-    type              = "git"
-    value             = "https://github.com/svanderburg/dysnomia.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "systems"
-    type              = "nix"
-    value             = "[ \"i686-linux\" \"x86_64-linux\" \"x86_64-darwin\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 172800
-  scheduling_shares = 10
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -598,48 +360,20 @@ resource "hydra_jobset" "disnix_dydisnix-trunk" {
 
 resource "hydra_jobset" "disnix_dysnomia-master" {
   project     = hydra_project.disnix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "dysnomia-master"
   type        = "legacy"
-  description = "Dysnomia master"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "dysnomia"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "dysnomia"
-    type              = "git"
-    value             = "https://github.com/svanderburg/dysnomia.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-23.05"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "true"
-    notify_committers = false
-  }
-
-  input {
-    name              = "systems"
-    type              = "nix"
-    value             = "[ \"i686-linux\" \"x86_64-linux\" \"x86_64-darwin\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 172800
-  scheduling_shares = 10
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""
@@ -781,40 +515,19 @@ resource "hydra_jobset" "disnix_nix-processmgmt-master" {
 resource "hydra_jobset" "disnix_nix-processmgmt-services-master" {
   project     = hydra_project.disnix.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "nix-processmgmt-services-master"
   type        = "legacy"
-  description = "Example services for the Nix process management framework"
+  description = ""
 
   nix_expression {
-    file  = "release.nix"
-    input = "nix-processmgmt-services"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "nix-processmgmt"
-    type              = "git"
-    value             = "https://github.com/svanderburg/nix-processmgmt.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nix-processmgmt-services"
-    type              = "git"
-    value             = "https://github.com/svanderburg/nix-processmgmt-services.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git release-20.09"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 1
-  keep_evaluations  = 1
+  check_interval    = 0
+  scheduling_shares = 0
+  keep_evaluations  = 0
 
   email_notifications = false
   email_override      = ""

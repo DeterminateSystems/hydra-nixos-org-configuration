@@ -11,62 +11,20 @@ resource "hydra_project" "pil" {
 resource "hydra_jobset" "pil_pil-trunk" {
   project     = hydra_project.pil.name
   state       = "disabled"
-  visible     = true
+  visible     = false
   name        = "pil-trunk"
   type        = "legacy"
-  description = "PIL trunk"
+  description = ""
 
   nix_expression {
-    file  = "jobs/pil.nix"
-    input = "hydraConfig"
+    file  = ""
+    input = ""
   }
 
-  input {
-    name              = "hydraConfig"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra/"
-    notify_committers = false
-  }
-
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
-    notify_committers = false
-  }
-
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "pilCheckout"
-    type              = "svn"
-    value             = "https://svn.strategoxt.org/repos/StrategoXT/pil/trunk"
-    notify_committers = false
-  }
-
-  input {
-    name              = "system"
-    type              = "string"
-    value             = "x86_64-linux"
-    notify_committers = false
-  }
-
-  input {
-    name              = "tarball"
-    type              = "build"
-    value             = "tarball"
-    notify_committers = false
-  }
-
-  check_interval    = 300
-  scheduling_shares = 100
+  check_interval    = 0
+  scheduling_shares = 0
   keep_evaluations  = 0
 
-  email_notifications = true
+  email_notifications = false
   email_override      = ""
 }
