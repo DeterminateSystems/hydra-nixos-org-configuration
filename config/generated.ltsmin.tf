@@ -11,20 +11,83 @@ resource "hydra_project" "ltsmin" {
 resource "hydra_jobset" "ltsmin_ltsmin-trunk" {
   project     = hydra_project.ltsmin.name
   state       = "disabled"
-  visible     = false
+  visible     = true
   name        = "ltsmin-trunk"
   type        = "legacy"
-  description = ""
+  description = "LTSmin trunk"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "release.nix"
+    input = "hydraConfig"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://nixos.org/repos/utwente-hydra/ltsmin"
+    notify_committers = false
+  }
+
+  input {
+    name              = "ltsminSrc"
+    type              = "git"
+    value             = "http://fmt.cs.utwente.nl/tools/scm/ltsmin.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mcrl2Support"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mcrlSupport"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "openmpiSupport"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
+  email_notifications = true
   email_override      = ""
 }

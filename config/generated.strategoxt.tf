@@ -14,18 +14,67 @@ resource "hydra_jobset" "strategoxt_aster-trunk" {
   visible     = false
   name        = "aster-trunk"
   type        = "legacy"
-  description = ""
+  description = "Aster"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "jobs/aster.nix"
+    input = "hydraConfig"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "asterCheckout"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/aster/trunk"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strcJava"
+    type              = "sysbuild"
+    value             = "strategoxt-java:strc-java-trunk:build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
+  email_notifications = true
   email_override      = ""
 }
 
@@ -35,18 +84,60 @@ resource "hydra_jobset" "strategoxt_ecmascript-front-trunk" {
   visible     = false
   name        = "ecmascript-front-trunk"
   type        = "legacy"
-  description = ""
+  description = "ECMAscript Front"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "jobs/ecmascript-front.nix"
+    input = "hydraConfig"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "ecmascriptFrontCheckout"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/ecmascript/ecmascript-front/trunk/"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "x86_64-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
+  email_notifications = true
   email_override      = ""
 }
 
@@ -119,18 +210,67 @@ resource "hydra_jobset" "strategoxt_stratego-libraries-trunk" {
   visible     = false
   name        = "stratego-libraries-trunk"
   type        = "legacy"
-  description = ""
+  description = "StrategoXT Libraries"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "jobs/stratego-libraries.nix"
+    input = "hydraConfig"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "std"
+    type              = "string"
+    value             = ""
+    notify_committers = false
+  }
+
+  input {
+    name              = "strategoLibrariesCheckout"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/strategoxt/trunk/stratego-libraries"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
+  email_notifications = true
   email_override      = ""
 }
 
@@ -200,21 +340,63 @@ resource "hydra_jobset" "strategoxt_stratego-shell-trunk" {
 resource "hydra_jobset" "strategoxt_strategoxt-embedded-cs-bootstrap" {
   project     = hydra_project.strategoxt.name
   state       = "disabled"
-  visible     = false
+  visible     = true
   name        = "strategoxt-embedded-cs-bootstrap"
   type        = "legacy"
-  description = ""
+  description = "StrategoXT Embedded concrete syntax branch"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "jobs/strategoxt-bootstrap.nix"
+    input = "hydraConfig"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strategoxtCheckout"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/strategoxt/branches/strategoxt-embedded-cs"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-cygwin"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
+  email_notifications = true
   email_override      = ""
 }
 
@@ -224,15 +406,92 @@ resource "hydra_jobset" "strategoxt_strategoxt-packages" {
   visible     = false
   name        = "strategoxt-packages"
   type        = "legacy"
-  description = ""
+  description = "StrategoXT integration builds"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "jobs/strategoxt-packages.nix"
+    input = "hydraConfig"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "aspectjFrontTarball"
+    type              = "build"
+    value             = "strategoxt-java:aspectj-front-trunk:tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "asterTarball"
+    type              = "build"
+    value             = "strategoxt:aster-trunk:tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "dryadTarball"
+    type              = "build"
+    value             = "strategoxt-java:dryad-trunk:tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
+    notify_committers = false
+  }
+
+  input {
+    name              = "javaFrontTarball"
+    type              = "build"
+    value             = "strategoxt-java:java-front-trunk:tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strategoxtTarball"
+    type              = "build"
+    value             = "strategoxt:strategoxt-release:tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strategoxtUtilsTarball"
+    type              = "build"
+    value             = "strategoxt:strategoxt-utils-trunk:tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strcJavaTarball"
+    type              = "build"
+    value             = "strategoxt-java:strc-java-trunk:tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-freebsd"
+    notify_committers = false
+  }
+
+  input {
+    name              = "xdocTarball"
+    type              = "build"
+    value             = "strategoxt:xdoc-trunk:tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
   email_notifications = false
@@ -245,18 +504,60 @@ resource "hydra_jobset" "strategoxt_strategoxt-release" {
   visible     = false
   name        = "strategoxt-release"
   type        = "legacy"
-  description = ""
+  description = "StrategoXT release"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "jobs/strategoxt-bootstrap.nix"
+    input = "hydraConfig"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strategoxtCheckout"
+    type              = "git"
+    value             = "https://github.com/metaborg/strategoxt.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-freebsd"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
+  email_notifications = true
   email_override      = ""
 }
 
@@ -266,18 +567,46 @@ resource "hydra_jobset" "strategoxt_strategoxt-trunk" {
   visible     = false
   name        = "strategoxt-trunk"
   type        = "legacy"
-  description = ""
+  description = "StrategoXT trunk"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "jobs/strategoxt.nix"
+    input = "hydraConfig"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "strategoxt:strategoxt-release:tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
+  email_notifications = true
   email_override      = ""
 }
 
@@ -287,18 +616,60 @@ resource "hydra_jobset" "strategoxt_strategoxt-utils-trunk" {
   visible     = false
   name        = "strategoxt-utils-trunk"
   type        = "legacy"
-  description = ""
+  description = "StrategoXT utils"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "jobs/strategoxt-utils.nix"
+    input = "hydraConfig"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strategoxtUtilsCheckout"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/strategoxt-utils/trunk"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
+  email_notifications = true
   email_override      = ""
 }
 
@@ -308,17 +679,66 @@ resource "hydra_jobset" "strategoxt_xdoc-trunk" {
   visible     = false
   name        = "xdoc-trunk"
   type        = "legacy"
-  description = ""
+  description = "xDoc"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "jobs/xdoc.nix"
+    input = "hydraConfig"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "hydraConfig"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/hydra"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git release-14.12"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "strategoxtUtils"
+    type              = "build"
+    value             = "strategoxt-utils-trunk:build [system=\"i686-linux\"]"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tarball"
+    type              = "build"
+    value             = "tarball"
+    notify_committers = false
+  }
+
+  input {
+    name              = "xdocCheckout"
+    type              = "svn"
+    value             = "https://svn.strategoxt.org/repos/StrategoXT/xdoc/trunk"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
+  email_notifications = true
   email_override      = ""
 }

@@ -11,43 +11,92 @@ resource "hydra_project" "mturk" {
 resource "hydra_jobset" "mturk_kde" {
   project     = hydra_project.mturk.name
   state       = "disabled"
-  visible     = false
+  visible     = true
   name        = "kde"
   type        = "legacy"
-  description = ""
+  description = "KDE tests"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "kde-tests.nix"
+    input = "mturk"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "mturk"
+    type              = "svn"
+    value             = "https://nixos.org/repos/varia/trunk/papers/icse-2012/evaluation/tests"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixos"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixos.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
-  email_override      = ""
+  email_notifications = true
+  email_override      = "eelco.dolstra@logicblox.com"
 }
 
 resource "hydra_jobset" "mturk_tribler-5-4-x" {
   project     = hydra_project.mturk.name
   state       = "disabled"
-  visible     = false
+  visible     = true
   name        = "tribler-5-4-x"
   type        = "legacy"
-  description = ""
+  description = "Tribler test (5.4.x branch)"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "tribler-test.nix"
+    input = "mturk"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "mturk"
+    type              = "svn"
+    value             = "https://nixos.org/repos/varia/trunk/papers/icse-2012/evaluation/tests"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixos"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixos.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "tribler"
+    type              = "svn"
+    value             = "http://svn.tribler.org/abc/branches/release-5.4.x"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
-  email_override      = ""
+  email_notifications = true
+  email_override      = "eelco.dolstra@logicblox.com"
 }
 
 resource "hydra_jobset" "mturk_xfce" {

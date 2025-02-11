@@ -10,20 +10,48 @@ resource "hydra_project" "mobile-nixos" {
 
 resource "hydra_jobset" "mobile-nixos_unstable" {
   project     = hydra_project.mobile-nixos.name
-  state       = "disabled"
-  visible     = false
+  state       = "enabled"
+  visible     = true
   name        = "unstable"
   type        = "legacy"
-  description = ""
+  description = "Mobile NixOS, built with nixos-unstable."
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "release.nix"
+    input = "mobile-nixos"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
-  keep_evaluations  = 0
+  input {
+    name              = "inNixOSHydra"
+    type              = "boolean"
+    value             = "true"
+    notify_committers = false
+  }
+
+  input {
+    name              = "mobile-nixos"
+    type              = "git"
+    value             = "https://github.com/NixOS/mobile-nixos.git development"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git nixos-unstable"
+    notify_committers = false
+  }
+
+  input {
+    name              = "systems"
+    type              = "nix"
+    value             = "[ \"aarch64-linux\" \"x86_64-linux\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = 86400
+  scheduling_shares = 1000
+  keep_evaluations  = 1
 
   email_notifications = false
   email_override      = ""

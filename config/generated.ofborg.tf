@@ -13,17 +13,14 @@ resource "hydra_jobset" "ofborg_cole-flake" {
   state       = "disabled"
   visible     = false
   name        = "cole-flake"
-  type        = "legacy"
-  description = ""
+  type        = "flake"
+  description = "Cole's work to make ofborg a flake."
 
-  nix_expression {
-    file  = ""
-    input = ""
-  }
+  flake_uri = "github:cole-h/ofborg/flakeify"
 
-  check_interval    = 0
-  scheduling_shares = 0
-  keep_evaluations  = 0
+  check_interval    = 3600
+  scheduling_shares = 10000
+  keep_evaluations  = 1
 
   email_notifications = false
   email_override      = ""

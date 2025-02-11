@@ -190,19 +190,47 @@ resource "hydra_jobset" "nix_gc-branch" {
   visible     = false
   name        = "gc-branch"
   type        = "legacy"
-  description = ""
+  description = "Garbage collector branch"
 
   nix_expression {
-    file  = ""
-    input = ""
+    file  = "release.nix"
+    input = "nix"
   }
 
-  check_interval    = 0
-  scheduling_shares = 0
+  input {
+    name              = "nix"
+    type              = "svn"
+    value             = "https://nixos.org/repos/nix/nix/branches/gc"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i386-sunos"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
   keep_evaluations  = 0
 
-  email_notifications = false
-  email_override      = ""
+  email_notifications = true
+  email_override      = "eelco.dolstra@logicblox.com"
 }
 
 resource "hydra_jobset" "nix_installer-test" {
@@ -210,17 +238,14 @@ resource "hydra_jobset" "nix_installer-test" {
   state       = "disabled"
   visible     = false
   name        = "installer-test"
-  type        = "legacy"
-  description = ""
+  type        = "flake"
+  description = "Installer test"
 
-  nix_expression {
-    file  = ""
-    input = ""
-  }
+  flake_uri = "github:edolstra/nix/installer-test"
 
-  check_interval    = 0
-  scheduling_shares = 0
-  keep_evaluations  = 0
+  check_interval    = 600
+  scheduling_shares = 100
+  keep_evaluations  = 1
 
   email_notifications = false
   email_override      = ""
@@ -249,17 +274,14 @@ resource "hydra_jobset" "nix_mac-hang" {
   state       = "disabled"
   visible     = false
   name        = "mac-hang"
-  type        = "legacy"
-  description = ""
+  type        = "flake"
+  description = "Default branch"
 
-  nix_expression {
-    file  = ""
-    input = ""
-  }
+  flake_uri = "github:edolstra/nix/mac-hang"
 
-  check_interval    = 0
-  scheduling_shares = 0
-  keep_evaluations  = 0
+  check_interval    = 86400
+  scheduling_shares = 100
+  keep_evaluations  = 1
 
   email_notifications = false
   email_override      = ""
