@@ -4462,7 +4462,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git"
+    value             = "https://github.com/nixos/nixpkgs.git staging-next"
     notify_committers = false
   }
 
@@ -4473,8 +4473,8 @@ resource "hydra_jobset" "nixos_trunk-combined" {
     notify_committers = false
   }
 
-  check_interval    = -129600
-  scheduling_shares = 768
+  check_interval    = 129600
+  scheduling_shares = 76800
   keep_evaluations  = 2
 
   email_notifications = false

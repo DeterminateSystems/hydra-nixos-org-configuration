@@ -5540,7 +5540,7 @@ resource "hydra_jobset" "nixpkgs_trunk" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git master"
+    value             = "https://github.com/nixos/nixpkgs.git staging-next"
     notify_committers = false
   }
 
