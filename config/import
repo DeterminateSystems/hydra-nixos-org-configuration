@@ -301,6 +301,9 @@ terraform import hydra_jobset.nixos_systemd-update nixos/systemd-update
 terraform import hydra_jobset.nixos_trunk-combined nixos/trunk-combined
 terraform import hydra_jobset.nixos_trunk-combined-test-eval nixos/trunk-combined-test-eval
 terraform import hydra_jobset.nixos_unstable-aarch64 nixos/unstable-aarch64
+terraform import hydra_jobset.nixos_unstable-small nixos/unstable-small
+terraform import hydra_jobset.nixos_unstable-small-CVE-2018-15688 nixos/unstable-small-CVE-2018-15688
+terraform import hydra_jobset.nixos_xorg-test nixos/xorg-test
 terraform import hydra_jobset.nixpkgs_aarch64-darwin nixpkgs/aarch64-darwin
 terraform import hydra_jobset.nixpkgs_autoconf-2_70 nixpkgs/autoconf-2.70
 terraform import hydra_jobset.nixpkgs_autoconf-2_71 nixpkgs/autoconf-2.71

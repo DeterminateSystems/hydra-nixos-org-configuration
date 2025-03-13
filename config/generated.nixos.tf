@@ -962,8 +962,8 @@ resource "hydra_jobset" "nixos_nix-2_0" {
 
 resource "hydra_jobset" "nixos_nix-2_24-upgrade" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nix-2.24-upgrade"
   type        = "legacy"
   description = "Testing PR #335342: nix: 2.18 -> 2.24"
@@ -1333,8 +1333,8 @@ resource "hydra_jobset" "nixos_pr-181764-libxcrypt" {
 
 resource "hydra_jobset" "nixos_pr-193600-aarch64-support" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-193600-aarch64-support"
   type        = "legacy"
   description = "Testing PR #193600: nixos/release: Make aarch64-linux a supported system again"
@@ -3468,8 +3468,8 @@ resource "hydra_jobset" "nixos_release-23_11-small" {
 
 resource "hydra_jobset" "nixos_release-24_05" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-24.05"
   type        = "legacy"
   description = "NixOS 24.05 release branch"
@@ -3510,8 +3510,8 @@ resource "hydra_jobset" "nixos_release-24_05" {
 
 resource "hydra_jobset" "nixos_release-24_05-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "release-24.05-small"
   type        = "legacy"
   description = "NixOS 24.05 release branch"
@@ -3902,8 +3902,8 @@ resource "hydra_jobset" "nixos_staging-next-23_05-small" {
 
 resource "hydra_jobset" "nixos_staging-next-23_11-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-next-23.11-small"
   type        = "legacy"
   description = "staging-next-23.11 branch"
@@ -4061,7 +4061,7 @@ resource "hydra_jobset" "nixos_staging-next-small" {
   }
 
   check_interval    = 0
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -4565,3 +4565,128 @@ resource "hydra_jobset" "nixos_unstable-aarch64" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_unstable-small" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "unstable-small"
+  type        = "legacy"
+  description = "NixOS small unstable channel"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 43200
+  scheduling_shares = 200000
+  keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixos_unstable-small-CVE-2018-15688" {
+  project     = hydra_project.nixos.name
+  state       = "disabled"
+  visible     = true
+  name        = "unstable-small-CVE-2018-15688"
+  type        = "legacy"
+  description = "NixOS small unstable with systemd CVE-2018-15688 fix"
+
+  nix_expression {
+    file  = "nixos/release-small.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git package/systemd-v239.20181031"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = 0
+  scheduling_shares = 200000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixos_xorg-test" {
+  project     = hydra_project.nixos.name
+  state       = "disabled"
+  visible     = false
+  name        = "xorg-test"
+  type        = "legacy"
+  description = "Integration test of the Nixpkgs x-updates branch"
+
+  nix_expression {
+    file  = "release.nix"
+    input = "nixosSrc"
+  }
+
+  input {
+    name              = "nixosSrc"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixos.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git x-updates"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "services"
+    type              = "svn"
+    value             = "https://nixos.org/repos/nix/services/trunk"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = true
+  email_override      = "eelco.dolstra@logicblox.com"
+}

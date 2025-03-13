@@ -1438,8 +1438,8 @@ resource "hydra_jobset" "nixpkgs_guile2test" {
 
 resource "hydra_jobset" "nixpkgs_hardening-flags" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "hardening-flags"
   type        = "legacy"
   description = "See PR #104091: more security hardening flags"
@@ -2355,8 +2355,8 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-23_11-darwin" {
 
 resource "hydra_jobset" "nixpkgs_nixpkgs-24_05-darwin" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "nixpkgs-24.05-darwin"
   type        = "legacy"
   description = "Darwin builds for the NixOS 24.05 release."
@@ -3937,8 +3937,8 @@ resource "hydra_jobset" "nixpkgs_pr-287594-glibc-2_39" {
 
 resource "hydra_jobset" "nixpkgs_pr-290170-cmake-hook-shenanigans" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-290170-cmake-hook-shenanigans"
   type        = "legacy"
   description = "Testing PR #290170: Cmake hook shenanigans"
@@ -5120,8 +5120,8 @@ resource "hydra_jobset" "nixpkgs_staging-next-23_11" {
 
 resource "hydra_jobset" "nixpkgs_staging-next-24_05" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-next-24.05"
   type        = "legacy"
   description = "staging-next-24.05 branch"
@@ -5484,8 +5484,8 @@ resource "hydra_jobset" "nixpkgs_tmp-fetch-sources" {
 
 resource "hydra_jobset" "nixpkgs_toonn-wip" {
   project     = hydra_project.nixpkgs.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "toonn-wip"
   type        = "legacy"
   description = "darwin playground"
