@@ -518,7 +518,7 @@ resource "hydra_jobset" "nixpkgs_cross-trunk" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = -86400
   scheduling_shares = 10
   keep_evaluations  = 1
 
@@ -4595,7 +4595,7 @@ resource "hydra_jobset" "nixpkgs_staging" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git staging"
+    value             = "https://github.com/nixos/nixpkgs.git staging-24.11"
     notify_committers = false
   }
 
@@ -5551,7 +5551,7 @@ resource "hydra_jobset" "nixpkgs_trunk" {
     notify_committers = false
   }
 
-  check_interval    = 28800
+  check_interval    = -28800
   scheduling_shares = 3000
   keep_evaluations  = 3
 
