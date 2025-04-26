@@ -1564,43 +1564,19 @@ resource "hydra_jobset" "nixpkgs_kde47" {
 
 resource "hydra_jobset" "nixpkgs_libGL-headers" {
   project     = hydra_project.nixpkgs.name
-  state       = "disabled"
-  visible     = false
+  state       = "UNKNOWN"
+  visible     = 
   name        = "libGL-headers"
-  type        = "legacy"
-  description = "See PR #118479: libGL: use headers from glvnd"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "pkgs/top-level/release.nix"
-    input = "nixpkgs"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/gebner/nixpkgs.git glvndheaders"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "officialRelease"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 86400
-  scheduling_shares = 100
-  keep_evaluations  = 0
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
@@ -4854,7 +4830,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   input {
     name              = "supportedSystems"
     type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" /*\"x86_64-darwin\" \"aarch64-darwin\"*/ ]"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\" ]"
     notify_committers = false
   }
 
