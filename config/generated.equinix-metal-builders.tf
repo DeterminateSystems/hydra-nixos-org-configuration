@@ -26,20 +26,3 @@ resource "hydra_jobset" "equinix-metal-builders_aarch64-community-box" {
   email_override      = ""
 }
 
-resource "hydra_jobset" "equinix-metal-builders_main" {
-  project     = hydra_project.equinix-metal-builders.name
-  state       = "disabled"
-  visible     = true
-  name        = "main"
-  type        = "flake"
-  description = ""
-
-  flake_uri = "github:NixOS/equinix-metal-builders"
-
-  check_interval    = 900
-  scheduling_shares = 5000000
-  keep_evaluations  = 3
-
-  email_notifications = false
-  email_override      = ""
-}
