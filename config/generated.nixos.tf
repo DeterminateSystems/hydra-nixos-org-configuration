@@ -4473,7 +4473,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
     notify_committers = false
   }
 
-  check_interval    = 129600
+  check_interval    = 86400
   scheduling_shares = 768
   keep_evaluations  = 2
 
