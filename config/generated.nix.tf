@@ -1027,8 +1027,8 @@ resource "hydra_jobset" "nix_nixpkgs-master" {
 
 resource "hydra_jobset" "nix_pr-11566" {
   project     = hydra_project.nix.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-11566"
   type        = "flake"
   description = "PR #11566"
