@@ -518,7 +518,7 @@ resource "hydra_jobset" "gnu_coreutils-master" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = -86400
   scheduling_shares = 100
   keep_evaluations  = 1
 
@@ -4032,7 +4032,7 @@ resource "hydra_jobset" "gnu_zile-master" {
     notify_committers = false
   }
 
-  check_interval    = 86382
+  check_interval    = -86400
   scheduling_shares = 100
   keep_evaluations  = 1
 
@@ -4095,7 +4095,7 @@ resource "hydra_jobset" "gnu_zile-vala" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = -86400
   scheduling_shares = 100
   keep_evaluations  = 1
 
