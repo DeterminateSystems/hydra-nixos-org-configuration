@@ -3577,7 +3577,7 @@ resource "hydra_jobset" "nixos_release-24_11" {
     notify_committers = false
   }
 
-  check_interval    = 160000
+  check_interval    = -160000
   scheduling_shares = 5000000
   keep_evaluations  = 1
 
@@ -4550,7 +4550,7 @@ resource "hydra_jobset" "nixos_trunk-combined" {
     notify_committers = false
   }
 
-  check_interval    = 86400
+  check_interval    = -136800
   scheduling_shares = 768
   keep_evaluations  = 2
 
