@@ -5244,6 +5244,48 @@ resource "hydra_jobset" "nixpkgs_staging-next-24_11" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_staging-next-25_05" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "staging-next-25.05"
+  type        = "legacy"
+  description = "staging-next-25.05 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-25.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = -12456789
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_stdenv" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"

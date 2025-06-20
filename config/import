@@ -292,6 +292,7 @@ terraform import hydra_jobset.nixos_staging-next-23_05-small nixos/staging-next-
 terraform import hydra_jobset.nixos_staging-next-23_11-small nixos/staging-next-23.11-small
 terraform import hydra_jobset.nixos_staging-next-24_05-small nixos/staging-next-24.05-small
 terraform import hydra_jobset.nixos_staging-next-24_11-small nixos/staging-next-24.11-small
+terraform import hydra_jobset.nixos_staging-next-25_05-small nixos/staging-next-25.05-small
 terraform import hydra_jobset.nixos_staging-next-small nixos/staging-next-small
 terraform import hydra_jobset.nixos_staging-small nixos/staging-small
 terraform import hydra_jobset.nixos_stdenv-test nixos/stdenv-test
@@ -441,6 +442,7 @@ terraform import hydra_jobset.nixpkgs_staging-next-23_05 nixpkgs/staging-next-23
 terraform import hydra_jobset.nixpkgs_staging-next-23_11 nixpkgs/staging-next-23.11
 terraform import hydra_jobset.nixpkgs_staging-next-24_05 nixpkgs/staging-next-24.05
 terraform import hydra_jobset.nixpkgs_staging-next-24_11 nixpkgs/staging-next-24.11
+terraform import hydra_jobset.nixpkgs_staging-next-25_05 nixpkgs/staging-next-25.05
 terraform import hydra_jobset.nixpkgs_stdenv nixpkgs/stdenv
 terraform import hydra_jobset.nixpkgs_stdenv-fixes nixpkgs/stdenv-fixes
 terraform import hydra_jobset.nixpkgs_stdenvBoot_aarch64-linux nixpkgs/stdenvBoot_aarch64-linux
