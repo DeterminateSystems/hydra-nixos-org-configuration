@@ -4901,7 +4901,7 @@ resource "hydra_jobset" "nixpkgs_staging-next" {
   }
 
   check_interval    = -12456789
-  scheduling_shares = 50000
+  scheduling_shares = 1
   keep_evaluations  = 1
 
   email_notifications = false
@@ -5635,7 +5635,7 @@ resource "hydra_jobset" "nixpkgs_trunk" {
     notify_committers = false
   }
 
-  check_interval    = 28800
+  check_interval    = -28800
   scheduling_shares = 7000
   keep_evaluations  = 3
 
