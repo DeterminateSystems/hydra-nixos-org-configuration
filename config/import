@@ -19,6 +19,9 @@ terraform import hydra_jobset.disnix_nodejs-master disnix/nodejs-master
 terraform import hydra_jobset.disnix_php-mysql-trunk disnix/php-mysql-trunk
 terraform import hydra_jobset.disnix_viewvc-trunk disnix/viewvc-trunk
 terraform import hydra_jobset.disnix_virtualhosts-master disnix/virtualhosts-master
+terraform import hydra_jobset.dwarffs_master dwarffs/master
+terraform import hydra_jobset.equinix-metal-builders_aarch64-community-box equinix-metal-builders/aarch64-community-box
+terraform import hydra_jobset.equinix-metal-builders_main equinix-metal-builders/main
 terraform import hydra_jobset.experimental-nix-installer_experimental-installer experimental-nix-installer/experimental-installer
 terraform import hydra_jobset.flakes_blender-bin flakes/blender-bin
 terraform import hydra_jobset.flakes_dhdm flakes/dhdm
@@ -94,12 +97,6 @@ terraform import hydra_jobset.gnu_wget-trunk gnu/wget-trunk
 terraform import hydra_jobset.gnu_zile-branch-2_4 gnu/zile-branch-2.4
 terraform import hydra_jobset.gnu_zile-master gnu/zile-master
 terraform import hydra_jobset.gnu_zile-vala gnu/zile-vala
-terraform import hydra_jobset.hydra_build-ng hydra/build-ng
-terraform import hydra_jobset.hydra_flake hydra/flake
-terraform import hydra_jobset.hydra_hydra-ant-logger-trunk hydra/hydra-ant-logger-trunk
-terraform import hydra_jobset.hydra_hydra-master hydra/hydra-master
-terraform import hydra_jobset.hydra_master hydra/master
-terraform import hydra_jobset.kde_amarok-master kde/amarok-master
 terraform import hydra_project.acoda acoda
 terraform import hydra_project.cabal2nix cabal2nix
 terraform import hydra_project.coccinelle coccinelle
