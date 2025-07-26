@@ -1,4 +1,5 @@
 terraform import hydra_jobset.composer2nix_master composer2nix/master
+terraform import hydra_jobset.composer2nix_pndp-master composer2nix/pndp-master
 terraform import hydra_jobset.disnix_DisnixWebService-trunk disnix/DisnixWebService-trunk
 terraform import hydra_jobset.disnix_WebServicesExample-trunk disnix/WebServicesExample-trunk
 terraform import hydra_jobset.disnix_WebServicesExampleNET-trunk disnix/WebServicesExampleNET-trunk
@@ -19,7 +20,6 @@ terraform import hydra_jobset.disnix_php-mysql-trunk disnix/php-mysql-trunk
 terraform import hydra_jobset.disnix_viewvc-trunk disnix/viewvc-trunk
 terraform import hydra_jobset.disnix_virtualhosts-master disnix/virtualhosts-master
 terraform import hydra_jobset.dwarffs_master dwarffs/master
-terraform import hydra_jobset.experimental-nix-installer_experimental-installer experimental-nix-installer/experimental-installer
 terraform import hydra_jobset.flakes_blender-bin flakes/blender-bin
 terraform import hydra_jobset.flakes_dhdm flakes/dhdm
 terraform import hydra_jobset.flakes_hugefs flakes/hugefs
@@ -94,7 +94,10 @@ terraform import hydra_jobset.gnu_wget-trunk gnu/wget-trunk
 terraform import hydra_jobset.gnu_zile-branch-2_4 gnu/zile-branch-2.4
 terraform import hydra_jobset.gnu_zile-master gnu/zile-master
 terraform import hydra_jobset.gnu_zile-vala gnu/zile-vala
-terraform import hydra_jobset.libchop_master libchop/master
+terraform import hydra_jobset.nixops_flake-support nixops/flake-support
+terraform import hydra_jobset.ofborg_cole-flake ofborg/cole-flake
+terraform import hydra_jobset.ofborg_next ofborg/next
+terraform import hydra_jobset.ofborg_release ofborg/release
 terraform import hydra_project.acoda acoda
 terraform import hydra_project.cabal2nix cabal2nix
 terraform import hydra_project.coccinelle coccinelle
