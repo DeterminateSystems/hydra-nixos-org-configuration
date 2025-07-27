@@ -1,4 +1,5 @@
 terraform import hydra_jobset.composer2nix_master composer2nix/master
+terraform import hydra_jobset.crawljax_crawljax-trunk crawljax/crawljax-trunk
 terraform import hydra_jobset.disnix_DisnixWebService-trunk disnix/DisnixWebService-trunk
 terraform import hydra_jobset.disnix_WebServicesExample-trunk disnix/WebServicesExample-trunk
 terraform import hydra_jobset.disnix_WebServicesExampleNET-trunk disnix/WebServicesExampleNET-trunk
@@ -19,6 +20,7 @@ terraform import hydra_jobset.disnix_php-mysql-trunk disnix/php-mysql-trunk
 terraform import hydra_jobset.disnix_viewvc-trunk disnix/viewvc-trunk
 terraform import hydra_jobset.disnix_virtualhosts-master disnix/virtualhosts-master
 terraform import hydra_jobset.dwarffs_master dwarffs/master
+terraform import hydra_jobset.experimental-nix-installer_experimental-installer experimental-nix-installer/experimental-installer
 terraform import hydra_jobset.flakes_blender-bin flakes/blender-bin
 terraform import hydra_jobset.flakes_dhdm flakes/dhdm
 terraform import hydra_jobset.flakes_hugefs flakes/hugefs
@@ -28,7 +30,6 @@ terraform import hydra_jobset.flakes_nixos-homepage flakes/nixos-homepage
 terraform import hydra_jobset.flakes_sst flakes/sst
 terraform import hydra_jobset.flakes_template-c-hello flakes/template-c-hello
 terraform import hydra_jobset.flakes_template-rust-web-server flakes/template-rust-web-server
-terraform import hydra_jobset.gnu_autoconf-master gnu/autoconf-master
 terraform import hydra_jobset.nixops_flake-support nixops/flake-support
 terraform import hydra_jobset.nixops_hetzner nixops/hetzner
 terraform import hydra_jobset.nixops_kms nixops/kms
@@ -40,10 +41,6 @@ terraform import hydra_jobset.nixops_release-1_4 nixops/release-1.4
 terraform import hydra_jobset.nixops_release-1_5 nixops/release-1.5
 terraform import hydra_jobset.nixops_release-1_6_1 nixops/release-1.6.1
 terraform import hydra_jobset.nixops_release-1_7 nixops/release-1.7
-terraform import hydra_jobset.ofborg_cole-flake ofborg/cole-flake
-terraform import hydra_jobset.ofborg_next ofborg/next
-terraform import hydra_jobset.ofborg_release ofborg/release
-terraform import hydra_jobset.uuagc_trunk uuagc/trunk
 terraform import hydra_project.acoda acoda
 terraform import hydra_project.cabal2nix cabal2nix
 terraform import hydra_project.coccinelle coccinelle
