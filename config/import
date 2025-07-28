@@ -20,15 +20,6 @@ terraform import hydra_jobset.disnix_viewvc-trunk disnix/viewvc-trunk
 terraform import hydra_jobset.disnix_virtualhosts-master disnix/virtualhosts-master
 terraform import hydra_jobset.dwarffs_master dwarffs/master
 terraform import hydra_jobset.experimental-nix-installer_experimental-installer experimental-nix-installer/experimental-installer
-terraform import hydra_jobset.flakes_blender-bin flakes/blender-bin
-terraform import hydra_jobset.flakes_dhdm flakes/dhdm
-terraform import hydra_jobset.flakes_hugefs flakes/hugefs
-terraform import hydra_jobset.flakes_nickel flakes/nickel
-terraform import hydra_jobset.flakes_nix-serve flakes/nix-serve
-terraform import hydra_jobset.flakes_nixos-homepage flakes/nixos-homepage
-terraform import hydra_jobset.flakes_sst flakes/sst
-terraform import hydra_jobset.flakes_template-c-hello flakes/template-c-hello
-terraform import hydra_jobset.flakes_template-rust-web-server flakes/template-rust-web-server
 terraform import hydra_jobset.gnu_autoconf-master gnu/autoconf-master
 terraform import hydra_jobset.gnu_automake-master gnu/automake-master
 terraform import hydra_jobset.gnu_bash-master gnu/bash-master
@@ -94,6 +85,11 @@ terraform import hydra_jobset.gnu_wget-trunk gnu/wget-trunk
 terraform import hydra_jobset.gnu_zile-branch-2_4 gnu/zile-branch-2.4
 terraform import hydra_jobset.gnu_zile-master gnu/zile-master
 terraform import hydra_jobset.gnu_zile-vala gnu/zile-vala
+terraform import hydra_jobset.hydra_build-ng hydra/build-ng
+terraform import hydra_jobset.hydra_flake hydra/flake
+terraform import hydra_jobset.hydra_hydra-ant-logger-trunk hydra/hydra-ant-logger-trunk
+terraform import hydra_jobset.hydra_hydra-master hydra/hydra-master
+terraform import hydra_jobset.hydra_master hydra/master
 terraform import hydra_jobset.libchop_master libchop/master
 terraform import hydra_project.acoda acoda
 terraform import hydra_project.cabal2nix cabal2nix
