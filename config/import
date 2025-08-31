@@ -1,4 +1,3 @@
-terraform import hydra_jobset.cabal2nix_master cabal2nix/master
 terraform import hydra_jobset.composer2nix_master composer2nix/master
 terraform import hydra_jobset.disnix_DisnixWebService-trunk disnix/DisnixWebService-trunk
 terraform import hydra_jobset.disnix_WebServicesExample-trunk disnix/WebServicesExample-trunk
@@ -100,6 +99,7 @@ terraform import hydra_jobset.hydra_flake hydra/flake
 terraform import hydra_jobset.hydra_hydra-ant-logger-trunk hydra/hydra-ant-logger-trunk
 terraform import hydra_jobset.hydra_hydra-master hydra/hydra-master
 terraform import hydra_jobset.hydra_master hydra/master
+terraform import hydra_jobset.ltsmin_ltsmin-trunk ltsmin/ltsmin-trunk
 terraform import hydra_jobset.nixops_flake-support nixops/flake-support
 terraform import hydra_jobset.nixops_hetzner nixops/hetzner
 terraform import hydra_jobset.nixops_kms nixops/kms
