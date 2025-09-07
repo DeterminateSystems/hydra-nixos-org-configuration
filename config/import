@@ -1,3 +1,4 @@
+terraform import hydra_jobset.coccinelle_trunk coccinelle/trunk
 terraform import hydra_jobset.composer2nix_master composer2nix/master
 terraform import hydra_jobset.disnix_DisnixWebService-trunk disnix/DisnixWebService-trunk
 terraform import hydra_jobset.disnix_WebServicesExample-trunk disnix/WebServicesExample-trunk
@@ -99,8 +100,6 @@ terraform import hydra_jobset.hydra_flake hydra/flake
 terraform import hydra_jobset.hydra_hydra-ant-logger-trunk hydra/hydra-ant-logger-trunk
 terraform import hydra_jobset.hydra_hydra-master hydra/hydra-master
 terraform import hydra_jobset.hydra_master hydra/master
-terraform import hydra_jobset.linux-on-mac-builder_master linux-on-mac-builder/master
-terraform import hydra_jobset.linux-on-mac-builder_staging linux-on-mac-builder/staging
 terraform import hydra_jobset.nix_PR-13718 nix/PR-13718
 terraform import hydra_jobset.nix_PR-1643 nix/PR-1643
 terraform import hydra_jobset.nix_boost-dylib nix/boost-dylib
