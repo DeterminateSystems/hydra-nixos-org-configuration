@@ -1,5 +1,5 @@
-terraform import hydra_jobset.coccinelle_trunk coccinelle/trunk
 terraform import hydra_jobset.composer2nix_master composer2nix/master
+terraform import hydra_jobset.crawljax_crawljax-trunk crawljax/crawljax-trunk
 terraform import hydra_jobset.disnix_DisnixWebService-trunk disnix/DisnixWebService-trunk
 terraform import hydra_jobset.disnix_WebServicesExample-trunk disnix/WebServicesExample-trunk
 terraform import hydra_jobset.disnix_WebServicesExampleNET-trunk disnix/WebServicesExampleNET-trunk
