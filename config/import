@@ -1,5 +1,4 @@
 terraform import hydra_jobset.composer2nix_master composer2nix/master
-terraform import hydra_jobset.crawljax_crawljax-trunk crawljax/crawljax-trunk
 terraform import hydra_jobset.disnix_DisnixWebService-trunk disnix/DisnixWebService-trunk
 terraform import hydra_jobset.disnix_WebServicesExample-trunk disnix/WebServicesExample-trunk
 terraform import hydra_jobset.disnix_WebServicesExampleNET-trunk disnix/WebServicesExampleNET-trunk
@@ -95,6 +94,7 @@ terraform import hydra_jobset.gnu_wget-trunk gnu/wget-trunk
 terraform import hydra_jobset.gnu_zile-branch-2_4 gnu/zile-branch-2.4
 terraform import hydra_jobset.gnu_zile-master gnu/zile-master
 terraform import hydra_jobset.gnu_zile-vala gnu/zile-vala
+terraform import hydra_jobset.groove_groove-trunk groove/groove-trunk
 terraform import hydra_jobset.hydra_build-ng hydra/build-ng
 terraform import hydra_jobset.hydra_flake hydra/flake
 terraform import hydra_jobset.hydra_hydra-ant-logger-trunk hydra/hydra-ant-logger-trunk
