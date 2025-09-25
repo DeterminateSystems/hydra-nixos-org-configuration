@@ -1,4 +1,6 @@
 terraform import hydra_jobset.composer2nix_master composer2nix/master
+terraform import hydra_jobset.composer2nix_pndp-master composer2nix/pndp-master
+terraform import hydra_jobset.crawljax_crawljax-trunk crawljax/crawljax-trunk
 terraform import hydra_jobset.disnix_DisnixWebService-trunk disnix/DisnixWebService-trunk
 terraform import hydra_jobset.disnix_WebServicesExample-trunk disnix/WebServicesExample-trunk
 terraform import hydra_jobset.disnix_WebServicesExampleNET-trunk disnix/WebServicesExampleNET-trunk
@@ -94,7 +96,6 @@ terraform import hydra_jobset.gnu_wget-trunk gnu/wget-trunk
 terraform import hydra_jobset.gnu_zile-branch-2_4 gnu/zile-branch-2.4
 terraform import hydra_jobset.gnu_zile-master gnu/zile-master
 terraform import hydra_jobset.gnu_zile-vala gnu/zile-vala
-terraform import hydra_jobset.kde_amarok-master kde/amarok-master
 terraform import hydra_jobset.nix-pills_master nix-pills/master
 terraform import hydra_jobset.nix_PR-13718 nix/PR-13718
 terraform import hydra_jobset.nix_PR-1643 nix/PR-1643
