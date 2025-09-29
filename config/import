@@ -1,6 +1,4 @@
-terraform import hydra_jobset.cabal2nix_master cabal2nix/master
 terraform import hydra_jobset.composer2nix_master composer2nix/master
-terraform import hydra_jobset.composer2nix_pndp-master composer2nix/pndp-master
 terraform import hydra_jobset.disnix_DisnixWebService-trunk disnix/DisnixWebService-trunk
 terraform import hydra_jobset.disnix_WebServicesExample-trunk disnix/WebServicesExample-trunk
 terraform import hydra_jobset.disnix_WebServicesExampleNET-trunk disnix/WebServicesExampleNET-trunk
@@ -21,6 +19,8 @@ terraform import hydra_jobset.disnix_php-mysql-trunk disnix/php-mysql-trunk
 terraform import hydra_jobset.disnix_viewvc-trunk disnix/viewvc-trunk
 terraform import hydra_jobset.disnix_virtualhosts-master disnix/virtualhosts-master
 terraform import hydra_jobset.dwarffs_master dwarffs/master
+terraform import hydra_jobset.equinix-metal-builders_aarch64-community-box equinix-metal-builders/aarch64-community-box
+terraform import hydra_jobset.equinix-metal-builders_main equinix-metal-builders/main
 terraform import hydra_jobset.experimental-nix-installer_experimental-installer experimental-nix-installer/experimental-installer
 terraform import hydra_jobset.flakes_blender-bin flakes/blender-bin
 terraform import hydra_jobset.flakes_dhdm flakes/dhdm
