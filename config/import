@@ -1,4 +1,5 @@
 terraform import hydra_jobset.composer2nix_master composer2nix/master
+terraform import hydra_jobset.composer2nix_pndp-master composer2nix/pndp-master
 terraform import hydra_jobset.disnix_DisnixWebService-trunk disnix/DisnixWebService-trunk
 terraform import hydra_jobset.disnix_WebServicesExample-trunk disnix/WebServicesExample-trunk
 terraform import hydra_jobset.disnix_WebServicesExampleNET-trunk disnix/WebServicesExampleNET-trunk
@@ -99,7 +100,6 @@ terraform import hydra_jobset.hydra_flake hydra/flake
 terraform import hydra_jobset.hydra_hydra-ant-logger-trunk hydra/hydra-ant-logger-trunk
 terraform import hydra_jobset.hydra_hydra-master hydra/hydra-master
 terraform import hydra_jobset.hydra_master hydra/master
-terraform import hydra_jobset.libchop_master libchop/master
 terraform import hydra_jobset.nix_PR-13718 nix/PR-13718
 terraform import hydra_jobset.nix_PR-1643 nix/PR-1643
 terraform import hydra_jobset.nix_boost-dylib nix/boost-dylib
@@ -155,6 +155,9 @@ terraform import hydra_jobset.nix_tmp-pr-2878 nix/tmp-pr-2878
 terraform import hydra_jobset.nix_tmp-pr-test nix/tmp-pr-test
 terraform import hydra_jobset.nix_tmp-rust nix/tmp-rust
 terraform import hydra_jobset.nix_verify-tls nix/verify-tls
+terraform import hydra_jobset.ofborg_cole-flake ofborg/cole-flake
+terraform import hydra_jobset.ofborg_next ofborg/next
+terraform import hydra_jobset.ofborg_release ofborg/release
 terraform import hydra_project.acoda acoda
 terraform import hydra_project.cabal2nix cabal2nix
 terraform import hydra_project.coccinelle coccinelle
