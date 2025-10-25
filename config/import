@@ -140,7 +140,6 @@ terraform import hydra_jobset.nix_tmp-pr-2878 nix/tmp-pr-2878
 terraform import hydra_jobset.nix_tmp-pr-test nix/tmp-pr-test
 terraform import hydra_jobset.nix_tmp-rust nix/tmp-rust
 terraform import hydra_jobset.nix_verify-tls nix/verify-tls
-terraform import hydra_jobset.pil_pil-trunk pil/pil-trunk
 terraform import hydra_project.acoda acoda
 terraform import hydra_project.cabal2nix cabal2nix
 terraform import hydra_project.coccinelle coccinelle
