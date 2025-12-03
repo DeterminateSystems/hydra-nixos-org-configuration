@@ -271,7 +271,7 @@ resource "hydra_jobset" "nix_installer-test" {
 
 resource "hydra_jobset" "nix_lazy-trees" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "lazy-trees"
   type        = "flake"
@@ -577,7 +577,7 @@ resource "hydra_jobset" "nix_maintenance-2_17" {
 
 resource "hydra_jobset" "nix_maintenance-2_18" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.18"
   type        = "flake"
@@ -595,7 +595,7 @@ resource "hydra_jobset" "nix_maintenance-2_18" {
 
 resource "hydra_jobset" "nix_maintenance-2_19" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.19"
   type        = "flake"
@@ -655,7 +655,7 @@ resource "hydra_jobset" "nix_maintenance-2_2" {
 
 resource "hydra_jobset" "nix_maintenance-2_20" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.20"
   type        = "flake"
@@ -673,7 +673,7 @@ resource "hydra_jobset" "nix_maintenance-2_20" {
 
 resource "hydra_jobset" "nix_maintenance-2_21" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.21"
   type        = "flake"
@@ -691,7 +691,7 @@ resource "hydra_jobset" "nix_maintenance-2_21" {
 
 resource "hydra_jobset" "nix_maintenance-2_22" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.22"
   type        = "flake"
@@ -709,7 +709,7 @@ resource "hydra_jobset" "nix_maintenance-2_22" {
 
 resource "hydra_jobset" "nix_maintenance-2_23" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.23"
   type        = "flake"
@@ -727,7 +727,7 @@ resource "hydra_jobset" "nix_maintenance-2_23" {
 
 resource "hydra_jobset" "nix_maintenance-2_24" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.24"
   type        = "flake"
@@ -745,7 +745,7 @@ resource "hydra_jobset" "nix_maintenance-2_24" {
 
 resource "hydra_jobset" "nix_maintenance-2_25" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.25"
   type        = "flake"
@@ -763,7 +763,7 @@ resource "hydra_jobset" "nix_maintenance-2_25" {
 
 resource "hydra_jobset" "nix_maintenance-2_26" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.26"
   type        = "flake"
@@ -781,7 +781,7 @@ resource "hydra_jobset" "nix_maintenance-2_26" {
 
 resource "hydra_jobset" "nix_maintenance-2_27" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.27"
   type        = "flake"
@@ -835,7 +835,7 @@ resource "hydra_jobset" "nix_maintenance-2_29" {
 
 resource "hydra_jobset" "nix_maintenance-2_3" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "maintenance-2.3"
   type        = "legacy"
@@ -1144,6 +1144,24 @@ resource "hydra_jobset" "nix_pr-13785" {
   flake_uri = "github:xokdvium/nix/25.05-nixpkgs"
 
   check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_pr-14688" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-14688"
+  type        = "flake"
+  description = "PR #14688"
+
+  flake_uri = "github:NixOS/nix/nixpkgs-25.11"
+
+  check_interval    = 10800
   scheduling_shares = 100
   keep_evaluations  = 1
 
