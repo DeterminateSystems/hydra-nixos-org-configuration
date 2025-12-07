@@ -1935,19 +1935,57 @@ resource "hydra_jobset" "gnu_gsrc-testing" {
 
 resource "hydra_jobset" "gnu_guile-1-8" {
   project     = hydra_project.gnu.name
-  state       = "UNKNOWN"
-  visible     = 
+  state       = "disabled"
+  visible     = true
   name        = "guile-1-8"
-  type        = "UNKNOWN"
-  description = ""
+  type        = "legacy"
+  description = "GNU Guile, version 1.8"
 
-UNKNOWN INPUT TYPE
+  nix_expression {
+    file  = "guile/release.nix"
+    input = "hydraConfig"
+  }
 
-  check_interval    = 
-  scheduling_shares = 
-  keep_evaluations  = 
+  input {
+    name              = "guile"
+    type              = "git"
+    value             = "git://git.sv.gnu.org/guile.git branch_release-1-8 1"
+    notify_committers = false
+  }
 
-  email_notifications = 
+  input {
+    name              = "hydraConfig"
+    type              = "git"
+    value             = "git://git.savannah.gnu.org/hydra-recipes.git"
+    notify_committers = false
+  }
+
+  input {
+    name              = "native_guile"
+    type              = "sysbuild"
+    value             = "build"
+    notify_committers = false
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs-channels.git nixos-18.09"
+    notify_committers = false
+  }
+
+  input {
+    name              = "system"
+    type              = "string"
+    value             = "i686-linux"
+    notify_committers = false
+  }
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
   email_override      = ""
 }
 
