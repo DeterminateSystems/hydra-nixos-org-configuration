@@ -26,20 +26,3 @@ resource "hydra_jobset" "experimental-nix-installer_experimental-installer" {
   email_override      = ""
 }
 
-resource "hydra_jobset" "experimental-nix-installer_pr-51" {
-  project     = hydra_project.experimental-nix-installer.name
-  state       = "disabled"
-  visible     = false
-  name        = "pr-51"
-  type        = "flake"
-  description = "Upstream changes"
-
-  flake_uri = "github:NixOS/experimental-nix-installer/update-from-upstream"
-
-  check_interval    = 7200
-  scheduling_shares = 10000
-  keep_evaluations  = 0
-
-  email_notifications = false
-  email_override      = ""
-}
