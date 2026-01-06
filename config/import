@@ -95,13 +95,8 @@ terraform import hydra_jobset.gnu_wget-trunk gnu/wget-trunk
 terraform import hydra_jobset.gnu_zile-branch-2_4 gnu/zile-branch-2.4
 terraform import hydra_jobset.gnu_zile-master gnu/zile-master
 terraform import hydra_jobset.gnu_zile-vala gnu/zile-vala
-terraform import hydra_jobset.hydra_build-ng hydra/build-ng
-terraform import hydra_jobset.hydra_flake hydra/flake
-terraform import hydra_jobset.hydra_hydra-ant-logger-trunk hydra/hydra-ant-logger-trunk
-terraform import hydra_jobset.hydra_hydra-master hydra/hydra-master
-terraform import hydra_jobset.hydra_master hydra/master
-terraform import hydra_jobset.linux-on-mac-builder_master linux-on-mac-builder/master
-terraform import hydra_jobset.linux-on-mac-builder_staging linux-on-mac-builder/staging
+terraform import hydra_jobset.libchop_master libchop/master
+terraform import hydra_jobset.nix-pills_master nix-pills/master
 terraform import hydra_jobset.nix_PR-13718 nix/PR-13718
 terraform import hydra_jobset.nix_PR-1643 nix/PR-1643
 terraform import hydra_jobset.nix_boost-dylib nix/boost-dylib
