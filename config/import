@@ -20,6 +20,8 @@ terraform import hydra_jobset.disnix_php-mysql-trunk disnix/php-mysql-trunk
 terraform import hydra_jobset.disnix_viewvc-trunk disnix/viewvc-trunk
 terraform import hydra_jobset.disnix_virtualhosts-master disnix/virtualhosts-master
 terraform import hydra_jobset.dwarffs_master dwarffs/master
+terraform import hydra_jobset.equinix-metal-builders_aarch64-community-box equinix-metal-builders/aarch64-community-box
+terraform import hydra_jobset.equinix-metal-builders_main equinix-metal-builders/main
 terraform import hydra_jobset.flakes_blender-bin flakes/blender-bin
 terraform import hydra_jobset.gnu_autoconf-master gnu/autoconf-master
 terraform import hydra_jobset.gnu_automake-master gnu/automake-master
@@ -160,7 +162,6 @@ terraform import hydra_jobset.nixops_release-1_4 nixops/release-1.4
 terraform import hydra_jobset.nixops_release-1_5 nixops/release-1.5
 terraform import hydra_jobset.nixops_release-1_6_1 nixops/release-1.6.1
 terraform import hydra_jobset.nixops_release-1_7 nixops/release-1.7
-terraform import hydra_jobset.patchelf_master patchelf/master
 terraform import hydra_project.acoda acoda
 terraform import hydra_project.cabal2nix cabal2nix
 terraform import hydra_project.coccinelle coccinelle
