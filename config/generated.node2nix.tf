@@ -4,7 +4,7 @@ resource "hydra_project" "node2nix" {
   homepage     = ""
   description  = "Deploy NPM packages with the Nix package manager"
   owner        = "svanderburg"
-  enabled      = true
+  enabled      = false
   visible      = true
 }
 

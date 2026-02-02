@@ -4,7 +4,7 @@ resource "hydra_project" "nixops" {
   homepage     = "https://github.com/NixOS/nixops"
   description  = "NixOS-based network/cloud deployment tool"
   owner        = "eelco"
-  enabled      = true
+  enabled      = false
   visible      = true
 }
 

@@ -4,7 +4,7 @@ resource "hydra_project" "nix-pills" {
   homepage     = "https://github.com/nixos/nix-pills"
   description  = "The missing explanations from the more formal documents."
   owner        = "graham@grahamc.com"
-  enabled      = true
+  enabled      = false
   visible      = true
 }
 

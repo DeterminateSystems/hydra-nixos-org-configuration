@@ -4,7 +4,7 @@ resource "hydra_project" "node-hydra-connector" {
   homepage     = ""
   description  = "Node module and CLI providing Hydra integration"
   owner        = "svanderburg"
-  enabled      = true
+  enabled      = false
   visible      = true
 }
 
