@@ -1,4 +1,4 @@
-terraform import hydra_jobset.cabal2nix_master cabal2nix/master
+terraform import hydra_jobset.acoda_trunk acoda/trunk
 terraform import hydra_jobset.dwarffs_master dwarffs/master
 terraform import hydra_jobset.flakes_blender-bin flakes/blender-bin
 terraform import hydra_jobset.flakes_dhdm flakes/dhdm
