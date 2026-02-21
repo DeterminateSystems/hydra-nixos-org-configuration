@@ -26,3 +26,21 @@ resource "hydra_jobset" "flakes_blender-bin" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "flakes_dhdm" {
+  project     = hydra_project.flakes.name
+  state       = "enabled"
+  visible     = true
+  name        = "dhdm"
+  type        = "flake"
+  description = ""
+
+  flake_uri = "github:edolstra/dhdm"
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
