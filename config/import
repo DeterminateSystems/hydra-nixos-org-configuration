@@ -1,4 +1,3 @@
-terraform import hydra_jobset.cabal2nix_master cabal2nix/master
 terraform import hydra_jobset.dwarffs_master dwarffs/master
 terraform import hydra_jobset.flakes_blender-bin flakes/blender-bin
 terraform import hydra_jobset.flakes_dhdm flakes/dhdm
@@ -14,7 +13,8 @@ terraform import hydra_jobset.hydra_flake hydra/flake
 terraform import hydra_jobset.hydra_hydra-ant-logger-trunk hydra/hydra-ant-logger-trunk
 terraform import hydra_jobset.hydra_hydra-master hydra/hydra-master
 terraform import hydra_jobset.hydra_master hydra/master
-terraform import hydra_jobset.nix-androidenvtests_nix-androidenvtests-master nix-androidenvtests/nix-androidenvtests-master
+terraform import hydra_jobset.linux-on-mac-builder_master linux-on-mac-builder/master
+terraform import hydra_jobset.linux-on-mac-builder_staging linux-on-mac-builder/staging
 terraform import hydra_jobset.nix-installer_nix-installer nix-installer/nix-installer
 terraform import hydra_jobset.nix-installer_pr-51 nix-installer/pr-51
 terraform import hydra_jobset.nix_PR-13718 nix/PR-13718
@@ -351,6 +351,9 @@ terraform import hydra_jobset.nixpkgs_toonn-wip nixpkgs/toonn-wip
 terraform import hydra_jobset.nixpkgs_unstable nixpkgs/unstable
 terraform import hydra_jobset.nixpkgs_vcunat-stdenv nixpkgs/vcunat-stdenv
 terraform import hydra_jobset.nixpkgs_xorg-test nixpkgs/xorg-test
+terraform import hydra_jobset.ofborg_cole-flake ofborg/cole-flake
+terraform import hydra_jobset.ofborg_next ofborg/next
+terraform import hydra_jobset.ofborg_release ofborg/release
 terraform import hydra_project.acoda acoda
 terraform import hydra_project.cabal2nix cabal2nix
 terraform import hydra_project.coccinelle coccinelle
