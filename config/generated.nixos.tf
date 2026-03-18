@@ -4812,7 +4812,7 @@ resource "hydra_jobset" "nixos_unstable" {
   input {
     name              = "nixpkgs"
     type              = "git"
-    value             = "https://github.com/nixos/nixpkgs.git"
+    value             = "https://github.com/nixos/nixpkgs.git staging-next"
     notify_committers = false
   }
 
@@ -4823,7 +4823,7 @@ resource "hydra_jobset" "nixos_unstable" {
     notify_committers = false
   }
 
-  check_interval    = 156800
+  check_interval    = -156800
   scheduling_shares = 768
   keep_evaluations  = 2
 
