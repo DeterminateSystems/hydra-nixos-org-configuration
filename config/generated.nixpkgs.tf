@@ -5831,7 +5831,7 @@ resource "hydra_jobset" "nixpkgs_unstable" {
     notify_committers = false
   }
 
-  check_interval    = -28800
+  check_interval    = 28800
   scheduling_shares = 7000
   keep_evaluations  = 3
 
