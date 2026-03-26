@@ -183,3 +183,21 @@ resource "hydra_jobset" "hydra_master" {
   email_notifications = false
   email_override      = ""
 }
+
+resource "hydra_jobset" "hydra_nix-next" {
+  project     = hydra_project.hydra.name
+  state       = "enabled"
+  visible     = true
+  name        = "nix-next"
+  type        = "flake"
+  description = "nix-next test"
+
+  flake_uri = "github:NixOS/hydra/nix-next"
+
+  check_interval    = 300
+  scheduling_shares = 100
+  keep_evaluations  = 2
+
+  email_notifications = false
+  email_override      = ""
+}
