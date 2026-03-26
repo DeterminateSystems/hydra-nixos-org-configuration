@@ -4264,6 +4264,48 @@ resource "hydra_jobset" "nixpkgs_pr-4943" {
   email_override      = "simons@cryp.to"
 }
 
+resource "hydra_jobset" "nixpkgs_pr-502924-glibc-2_43" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "pr-502924-glibc-2.43"
+  type        = "legacy"
+  description = "Testing PR #502924: glibc: 2.42 -> 2.43"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/philiptaron/nixpkgs.git glibc"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" /*\"aarch64-linux\"*/ ]"
+    notify_committers = false
+  }
+
+  check_interval    = -12456789
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_pr-5091" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
