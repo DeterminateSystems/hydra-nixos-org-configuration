@@ -4014,43 +4014,19 @@ resource "hydra_jobset" "nixos_staging-17_03" {
 
 resource "hydra_jobset" "nixos_staging-next-22_11-small" {
   project     = hydra_project.nixos.name
-  state       = "disabled"
-  visible     = false
+  state       = "UNKNOWN"
+  visible     = 
   name        = "staging-next-22.11-small"
-  type        = "legacy"
-  description = "staging{,-next}-22.11 branch, manually depending on situation"
+  type        = "UNKNOWN"
+  description = ""
 
-  nix_expression {
-    file  = "nixos/release-small.nix"
-    input = "nixpkgs"
-  }
+UNKNOWN INPUT TYPE
 
-  input {
-    name              = "nixpkgs"
-    type              = "git"
-    value             = "https://github.com/NixOS/nixpkgs.git staging-next-22.11"
-    notify_committers = false
-  }
+  check_interval    = 
+  scheduling_shares = 
+  keep_evaluations  = 
 
-  input {
-    name              = "stableBranch"
-    type              = "boolean"
-    value             = "false"
-    notify_committers = false
-  }
-
-  input {
-    name              = "supportedSystems"
-    type              = "nix"
-    value             = "[ \"x86_64-linux\" \"aarch64-linux\" ]"
-    notify_committers = false
-  }
-
-  check_interval    = 0
-  scheduling_shares = 10
-  keep_evaluations  = 1
-
-  email_notifications = false
+  email_notifications = 
   email_override      = ""
 }
 
