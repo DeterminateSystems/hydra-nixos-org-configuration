@@ -1452,8 +1452,8 @@ resource "hydra_jobset" "nixos_pr-209870-gcc-external-bootstrap" {
 
 resource "hydra_jobset" "nixos_pr-244907-bootloaders-init" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-244907-bootloaders-init"
   type        = "legacy"
   description = "Testing PR #244907: nixos/system/boot/bootloaders: init"
@@ -1536,8 +1536,8 @@ resource "hydra_jobset" "nixos_pr-258680-systemd_network-online_target" {
 
 resource "hydra_jobset" "nixos_pr-435781-systemd-stage1" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "pr-435781-systemd-stage1"
   type        = "legacy"
   description = "Testing PR #435781: Enable systemd stage 1 by default"
@@ -1578,8 +1578,8 @@ resource "hydra_jobset" "nixos_pr-435781-systemd-stage1" {
 
 resource "hydra_jobset" "nixos_python-test-refactoring" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "python-test-refactoring"
   type        = "legacy"
   description = "Staging branch for changes to the NixOS test driver"
@@ -4224,8 +4224,8 @@ resource "hydra_jobset" "nixos_staging-next-24_11-small" {
 
 resource "hydra_jobset" "nixos_staging-next-25_05-small" {
   project     = hydra_project.nixos.name
-  state       = "enabled"
-  visible     = true
+  state       = "disabled"
+  visible     = false
   name        = "staging-next-25.05-small"
   type        = "legacy"
   description = "staging-next-25.05 branch, small jobset"
