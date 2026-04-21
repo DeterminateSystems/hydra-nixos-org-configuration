@@ -1187,15 +1187,25 @@ resource "hydra_jobset" "nix_pr-13785" {
   email_override      = ""
 }
 
-resource "hydra_jobset" "nix_pr-14688" {
+resource "hydra_jobset" "nix_pr-15640" {
   project     = hydra_project.nix.name
   state       = "enabled"
   visible     = true
-  name        = "pr-14688"
-  type        = "flake"
-  description = "PR #14688"
+  name        = "pr-15640"
+  type        = "legacy"
+  description = "PR #15640"
 
-  flake_uri = "github:NixOS/nix/nixpkgs-25.11"
+  nix_expression {
+    file  = "packaging/release-jobs.nix"
+    input = "src"
+  }
+
+  input {
+    name              = "src"
+    type              = "git"
+    value             = "https://github.com/Mic92/nix-1 release-workflow"
+    notify_committers = false
+  }
 
   check_interval    = 10800
   scheduling_shares = 100
