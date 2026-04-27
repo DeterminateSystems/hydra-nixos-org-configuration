@@ -815,6 +815,34 @@ resource "hydra_jobset" "nix_maintenance-2_28" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_maintenance-2_28-release" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "maintenance-2.28-release"
+  type        = "legacy"
+  description = "2.28 release artifacts"
+
+  nix_expression {
+    file  = "packaging/release-jobs.nix"
+    input = "src"
+  }
+
+  input {
+    name              = "src"
+    type              = "git"
+    value             = "https://github.com/NixOS/nix.git 2.28-maintenance"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 5
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_maintenance-2_29" {
   project     = hydra_project.nix.name
   state       = "enabled"
@@ -828,6 +856,34 @@ resource "hydra_jobset" "nix_maintenance-2_29" {
   check_interval    = 3600
   scheduling_shares = 100
   keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_maintenance-2_29-release" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "maintenance-2.29-release"
+  type        = "legacy"
+  description = "2.29 release artifacts"
+
+  nix_expression {
+    file  = "packaging/release-jobs.nix"
+    input = "src"
+  }
+
+  input {
+    name              = "src"
+    type              = "git"
+    value             = "https://github.com/NixOS/nix.git 2.29-maintenance"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 5
 
   email_notifications = false
   email_override      = ""
@@ -893,6 +949,34 @@ resource "hydra_jobset" "nix_maintenance-2_30" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_maintenance-2_30-release" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "maintenance-2.30-release"
+  type        = "legacy"
+  description = "2.30 release artifacts"
+
+  nix_expression {
+    file  = "packaging/release-jobs.nix"
+    input = "src"
+  }
+
+  input {
+    name              = "src"
+    type              = "git"
+    value             = "https://github.com/NixOS/nix.git 2.30-maintenance"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 5
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_maintenance-2_31" {
   project     = hydra_project.nix.name
   state       = "enabled"
@@ -906,6 +990,34 @@ resource "hydra_jobset" "nix_maintenance-2_31" {
   check_interval    = 3600
   scheduling_shares = 100
   keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_maintenance-2_31-release" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "maintenance-2.31-release"
+  type        = "legacy"
+  description = "2.31 release artifacts"
+
+  nix_expression {
+    file  = "packaging/release-jobs.nix"
+    input = "src"
+  }
+
+  input {
+    name              = "src"
+    type              = "git"
+    value             = "https://github.com/NixOS/nix.git 2.31-maintenance"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 5
 
   email_notifications = false
   email_override      = ""
@@ -929,6 +1041,34 @@ resource "hydra_jobset" "nix_maintenance-2_32" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_maintenance-2_32-release" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "maintenance-2.32-release"
+  type        = "legacy"
+  description = "2.32 release artifacts"
+
+  nix_expression {
+    file  = "packaging/release-jobs.nix"
+    input = "src"
+  }
+
+  input {
+    name              = "src"
+    type              = "git"
+    value             = "https://github.com/NixOS/nix.git 2.32-maintenance"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 5
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_maintenance-2_33" {
   project     = hydra_project.nix.name
   state       = "enabled"
@@ -947,6 +1087,34 @@ resource "hydra_jobset" "nix_maintenance-2_33" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nix_maintenance-2_33-release" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "maintenance-2.33-release"
+  type        = "legacy"
+  description = "2.33 release artifacts"
+
+  nix_expression {
+    file  = "packaging/release-jobs.nix"
+    input = "src"
+  }
+
+  input {
+    name              = "src"
+    type              = "git"
+    value             = "https://github.com/NixOS/nix.git 2.33-maintenance"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 5
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nix_maintenance-2_34" {
   project     = hydra_project.nix.name
   state       = "enabled"
@@ -960,6 +1128,34 @@ resource "hydra_jobset" "nix_maintenance-2_34" {
   check_interval    = 3600
   scheduling_shares = 100
   keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_maintenance-2_34-release" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "maintenance-2.34-release"
+  type        = "legacy"
+  description = "2.34 release artifacts"
+
+  nix_expression {
+    file  = "packaging/release-jobs.nix"
+    input = "src"
+  }
+
+  input {
+    name              = "src"
+    type              = "git"
+    value             = "https://github.com/NixOS/nix.git 2.34-maintenance"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 5
 
   email_notifications = false
   email_override      = ""
@@ -1104,6 +1300,34 @@ resource "hydra_jobset" "nix_master" {
   check_interval    = 10800
   scheduling_shares = 100
   keep_evaluations  = 3
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nix_master-release" {
+  project     = hydra_project.nix.name
+  state       = "enabled"
+  visible     = true
+  name        = "master-release"
+  type        = "legacy"
+  description = "master release artifacts"
+
+  nix_expression {
+    file  = "packaging/release-jobs.nix"
+    input = "src"
+  }
+
+  input {
+    name              = "src"
+    type              = "git"
+    value             = "https://github.com/NixOS/nix.git master"
+    notify_committers = false
+  }
+
+  check_interval    = 3600
+  scheduling_shares = 100
+  keep_evaluations  = 5
 
   email_notifications = false
   email_override      = ""
