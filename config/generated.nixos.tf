@@ -239,7 +239,7 @@ resource "hydra_jobset" "nixos_disable-nix-in-nixos-tests" {
   }
 
   check_interval    = -12456789
-  scheduling_shares = 100
+  scheduling_shares = 1
   keep_evaluations  = 0
 
   email_notifications = false
