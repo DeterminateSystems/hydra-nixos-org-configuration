@@ -1413,7 +1413,7 @@ resource "hydra_jobset" "nix_pr-13785" {
 
 resource "hydra_jobset" "nix_pr-15640" {
   project     = hydra_project.nix.name
-  state       = "enabled"
+  state       = "disabled"
   visible     = true
   name        = "pr-15640"
   type        = "legacy"
