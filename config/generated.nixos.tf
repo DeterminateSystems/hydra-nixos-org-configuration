@@ -211,6 +211,41 @@ resource "hydra_jobset" "nixos_closure-size" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixos_disable-nix-in-nixos-tests" {
+  project     = hydra_project.nixos.name
+  state       = "enabled"
+  visible     = true
+  name        = "disable-nix-in-nixos-tests"
+  type        = "legacy"
+  description = "Testing PR #1706: disable nix in nixos tests"
+
+  nix_expression {
+    file  = "nixos/release-combined.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/roberth/nixpkgs.git nixosTests-no-nix-experiment"
+    notify_committers = false
+  }
+
+  input {
+    name              = "stableBranch"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = -12456789
+  scheduling_shares = 100
+  keep_evaluations  = 0
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixos_gcc-4_9" {
   project     = hydra_project.nixos.name
   state       = "disabled"
