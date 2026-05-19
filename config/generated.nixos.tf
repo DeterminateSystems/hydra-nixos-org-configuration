@@ -4837,7 +4837,7 @@ resource "hydra_jobset" "nixos_unstable" {
   visible     = true
   name        = "unstable"
   type        = "legacy"
-  description = "Combined NixOS/Nixpkgs unstable"
+  description = "NixOS Unstable"
 
   nix_expression {
     file  = "nixos/release-combined.nix"
@@ -4921,7 +4921,7 @@ resource "hydra_jobset" "nixos_unstable-small" {
   visible     = true
   name        = "unstable-small"
   type        = "legacy"
-  description = "NixOS small unstable channel"
+  description = "NixOS Unstable (small)"
 
   nix_expression {
     file  = "nixos/release-small.nix"
