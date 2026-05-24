@@ -2521,6 +2521,48 @@ resource "hydra_jobset" "nixpkgs_nixpkgs-25_11-darwin" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_nixpkgs-26_05-darwin" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "nixpkgs-26.05-darwin"
+  type        = "legacy"
+  description = "Darwin builds for the NixOS 26.05 release."
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git release-26.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-darwin\" \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = -77600
+  scheduling_shares = 5000
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_nixpkgs-unstable-aarch64-darwin" {
   project     = hydra_project.nixpkgs.name
   state       = "disabled"
@@ -5069,6 +5111,41 @@ resource "hydra_jobset" "nixpkgs_staging-25_11" {
   email_override      = ""
 }
 
+resource "hydra_jobset" "nixpkgs_staging-26_05" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "staging-26.05"
+  type        = "legacy"
+  description = "staging-26.05 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release-staging.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/nixos/nixpkgs.git staging-26.05"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  check_interval    = -3600
+  scheduling_shares = 1
+  keep_evaluations  = 20
+
+  email_notifications = false
+  email_override      = ""
+}
+
 resource "hydra_jobset" "nixpkgs_staging-next" {
   project     = hydra_project.nixpkgs.name
   state       = "enabled"
@@ -5506,6 +5583,48 @@ resource "hydra_jobset" "nixpkgs_staging-next-25_11" {
     name              = "nixpkgs"
     type              = "git"
     value             = "https://github.com/NixOS/nixpkgs.git staging-next-25.11"
+    notify_committers = false
+  }
+
+  input {
+    name              = "officialRelease"
+    type              = "boolean"
+    value             = "false"
+    notify_committers = false
+  }
+
+  input {
+    name              = "supportedSystems"
+    type              = "nix"
+    value             = "[ \"x86_64-linux\" \"aarch64-linux\" \"x86_64-darwin\" \"aarch64-darwin\" ]"
+    notify_committers = false
+  }
+
+  check_interval    = -12456789
+  scheduling_shares = 1
+  keep_evaluations  = 1
+
+  email_notifications = false
+  email_override      = ""
+}
+
+resource "hydra_jobset" "nixpkgs_staging-next-26_05" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "staging-next-26.05"
+  type        = "legacy"
+  description = "staging-next-26.05 branch"
+
+  nix_expression {
+    file  = "pkgs/top-level/release.nix"
+    input = "nixpkgs"
+  }
+
+  input {
+    name              = "nixpkgs"
+    type              = "git"
+    value             = "https://github.com/NixOS/nixpkgs.git staging-next-26.05"
     notify_committers = false
   }
 
