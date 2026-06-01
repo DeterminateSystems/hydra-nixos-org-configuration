@@ -6000,7 +6000,7 @@ resource "hydra_jobset" "nixpkgs_unstable" {
   }
 
   check_interval    = 28800
-  scheduling_shares = 71
+  scheduling_shares = 2000
   keep_evaluations  = 3
 
   email_notifications = false
